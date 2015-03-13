@@ -110,3 +110,7 @@ rake deploy
 ·http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/
 
 ·http://blog.csdn.net/jackystudio/article/details/16117585
+
+·http://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/
+
+·http://www.cnblogs.com/oec2003/archive/2013/05/31/3109577.html
