@@ -4,7 +4,7 @@
   <title><![CDATA[冰点的技术博客]]></title>
   <link href="http://keleyundou.github.io/atom.xml" rel="self"/>
   <link href="http://keleyundou.github.io/"/>
-  <updated>2015-03-13T16:42:55+08:00</updated>
+  <updated>2015-03-13T17:24:41+08:00</updated>
   <id>http://keleyundou.github.io/</id>
   <author>
     <name><![CDATA[冰点]]></name>
@@ -48,6 +48,9 @@
 <span class='line-number'>2</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>brew tap homebrew/dupes
 </span><span class='line'>brew install apple-gcc42</span></code></pre></td></tr></table></div></figure>
+
+
+<!--more-->
 
 
 <h4>安装Octopress</h4>
@@ -169,6 +172,9 @@
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 </pre></td><td class='code'><pre><code class=''><span class='line'>cd ~</span></code></pre></td></tr></table></div></figure>
+
+
+<!--more-->
 
 
 <p>返回上一个访问的目录</p>

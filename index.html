@@ -57,6 +57,7 @@
 <ul class="main-navigation">
   <li><a href="/">首页</a></li>
   <li><a href="/blog/archives">所有文章</a></li>
+  <li><a href="/about">关于</a></li> 
 </ul>
 
 </nav>
@@ -125,95 +126,12 @@
 </span><span class='line'>brew install apple-gcc42</span></code></pre></td></tr></table></div></figure>
 
 
-<h4>安装Octopress</h4>
-
-<p>先从git上将octopress clone下来：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git clone git://github.com/imathis/octopress.git Octopress
-</span><span class='line'>cd Octopress</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>然后安装依赖：</h4>
-
-<p>进入Octopress目录，执行如下命令：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>gem install bundler
-</span><span class='line'>rbenv rehash
-</span><span class='line'>bundle install</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>最后安装Octopress</h4>
-
-<p>进入Octopress目录，执行如下命令：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake install</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>发布Octopress到Github</h4>
-
-<p>进入Octopress目录，执行如下命令：</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake setup_github_pages</span></code></pre></td></tr></table></div></figure>
-
-
-<p>在Repository url中输入刚刚创建的仓库地址：git@github.com:username/username.github.io.git，自行替换username。</p>
-
-<p>然后生成静态页面发布</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate
-</span><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
-
-
-<p>提交源文件，即source分支</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>git add .
-</span><span class='line'>git commit -m 'your message'
-</span><span class='line'>git push origin source</span></code></pre></td></tr></table></div></figure>
-
-
-<h4>博文的发表</h4>
-
-<p>进入Octopress目录，执行如下命令：</p>
-
-<p>生成博文框架，然后修改生成的文件即可</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake new_post["title"]
-</span><span class='line'># Creates source/_posts/2011-07-03-title.markdown</span></code></pre></td></tr></table></div></figure>
-
-
-<p>生成静态文件和在本机4000端口生成访问内容</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake generate && rake preview</span></code></pre></td></tr></table></div></figure>
-
-
-<p>发布文件</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rake deploy</span></code></pre></td></tr></table></div></figure>
-
-
-<p>参考：</p>
-
-<p>·<a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/</a></p>
-
-<p>·<a href="http://blog.csdn.net/jackystudio/article/details/16117585">http://blog.csdn.net/jackystudio/article/details/16117585</a></p>
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/">阅读全文 &rarr;</a>
+    </footer>
   
 
 
@@ -273,37 +191,12 @@
 </pre></td><td class='code'><pre><code class=''><span class='line'>cd ~</span></code></pre></td></tr></table></div></figure>
 
 
-<p>返回上一个访问的目录</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd -</span></code></pre></td></tr></table></div></figure>
-
-
-<p>删除</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rm -r 文件名</span></code></pre></td></tr></table></div></figure>
-
-
-<p>列出目录下所有文件</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ls</span></code></pre></td></tr></table></div></figure>
-
-
-<p>将文件拷贝到目标目录下</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cp 文件名 目标目录</span></code></pre></td></tr></table></div></figure>
-
-
-<p>新建文件夹</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir 文件夹名</span></code></pre></td></tr></table></div></figure>
-
 </div>
   
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/03/13/mac-os-x-chang-yong-ming-ling/">阅读全文 &rarr;</a>
+    </footer>
   
 
 
@@ -318,7 +211,7 @@
 <aside class="sidebar">
   
     <section>
-  <h1>Recent Posts</h1>
+  <h1>最新文章</h1>
   <ul id="recent_posts">
     
       <li class="post">
@@ -332,7 +225,13 @@
   </ul>
 </section>
 
+<section>
+    <h1>文章分类</h1>
+    <ul id="categories">
+        <li class='category'><a href='/blog/categories/new/'>new (2)</a></li>
 
+    </ul>
+</section>
 
 
 
