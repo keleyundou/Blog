@@ -4,7 +4,11 @@
   <title><![CDATA[冰点的技术博客]]></title>
   <link href="http://keleyundou.github.io/atom.xml" rel="self"/>
   <link href="http://keleyundou.github.io/"/>
+<<<<<<< HEAD
   <updated>2015-03-16T19:37:36+08:00</updated>
+=======
+  <updated>2015-03-13T19:04:17+08:00</updated>
+>>>>>>> d93fef9bd47368f3a51b0d896dcf5b4038c686b5
   <id>http://keleyundou.github.io/</id>
   <author>
     <name><![CDATA[冰点]]></name>
@@ -14,6 +18,7 @@
 
   
   <entry>
+<<<<<<< HEAD
     <title type="html"><![CDATA[iOS系统兼容性需求的方法]]></title>
     <link href="http://keleyundou.github.io/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/"/>
     <updated>2015-03-16T14:38:45+08:00</updated>
@@ -56,6 +61,8 @@
   </entry>
   
   <entry>
+=======
+>>>>>>> d93fef9bd47368f3a51b0d896dcf5b4038c686b5
     <title type="html"><![CDATA[基于Octopress和github搭建个人博客的过程]]></title>
     <link href="http://keleyundou.github.io/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/"/>
     <updated>2015-03-13T12:16:14+08:00</updated>
