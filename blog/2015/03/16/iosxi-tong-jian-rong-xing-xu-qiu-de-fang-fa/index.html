@@ -5,12 +5,19 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>冰点的技术博客</title>
+  <title>iOS系统兼容性需求的方法 - 冰点的技术博客</title>
   <meta name="author" content="冰点">
 
   
-  <meta name="description" content="冯威的个人博客">
-  <meta name="keywords" content="OC">
+  <meta name="description" content="iOS系统兼容性需求的方法 ·判断系统版本，按运行时的版本号运行代码 1
+2
+3
+4
+5
+6
+// System Versioning Preprocessor Macros
+#define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice &hellip;">
+  
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +25,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://keleyundou.github.io/">
+  <link rel="canonical" href="http://keleyundou.github.io/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -63,15 +70,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/">iOS系统兼容性需求的方法</a></h1>
+      <h1 class="entry-title">iOS系统兼容性需求的方法</h1>
     
     
       <p class="meta">
@@ -94,7 +98,7 @@
   </header>
 
 
-  <div class="entry-content"><h4>iOS系统兼容性需求的方法</h4>
+<div class="entry-content"><h4>iOS系统兼容性需求的方法</h4>
 
 <p>·判断系统版本，按运行时的版本号运行代码</p>
 
@@ -129,154 +133,102 @@
 </span></code></pre></td></tr></table></div></figure>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/">基于Octopress和github搭建个人博客的过程</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-
-
-
- <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 13, 2015 </time> 
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>   促使我搭建个人博客的原因应该归结于那些大牛们都有属于自己的博客站点，感觉挺牛X的；另一方面就是想有个干净整洁的纯技术博客。</p>
-
-<p>   下面分享下我是怎么搭建此博客的。</p>
-
-<h4>首先安装ruby</h4>
-
-<p>   <a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>brew update
-</span><span class='line'>brew install rbenv
-</span><span class='line'>brew install ruby-build
-</span><span class='line'>
-</span><span class='line'>rbenv install 1.9.3-p0
-</span><span class='line'>rbenv local 1.9.3-p0
-</span><span class='line'>rbenv rehash</span></code></pre></td></tr></table></div></figure>
-
-
-<p>   你有可能需要安装老版本的GCC编译器才能顺利安装Ruby 1.9.3:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>brew tap homebrew/dupes
-</span><span class='line'>brew install apple-gcc42</span></code></pre></td></tr></table></div></figure>
-
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/">阅读全文 &rarr;</a>
-    </footer>
   
 
+<span class="byline author vcard">Posted by <span class="fn">冰点</span></span>
 
-    </article>
-  
-  
-    <article>
       
-  <header>
+
+
+
+
+
+
+
+
+
+
+
+ <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 16, 2015 </time> 
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/new/'>new</a>
+  
+</span>
+
+
+      
+
+<DIV style="font-size:12px;BORDER-BOTTOM: #bbbbbb 1px solid; BORDER-LEFT: #bbbbbb 1px solid; BACKGROUND: #f6f6f6; HEIGHT: 120px; BORDER-TOP: #bbbbbb 1px solid; BORDER-RIGHT: #bbbbbb 1px solid" class=oec2003right>
+    <DIV style="MARGIN-TOP: 10px; FLOAT: left; MARGIN-LEFT: 5px; MARGIN-RIGHT: 10px">
+        <IMG alt="" src="http://my.csdn.net/uploads/avatar/4/7/F/1_keleyundou.jpg" width=100 height=100>
+    </DIV>
+    <DIV style="LINE-HEIGHT: 200%; MARGIN-TOP: 10px; COLOR: #000000">
+        作者： <A href="http://keleyundou.github.io/">冰点</A> <BR>
+        出处： <A href="http://keleyundou.github.io/">http://keleyundou.github.io/</A>
+        <BR>本文基于<a target="_blank" title="Creative Commons Attribution 2.5 China Mainland License" href="http://creativecommons.org/licenses/by/2.5/cn/">
+            署名 2.5 中国大陆</a>许可协议发布，欢迎转载，演绎或用于商业目的，但是必须保留本文的署名
+        <a href="http://keleyundou.github.io/">冰点</a>（包含链接）。
+    </DIV>
+</DIV>
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/2015/03/13/mac-os-x-chang-yong-ming-ling/">Mac OS X 常用命令</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-
-
-
- <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 13, 2015 </time> 
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>记录下平时在Mac终端常用的指令</p>
-
-<p>当前工作目录</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>pwd</span></code></pre></td></tr></table></div></figure>
-
-
-<p>进入文件夹</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd 文件名</span></code></pre></td></tr></table></div></figure>
-
-
-<p>上级目录</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd ..</span></code></pre></td></tr></table></div></figure>
-
-
-<p>返回root</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~</span></code></pre></td></tr></table></div></figure>
-
-
+      <div class="sharing">
+  
+  
+  
+  
+  <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+    <span class="jiathis_txt">分享到：</span>
+    <a class="jiathis_button_tsina">新浪微博</a>
+    <a class="jiathis_button_tqq">腾讯微博</a>
+    <a class="jiathis_button_t163">网易微博</a>
+    <a class="jiathis_button_weixin">微信</a>
+    <a class="jiathis_button_douban">豆瓣</a>
+    <a href="http://www.jiathis.com/share?uid=2013701" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank">更多</a>
+    <a class="jiathis_counter_style"></a>
 </div>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=2013701" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+<!-- UY BEGIN -->
+<div id="uyan_frame"></div>
+<script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2013701"></script>
+<!-- UY END -->
   
-  
-    <footer>
-      <a rel="full-article" href="/blog/2015/03/13/mac-os-x-chang-yong-ming-ling/">阅读全文 &rarr;</a>
-    </footer>
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
+ 
 </div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/" title="Previous Post: 基于Octopress和github搭建个人博客的过程">&laquo; 基于Octopress和github搭建个人博客的过程</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+<!--多说评论代码 BEGIN
+ 
+ -->
+
+<!--多说评论代码 END-->
+<!--友言评论代码 BEGIN
+ 
+ -->
+
+<!--友言评论代码 END-->
+</div>
+
 <aside class="sidebar">
   
     <section>
@@ -310,6 +262,7 @@
 
   
 </aside>
+
 
     </div>
   </div>
