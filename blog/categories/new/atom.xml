@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[分类：new | 冰点的技术博客]]></title>
+  <link href="http://keleyundou.github.io/blog/categories/new/atom.xml" rel="self"/>
+  <link href="http://keleyundou.github.io/"/>
+  <updated>2015-03-13T19:04:17+08:00</updated>
+  <id>http://keleyundou.github.io/</id>
+  <author>
+    <name><![CDATA[冰点]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[基于Octopress和github搭建个人博客的过程]]></title>
+    <link href="http://keleyundou.github.io/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/"/>
+    <updated>2015-03-13T12:16:14+08:00</updated>
+    <id>http://keleyundou.github.io/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng</id>
+    <content type="html"><![CDATA[<p>   促使我搭建个人博客的原因应该归结于那些大牛们都有属于自己的博客站点，感觉挺牛X的；另一方面就是想有个干净整洁的纯技术博客。</p>
+
+<p>   下面分享下我是怎么搭建此博客的。</p>
+
+<h4>首先安装ruby</h4>
+
+<p>   <a href="http://octopress.org/docs/setup/">http://octopress.org/docs/setup/</a></p>
+
+<pre><code>brew update
+brew install rbenv
+brew install ruby-build
+
+rbenv install 1.9.3-p0
+rbenv local 1.9.3-p0
+rbenv rehash
+</code></pre>
+
+<p>   你有可能需要安装老版本的GCC编译器才能顺利安装Ruby 1.9.3:</p>
+
+<pre><code>brew tap homebrew/dupes
+brew install apple-gcc42
+</code></pre>
+
+<!--more-->
+
+
+<h4>安装Octopress</h4>
+
+<p>先从git上将octopress clone下来：</p>
+
+<pre><code>git clone git://github.com/imathis/octopress.git Octopress
+cd Octopress
+</code></pre>
+
+<h4>然后安装依赖：</h4>
+
+<p>进入Octopress目录，执行如下命令：</p>
+
+<pre><code>gem install bundler
+rbenv rehash
+bundle install
+</code></pre>
+
+<h4>最后安装Octopress</h4>
+
+<p>进入Octopress目录，执行如下命令：</p>
+
+<pre><code>rake install
+</code></pre>
+
+<h4>发布Octopress到Github</h4>
+
+<p>进入Octopress目录，执行如下命令：</p>
+
+<pre><code>rake setup_github_pages
+</code></pre>
+
+<p>在Repository url中输入刚刚创建的仓库地址：git@github.com:username/username.github.io.git，自行替换username。</p>
+
+<p>然后生成静态页面发布</p>
+
+<pre><code>rake generate
+rake deploy
+</code></pre>
+
+<p>提交源文件，即source分支</p>
+
+<pre><code>git add .
+git commit -m 'your message'
+git push origin source
+</code></pre>
+
+<h4>博文的发表</h4>
+
+<p>进入Octopress目录，执行如下命令：</p>
+
+<p>生成博文框架，然后修改生成的文件即可</p>
+
+<pre><code>rake new_post["title"]
+# Creates source/_posts/2011-07-03-title.markdown
+</code></pre>
+
+<p>生成静态文件和在本机4000端口生成访问内容</p>
+
+<pre><code>rake generate &amp;&amp; rake preview
+</code></pre>
+
+<p>发布文件</p>
+
+<pre><code>rake deploy
+</code></pre>
+
+<p>参考：</p>
+
+<p>·<a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/">http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/</a></p>
+
+<p>·<a href="http://blog.csdn.net/jackystudio/article/details/16117585">http://blog.csdn.net/jackystudio/article/details/16117585</a></p>
+
+<p>·<a href="http://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/">http://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/</a></p>
+
+<p>·<a href="http://www.cnblogs.com/oec2003/archive/2013/05/31/3109577.html">http://www.cnblogs.com/oec2003/archive/2013/05/31/3109577.html</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Mac OS X 常用命令]]></title>
+    <link href="http://keleyundou.github.io/blog/2015/03/13/mac-os-x-chang-yong-ming-ling/"/>
+    <updated>2015-03-13T11:46:11+08:00</updated>
+    <id>http://keleyundou.github.io/blog/2015/03/13/mac-os-x-chang-yong-ming-ling</id>
+    <content type="html"><![CDATA[<p>记录下平时在Mac终端常用的指令</p>
+
+<p>当前工作目录</p>
+
+<pre><code>pwd
+</code></pre>
+
+<p>进入文件夹</p>
+
+<pre><code>cd 文件名
+</code></pre>
+
+<p>上级目录</p>
+
+<pre><code>cd ..
+</code></pre>
+
+<p>返回root</p>
+
+<pre><code>cd ~
+</code></pre>
+
+<!--more-->
+
+
+<p>返回上一个访问的目录</p>
+
+<pre><code>cd -
+</code></pre>
+
+<p>删除</p>
+
+<pre><code>rm -r 文件名
+</code></pre>
+
+<p>列出目录下所有文件</p>
+
+<pre><code>ls
+</code></pre>
+
+<p>将文件拷贝到目标目录下</p>
+
+<pre><code>cp 文件名 目标目录
+</code></pre>
+
+<p>新建文件夹</p>
+
+<pre><code>mkdir 文件夹名
+</code></pre>
+]]></content>
+  </entry>
+  
+</feed>
