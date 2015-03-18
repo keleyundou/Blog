@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Mac OS X 常用命令 - 冰点的技术博客</title>
+  <title>Storyboard中TabBar显示灰色外观的问题 - 冰点的技术博客</title>
   <meta name="author" content="冰点">
 
   
-  <meta name="description" content="我的第一篇Octopress博客">
-  <meta name="keywords" content="Mac指令">
+  <meta name="description" content="Storyboard中TabBarr显示灰色外观的问题">
+  <meta name="keywords" content="TabBar">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://keleyundou.github.io/blog/2015/03/13/mac-os-x-chang-yong-ming-ling/">
+  <link rel="canonical" href="http://keleyundou.github.io/blog/2015/03/18/storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Mac OS X 常用命令</h1>
+      <h1 class="entry-title">Storyboard中TabBar显示灰色外观的问题</h1>
     
     
       <p class="meta">
@@ -84,71 +84,54 @@
 
 
 
- <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 13, 2015 </time> 
+ <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 18, 2015 </time> 
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>记录下平时在Mac终端常用的指令</p>
-
-<p>当前工作目录</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>pwd</span></code></pre></td></tr></table></div></figure>
+<div class="entry-content"><p>现象：</p>
 
 
-<p>进入文件夹</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd 文件名</span></code></pre></td></tr></table></div></figure>
+<p>tabbar上的图片不是预期的图标，而是呈现出一个该图标的灰色形状，一眼看上去不是让人舒服。</p>
 
 
-<p>上级目录</p>
+<p><img src="http://img.blog.csdn.net/20150317152916295" alt="这里写图片描述" /></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd ..</span></code></pre></td></tr></table></div></figure>
-
-
-<p>返回root</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~</span></code></pre></td></tr></table></div></figure>
+<p>原因：</p>
 
 
-<!--more-->
+<p>tabbar上的图片本质上不是一个图片，而是一个形状图片。系统对我们使用的图片也只是把其中的形状&#8221;扣&#8221;出来，其余的背景什么的都不要。因为我们可能给背景加了颜色，所以系统扣的时候只是把背景扣出来了，我们模拟时只看到一个方块，而且还是系统处理过成灰色。</p>
+
+<p>解决办法：</p>
 
 
-<p>返回上一个访问的目录</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd -</span></code></pre></td></tr></table></div></figure>
+<p>如图，选中Original Image，OK！</p>
 
 
-<p>删除</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rm -r 文件名</span></code></pre></td></tr></table></div></figure>
+<p>或者让UI将染色淡化为透明最好</p>
 
 
-<p>列出目录下所有文件</p>
+<p><img src="http://img.blog.csdn.net/20150317153030038" alt="这里写图片描述" /></p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ls</span></code></pre></td></tr></table></div></figure>
-
-
-<p>将文件拷贝到目标目录下</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cp 文件名 目标目录</span></code></pre></td></tr></table></div></figure>
+<p>效果图如下</p>
 
 
-<p>新建文件夹</p>
 
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir 文件夹名</span></code></pre></td></tr></table></div></figure>
 
+<p>用Storyboard设置Tab Bar Controller 的item选中方法</p>
+
+
+<p><a href="http://stackoverflow.com/questions/21386101/setting-selected-image-in-tab-bar-controller-with-storyboard">Setting Selected Image in Tab Bar Controller with Storyboard</a> 链接</p>
+
+<p>首先进入Storyboard，选中TabBarItem，选择Show the Identity inspector ，在Runtime Attributes中的Keypath栏添加&#8217;selectedImage&#8217;，Type选择&#8217;Image&#8217;， value栏填写 &#8216;your_image_name&#8217;(你图片的名字)</p>
+
+
+<p>如图</p>
+
+
+<p><img src="http://img.blog.csdn.net/20150317173619941" alt="" /></p>
 </div>
 
 
@@ -171,7 +154,7 @@
 
 
 
- <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 13, 2015 </time> 
+ <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 18, 2015 </time> 
       
 
 <span class="categories">
@@ -227,8 +210,8 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/" title="Previous Post: iOS系统兼容性需求的方法">&laquo; iOS系统兼容性需求的方法</a>
       
-        <a class="basic-alignment right" href="/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/" title="Next Post: 基于Octopress和github搭建个人博客的过程">基于Octopress和github搭建个人博客的过程 &raquo;</a>
       
     </p>
   </footer>

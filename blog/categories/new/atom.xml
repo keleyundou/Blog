@@ -4,7 +4,7 @@
   <title><![CDATA[分类：new | 冰点的技术博客]]></title>
   <link href="http://keleyundou.github.io/blog/categories/new/atom.xml" rel="self"/>
   <link href="http://keleyundou.github.io/"/>
-  <updated>2015-03-16T20:15:49+08:00</updated>
+  <updated>2015-03-18T12:59:34+08:00</updated>
   <id>http://keleyundou.github.io/</id>
   <author>
     <name><![CDATA[冰点]]></name>
@@ -12,6 +12,55 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Storyboard中TabBar显示灰色外观的问题]]></title>
+    <link href="http://keleyundou.github.io/blog/2015/03/18/storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/"/>
+    <updated>2015-03-18T12:54:01+08:00</updated>
+    <id>http://keleyundou.github.io/blog/2015/03/18/storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti</id>
+    <content type="html"><![CDATA[<p>现象：</p>
+
+
+<p>tabbar上的图片不是预期的图标，而是呈现出一个该图标的灰色形状，一眼看上去不是让人舒服。</p>
+
+
+<p><img src="http://img.blog.csdn.net/20150317152916295" alt="这里写图片描述" /></p>
+
+<p>原因：</p>
+
+
+<p>tabbar上的图片本质上不是一个图片，而是一个形状图片。系统对我们使用的图片也只是把其中的形状&#8221;扣&#8221;出来，其余的背景什么的都不要。因为我们可能给背景加了颜色，所以系统扣的时候只是把背景扣出来了，我们模拟时只看到一个方块，而且还是系统处理过成灰色。</p>
+
+<p>解决办法：</p>
+
+
+<p>如图，选中Original Image，OK！</p>
+
+
+<p>或者让UI将染色淡化为透明最好</p>
+
+
+<p><img src="http://img.blog.csdn.net/20150317153030038" alt="这里写图片描述" /></p>
+
+<p>效果图如下</p>
+
+
+
+
+<p>用Storyboard设置Tab Bar Controller 的item选中方法</p>
+
+
+<p><a href="http://stackoverflow.com/questions/21386101/setting-selected-image-in-tab-bar-controller-with-storyboard">Setting Selected Image in Tab Bar Controller with Storyboard</a> 链接</p>
+
+<p>首先进入Storyboard，选中TabBarItem，选择Show the Identity inspector ，在Runtime Attributes中的Keypath栏添加&#8217;selectedImage&#8217;，Type选择&#8217;Image&#8217;， value栏填写 &#8216;your_image_name&#8217;(你图片的名字)</p>
+
+
+<p>如图</p>
+
+
+<p><img src="http://img.blog.csdn.net/20150317173619941" alt="" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[iOS系统兼容性需求的方法]]></title>
