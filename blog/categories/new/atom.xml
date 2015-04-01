@@ -4,7 +4,7 @@
   <title><![CDATA[分类：new | 冰点的技术博客]]></title>
   <link href="http://keleyundou.github.io/blog/categories/new/atom.xml" rel="self"/>
   <link href="http://keleyundou.github.io/"/>
-  <updated>2015-03-13T19:04:17+08:00</updated>
+  <updated>2015-03-20T22:01:00+08:00</updated>
   <id>http://keleyundou.github.io/</id>
   <author>
     <name><![CDATA[冰点]]></name>
@@ -12,6 +12,140 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[使用Xib自定义UIView并在Storyboard中使用AutoLayout]]></title>
+    <link href="http://keleyundou.github.io/blog/2015/03/20/shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/"/>
+    <updated>2015-03-20T21:47:56+08:00</updated>
+    <id>http://keleyundou.github.io/blog/2015/03/20/shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout</id>
+    <content type="html"><![CDATA[<p>Xib和Storyboard的使用我就不多叙述。关于如何用Xib自定义一个UIView，并将其添加在ViewController上，使用AutoLayout添加约束条件，使其跟随控制器ViewController的约束条件变化而变化呢？请看下文。</p>
+
+<p> 1、 创建一个继承UIView的子类TestView和xib文件</p>
+
+<p> <img src="http://img.blog.csdn.net/20150320213205724" alt width="640"/></p>
+
+<p> 2、 选中xib中的File&rsquo;s Owner，设置右边工具栏中的Custom Class为你所创建的文件TesView
+ 3、 在TestView.h中添加一个IBOutlet属性</p>
+
+<pre><code>@property (nonatomic, weak) IBOutlet UIView *view;
+</code></pre>
+
+<!--more-->
+
+
+<p> 4、 将此IBOutlet 连接到TestView.xib 的View</p>
+
+<p><img src="http://img.blog.csdn.net/20150320213447559" alt width="640" height="200"/></p>
+
+<p> 5、在TestCustomView.m文件中初始化，如下：</p>
+
+<pre><code>- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    self = [super initWithCoder:aDecoder];
+    if (self) {
+        NSString *className = NSStringFromClass([self class]);
+        self.view = [[[NSBundle mainBundle] loadNibNamed:className owner:self options:nil] firstObject];
+        [self addSubview:self.view];
+        return self;
+    }
+    return nil;
+}
+</code></pre>
+
+<p>或者在awakeFromNib中添加也可以：</p>
+
+<pre><code>- (void)awakeFromNib {
+    [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass([self class]) owner:self options:nil] firstObject];
+    [self addSubview:self.view];
+}
+</code></pre>
+
+<p>6、在Storyboard中引用xib文件</p>
+
+<p><img src="http://img.blog.csdn.net/20150320213639439" alt width="640"/></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Storyboard中TabBar显示灰色外观的问题]]></title>
+    <link href="http://keleyundou.github.io/blog/2015/03/18/storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/"/>
+    <updated>2015-03-18T12:54:01+08:00</updated>
+    <id>http://keleyundou.github.io/blog/2015/03/18/storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti</id>
+    <content type="html"><![CDATA[<p>现象：</p>
+
+
+<p>tabbar上的图片不是预期的图标，而是呈现出一个该图标的灰色形状，一眼看上去不是让人舒服。</p>
+
+
+<p><img src="http://img.blog.csdn.net/20150317152916295" alt="这里写图片描述" /></p>
+
+<p>原因：</p>
+
+
+<p>tabbar上的图片本质上不是一个图片，而是一个形状图片。系统对我们使用的图片也只是把其中的形状&#8221;扣&#8221;出来，其余的背景什么的都不要。因为我们可能给背景加了颜色，所以系统扣的时候只是把背景扣出来了，我们模拟时只看到一个方块，而且还是系统处理过成灰色。</p>
+
+<!--more-->
+
+
+
+
+<p>解决办法：</p>
+
+
+<p>如图，选中Original Image，OK！</p>
+
+
+<p>或者让UI将染色淡化为透明最好</p>
+
+
+<p><img src="http://img.blog.csdn.net/20150317153030038" alt="这里写图片描述" /></p>
+
+<p>效果图如下</p>
+
+
+
+
+<p>用Storyboard设置Tab Bar Controller 的item选中方法</p>
+
+
+<p><a href="http://stackoverflow.com/questions/21386101/setting-selected-image-in-tab-bar-controller-with-storyboard">Setting Selected Image in Tab Bar Controller with Storyboard</a> 链接</p>
+
+<p>首先进入Storyboard，选中TabBarItem，选择Show the Identity inspector ，在Runtime Attributes中的Keypath栏添加&#8217;selectedImage&#8217;，Type选择&#8217;Image&#8217;， value栏填写 &#8216;your_image_name&#8217;(你图片的名字)</p>
+
+
+<p>如图</p>
+
+
+<p><img src="http://img.blog.csdn.net/20150317173619941" alt="" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[iOS系统兼容性需求的方法]]></title>
+    <link href="http://keleyundou.github.io/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/"/>
+    <updated>2015-03-16T14:38:45+08:00</updated>
+    <id>http://keleyundou.github.io/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa</id>
+    <content type="html"><![CDATA[<h4>iOS系统兼容性需求的方法</h4>
+
+<p>·判断系统版本，按运行时的版本号运行代码</p>
+
+<pre><code class="">// System Versioning Preprocessor Macros
+#define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+</code></pre>
+
+<pre><code>使用:
+if (SYSTEMVERSIONLESS_THAN(@“5.0”)) 
+{ 
+    //系统版本小于5.0...
+    Do something... 
+} 
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[基于Octopress和github搭建个人博客的过程]]></title>

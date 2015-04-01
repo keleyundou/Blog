@@ -71,6 +71,179 @@
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2015/03/20/shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/">使用Xib自定义UIView并在Storyboard中使用AutoLayout</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+
+
+
+ <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 20, 2015 </time> 
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Xib和Storyboard的使用我就不多叙述。关于如何用Xib自定义一个UIView，并将其添加在ViewController上，使用AutoLayout添加约束条件，使其跟随控制器ViewController的约束条件变化而变化呢？请看下文。</p>
+
+<p> 1、 创建一个继承UIView的子类TestView和xib文件</p>
+
+<p> <img src="http://img.blog.csdn.net/20150320213205724" alt width="640"/></p>
+
+<p> 2、 选中xib中的File&rsquo;s Owner，设置右边工具栏中的Custom Class为你所创建的文件TesView
+ 3、 在TestView.h中添加一个IBOutlet属性</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>@property (nonatomic, weak) IBOutlet UIView *view;</span></code></pre></td></tr></table></div></figure>
+
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/03/20/shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/">阅读全文 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/18/storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/">Storyboard中TabBar显示灰色外观的问题</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+
+
+
+ <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 18, 2015 </time> 
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>现象：</p>
+
+
+<p>tabbar上的图片不是预期的图标，而是呈现出一个该图标的灰色形状，一眼看上去不是让人舒服。</p>
+
+
+<p><img src="http://img.blog.csdn.net/20150317152916295" alt="这里写图片描述" /></p>
+
+<p>原因：</p>
+
+
+<p>tabbar上的图片本质上不是一个图片，而是一个形状图片。系统对我们使用的图片也只是把其中的形状&#8221;扣&#8221;出来，其余的背景什么的都不要。因为我们可能给背景加了颜色，所以系统扣的时候只是把背景扣出来了，我们模拟时只看到一个方块，而且还是系统处理过成灰色。</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2015/03/18/storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/">阅读全文 &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/">iOS系统兼容性需求的方法</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+
+
+
+ <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 16, 2015 </time> 
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h4>iOS系统兼容性需求的方法</h4>
+
+<p>·判断系统版本，按运行时的版本号运行代码</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// System Versioning Preprocessor Macros
+</span><span class='line'>#define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+</span><span class='line'>#define SYSTEM_VERSION_GREATER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+</span><span class='line'>#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+</span><span class='line'>#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+</span><span class='line'>#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>使用:
+</span><span class='line'>if (SYSTEMVERSIONLESS_THAN(@“5.0”)) 
+</span><span class='line'>{ 
+</span><span class='line'>  //系统版本小于5.0...
+</span><span class='line'>  Do something... 
+</span><span class='line'>} 
+</span></code></pre></td></tr></table></div></figure>
+
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/">基于Octopress和github搭建个人博客的过程</a></h1>
     
     
@@ -215,6 +388,18 @@
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2015/03/20/shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/">使用Xib自定义UIView并在Storyboard中使用AutoLayout</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/18/storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/">Storyboard中TabBar显示灰色外观的问题</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/">iOS系统兼容性需求的方法</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/">基于Octopress和github搭建个人博客的过程</a>
       </li>
     
@@ -228,7 +413,7 @@
 <section>
     <h1>文章分类</h1>
     <ul id="categories">
-        <li class='category'><a href='/blog/categories/new/'>new (2)</a></li>
+        <li class='category'><a href='/blog/categories/new/'>new (5)</a></li>
 
     </ul>
 </section>

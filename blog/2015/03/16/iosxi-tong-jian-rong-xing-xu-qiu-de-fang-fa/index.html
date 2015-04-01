@@ -5,12 +5,12 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Mac OS X 常用命令 - 冰点的技术博客</title>
+  <title>iOS系统兼容性需求的方法 - 冰点的技术博客</title>
   <meta name="author" content="冰点">
 
   
-  <meta name="description" content="我的第一篇Octopress博客">
-  <meta name="keywords" content="Mac指令">
+  <meta name="description" content="iOS系统兼容性需求的方法">
+  <meta name="keywords" content="iOS系统兼容">
 
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://keleyundou.github.io/blog/2015/03/13/mac-os-x-chang-yong-ming-ling/">
+  <link rel="canonical" href="http://keleyundou.github.io/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -68,7 +68,7 @@
   
   <header>
     
-      <h1 class="entry-title">Mac OS X 常用命令</h1>
+      <h1 class="entry-title">iOS系统兼容性需求的方法</h1>
     
     
       <p class="meta">
@@ -84,70 +84,46 @@
 
 
 
- <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 13, 2015 </time> 
+ <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 16, 2015 </time> 
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>记录下平时在Mac终端常用的指令</p>
+<div class="entry-content"><h4>iOS系统兼容性需求的方法</h4>
 
-<p>当前工作目录</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>pwd</span></code></pre></td></tr></table></div></figure>
-
-
-<p>进入文件夹</p>
+<p>·判断系统版本，按运行时的版本号运行代码</p>
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd 文件名</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>// System Versioning Preprocessor Macros
+</span><span class='line'>#define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+</span><span class='line'>#define SYSTEM_VERSION_GREATER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+</span><span class='line'>#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+</span><span class='line'>#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+</span><span class='line'>#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)</span></code></pre></td></tr></table></div></figure>
 
 
-<p>上级目录</p>
+
 
 <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd ..</span></code></pre></td></tr></table></div></figure>
-
-
-<p>返回root</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd ~</span></code></pre></td></tr></table></div></figure>
-
-
-<!--more-->
-
-
-<p>返回上一个访问的目录</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cd -</span></code></pre></td></tr></table></div></figure>
-
-
-<p>删除</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>rm -r 文件名</span></code></pre></td></tr></table></div></figure>
-
-
-<p>列出目录下所有文件</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>ls</span></code></pre></td></tr></table></div></figure>
-
-
-<p>将文件拷贝到目标目录下</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>cp 文件名 目标目录</span></code></pre></td></tr></table></div></figure>
-
-
-<p>新建文件夹</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>mkdir 文件夹名</span></code></pre></td></tr></table></div></figure>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>使用:
+</span><span class='line'>if (SYSTEMVERSIONLESS_THAN(@“5.0”)) 
+</span><span class='line'>{ 
+</span><span class='line'>  //系统版本小于5.0...
+</span><span class='line'>  Do something... 
+</span><span class='line'>} 
+</span></code></pre></td></tr></table></div></figure>
 
 </div>
 
@@ -171,7 +147,7 @@
 
 
 
- <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 13, 2015 </time> 
+ <time if="if" updated="updated" data-updated="true" endif="endif" itemprop="datePublished dateCreated"> March 16, 2015 </time> 
       
 
 <span class="categories">
@@ -227,8 +203,10 @@
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/" title="Previous Post: 基于Octopress和github搭建个人博客的过程">&laquo; 基于Octopress和github搭建个人博客的过程</a>
       
-        <a class="basic-alignment right" href="/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/" title="Next Post: 基于Octopress和github搭建个人博客的过程">基于Octopress和github搭建个人博客的过程 &raquo;</a>
+      
+        <a class="basic-alignment right" href="/blog/2015/03/18/storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/" title="Next Post: Storyboard中TabBar显示灰色外观的问题">Storyboard中TabBar显示灰色外观的问题 &raquo;</a>
       
     </p>
   </footer>
