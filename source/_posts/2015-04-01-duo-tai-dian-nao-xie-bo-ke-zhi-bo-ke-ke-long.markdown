@@ -19,6 +19,8 @@ git init
 git remote add origin git@github.com:username/username.github.com.git
 git pull origin
 ```
+<!--more-->
+
 #####切换到source分支
 这时候进入Octopress目录，发现除了初始化生成的.git目录外什么都没有。执行如下命令后source分支的东西就都出来的了。
 
