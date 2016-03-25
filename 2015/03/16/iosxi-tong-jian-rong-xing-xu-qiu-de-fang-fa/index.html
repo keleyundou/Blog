@@ -3,17 +3,18 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives: 2016 | ColaBean</title>
+  <title>iOS系统兼容性需求的方法 | ColaBean</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ColaBean&apos;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ColaBean">
-<meta property="og:url" content="http://keleyundou.github.io/blog/archives/2016/index.html">
+  <meta name="description" content="iOS系统兼容性需求的方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS系统兼容性需求的方法">
+<meta property="og:url" content="http://keleyundou.github.io/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/index.html">
 <meta property="og:site_name" content="ColaBean">
-<meta property="og:description" content="ColaBean&apos;s Blog">
+<meta property="og:description" content="iOS系统兼容性需求的方法">
+<meta property="og:updated_time" content="2015-04-01T10:11:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ColaBean">
-<meta name="twitter:description" content="ColaBean&apos;s Blog">
+<meta name="twitter:title" content="iOS系统兼容性需求的方法">
+<meta name="twitter:description" content="iOS系统兼容性需求的方法">
   
     <link rel="alternate" href="/atom.xml" title="ColaBean" type="application/atom+xml">
   
@@ -62,58 +63,67 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2016" class="archive-year">2016</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/03/25/colabean-s-new-blog/" class="archive-article-date">
-  <time datetime="2016-03-25T15:50:39.000Z" itemprop="datePublished">Mar 25</time>
+        <section id="main"><article id="post-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/" class="article-date">
+  <time datetime="2015-03-16T06:38:45.000Z" itemprop="datePublished">2015-03-16</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/blog/categories/New/">New</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/03/25/colabean-s-new-blog/">ColaBean&#39;s new Blog</a>
+    <h1 class="article-title" itemprop="name">
+      iOS系统兼容性需求的方法
     </h1>
   
 
-    </header>
-  </div>
-</article>
-  
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/blog/2016/03/25/hello-world/" class="archive-article-date">
-  <time datetime="2016-03-25T14:56:07.000Z" itemprop="datePublished">Mar 25</time>
-</a>
+    <div class="article-entry" itemprop="articleBody">
       
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/blog/2016/03/25/hello-world/">Hello World</a>
-    </h1>
-  
-
-    </header>
+        <p>####iOS系统兼容性需求的方法</p>
+<p>·判断系统版本，按运行时的版本号运行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// System Versioning Preprocessor Macros</span><br><span class="line">#define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)</span><br><span class="line">#define SYSTEM_VERSION_GREATER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)</span><br><span class="line">#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)</span><br><span class="line">#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)</span><br><span class="line">#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">使用:</span><br><span class="line">if (SYSTEMVERSIONLESS_THAN(@“5.0”)) </span><br><span class="line">&#123; </span><br><span class="line">	//系统版本小于5.0...</span><br><span class="line">	Do something... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://keleyundou.github.io/blog/blog/2015/03/16/iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/" data-id="cim7zlrvs0003vj4k0sqnybhx" class="article-share-link">Share</a>
+      
+      
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/blog/2015/03/18/storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Storyboard中TabBar显示灰色外观的问题
+        
+      </div>
+    </a>
+  
+  
+    <a href="/blog/2015/03/13/ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">基于Octopress和github搭建个人博客的过程</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
 
 </section>
         
