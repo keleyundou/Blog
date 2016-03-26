@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>ColaBean</title>
-  
+  <title>ColaBean&#39;s Blog</title>
+  <subtitle>苟有恒何必三更睡五更起，最无益莫过一日曝十日寒。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://keleyundou.github.io/"/>
