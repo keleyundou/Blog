@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ColaBean</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://keleyundou.github.io/"/>
+  <updated>2016-03-26T04:24:13.000Z</updated>
+  <id>http://keleyundou.github.io/</id>
+  
+  <author>
+    <name>ColaBean</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>ColaBean&#39;s new Blog</title>
+    <link href="http://keleyundou.github.io/2016/03/25/colabean's-new-blog/"/>
+    <id>http://keleyundou.github.io/2016/03/25/colabean's-new-blog/</id>
+    <published>2016-03-25T15:50:39.000Z</published>
+    <updated>2016-03-26T04:24:13.000Z</updated>
+    
+    <content type="html">&lt;p&gt;这是&lt;code&gt;ColaBen&lt;/code&gt;新部署的blog，之前用的是&lt;code&gt;Octopress&lt;/code&gt;，由于发布文章的指令过于繁琐，时间长了容易遗忘，不是很好用。在大神的推荐下，开始使用&lt;code&gt;Hexo&lt;/code&gt;写博客。刚开始也没觉得怎么样，但经过亲身实践后，果然是比&lt;code&gt;Octopress&lt;/code&gt;用起来顺手多了。blog这东西用起来顺手就好，适合自己的才是最好的。哈哈。。。&lt;/p&gt;
+&lt;p&gt;恩…抽空在研究下&lt;code&gt;Hexo&lt;/code&gt;，把blog从新部署下。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;这是&lt;code&gt;ColaBen&lt;/code&gt;新部署的blog，之前用的是&lt;code&gt;Octopress&lt;/code&gt;，由于发布文章的指令过于繁琐，时间长了容易遗忘，不是很好用。在大神的推荐下，开始使用&lt;code&gt;Hexo&lt;/code&gt;写博客。刚开始也没觉得怎么样，但经过亲身
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://keleyundou.github.io/2016/03/25/hello-world/"/>
+    <id>http://keleyundou.github.io/2016/03/25/hello-world/</id>
+    <published>2016-03-25T14:56:07.000Z</published>
+    <updated>2016-03-25T14:56:07.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo server&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo generate&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/generating.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Generating&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Deploy-to-remote-sites&quot;&gt;&lt;a href=&quot;#Deploy-to-remote-sites&quot; class=&quot;headerlink&quot; title=&quot;Deploy to remote sites&quot;&gt;&lt;/a&gt;Deploy to remote sites&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;$ hexo deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/deployment.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Deployment&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>assign、copy、retain等关键字的含义</title>
+    <link href="http://keleyundou.github.io/2015/04/21/2015-04-21-assign,-copy,-retaindeng-guan-jian-zi-de-han-yi/"/>
+    <id>http://keleyundou.github.io/2015/04/21/2015-04-21-assign,-copy,-retaindeng-guan-jian-zi-de-han-yi/</id>
+    <published>2015-04-21T06:06:31.000Z</published>
+    <updated>2016-03-26T06:40:27.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h2&gt;&lt;p&gt;assign:简单赋值，不更改索引计数&lt;/p&gt;
+&lt;p&gt;copy:建立一个索引计数为1的对象，然后释放旧对象&lt;/p&gt;
+&lt;p&gt;retain:释放就对象，将旧对象的值赋予输入对象，再将输入对象的索引计数加1&lt;/p&gt;
+&lt;p&gt;copy 其实就是建立了一个相同的对象，而retain不是：&lt;/p&gt;
+&lt;p&gt;比如，一个NSString对象，地址为0x1111，内容为@”Hello，world！”；copy到另一个NSString对象之后，地址为0x2222，内容相同，新的对象retain为1，旧的对象索引计数没用变化。&lt;/p&gt;
+&lt;p&gt;retain到另一个NSString对象之后，地址相同（建立一个指针，指针拷贝），内容相同，这个对象的retain值+1&lt;/p&gt;
+&lt;p&gt;也就是说，retain是指针拷贝，而copy是内容拷贝。拷贝之前都会将旧的对象给释放掉。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;使用范围：&quot;&gt;&lt;a href=&quot;#使用范围：&quot; class=&quot;headerlink&quot; title=&quot;使用范围：&quot;&gt;&lt;/a&gt;使用范围：&lt;/h3&gt;&lt;p&gt;*assign的使用：一般对应于基础数据类型（NSInteger）和C数据类型（int, float, double, char 等）&lt;/p&gt;
+&lt;p&gt;*copy的使用：一般对应于NSString&lt;/p&gt;
+&lt;p&gt;*retain的使用：一般对应于NSObject和其他子类&lt;/p&gt;
+&lt;p&gt;1.readonly：表示这个属性是只读的，就是只生成getter方法不会生成setter方法；&lt;/p&gt;
+&lt;p&gt;2.readwrite：设置可供访问级别；&lt;/p&gt;
+&lt;p&gt;3.retain：旨在说明该属性在赋值的时候，先release掉之前的值，然后再赋新值给属性，引用计数再+1；&lt;/p&gt;
+&lt;p&gt;4.nonatomic：非原子性访问，不加同步，多线程并发访问会提高性能。注意：如果不加此属性，则默认是两个访问方法都为原子型事务访问。&lt;/p&gt;
+&lt;h3 id=&quot;区别&quot;&gt;&lt;a href=&quot;#区别&quot; class=&quot;headerlink&quot; title=&quot;区别&quot;&gt;&lt;/a&gt;区别&lt;/h3&gt;&lt;p&gt;1.假设用malloc分配了一个块内存，并把它的地址赋值给了指针a，然后你希望指针b也共享这块内存，于是你又把a赋值给（assign）了b。至此a和b就指向了同一块内存，请问当a不再需要这块内存是，能否直接释放掉？答案为No！是的，因为a并不知道b是否还在使用这块内存，如果a释放了，那么b在使用这块内存的时候会引起程序crash。&lt;/p&gt;
+&lt;p&gt;2.了解到1中assign的问题后，那么问题来了，该如何解决呢？最简单的一个方法就是：使用引用计数。还是上面那个问题，我们给那块内存设一个内存引用计数，当内存被分配并且赋值给a时，引用计数是1。当a赋值给b时，引用计数增加到2，这时如果a不再使用这块内存，它只需把引用计数减1，表明自己不再拥有这块内存，b不再使用这块内存时也把引用计数减1，当引用计数变为0时，代表该内存不再被任何指针所引用，系统可以把它直接释放掉。&lt;/p&gt;
+&lt;p&gt;3.上面两点其实就是assign和retain的区别，assign就是直接赋值，从而会引起1中的问题。当数据为int, float,等原生类型时，可以使用assign。retain就如2中所述，使用了引用计数，retain引起引用计数+1，release引起引用计数-1，当引用计数为0时，dealloc函数将会被调用，内存被回收。&lt;/p&gt;
+&lt;p&gt;4.copy是在你不希望a和b共享同一块内存是使用到。a和b各自有各自的内存。&lt;/p&gt;
+&lt;p&gt;5.atomic 和 nonatomic用来决定编译器生成的getter和setter是否为原子操作。在多线程环境下，原子操作是必要的，否则有可能引起错误的结果。加了atomic后, setter函数会变成这样：&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (property != newValue) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	[property release];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	property = [newValue retain];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      assign、copy、retain等关键字的含义
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>多台电脑写博客之博客克隆</title>
+    <link href="http://keleyundou.github.io/2015/04/01/2015-04-01-duo-tai-dian-nao-xie-bo-ke-zhi-bo-ke-ke-long/"/>
+    <id>http://keleyundou.github.io/2015/04/01/2015-04-01-duo-tai-dian-nao-xie-bo-ke-zhi-bo-ke-ke-long/</id>
+    <published>2015-04-01T10:23:10.000Z</published>
+    <updated>2016-03-26T04:31:00.000Z</updated>
+    
+    <content type="html">&lt;h2 id=&quot;创建一个本地的Octopress仓库&quot;&gt;&lt;a href=&quot;#创建一个本地的Octopress仓库&quot; class=&quot;headerlink&quot; title=&quot;创建一个本地的Octopress仓库&quot;&gt;&lt;/a&gt;创建一个本地的Octopress仓库&lt;/h2&gt;&lt;p&gt;重新创建一个本地的Octopress仓库只需执行以下几步骤即可。&lt;/p&gt;
+&lt;h3 id=&quot;拉取Octopress仓库内容&quot;&gt;&lt;a href=&quot;#拉取Octopress仓库内容&quot; class=&quot;headerlink&quot; title=&quot;拉取Octopress仓库内容&quot;&gt;&lt;/a&gt;拉取Octopress仓库内容&lt;/h3&gt;&lt;p&gt;首先克隆自己的Octopress仓库，初始化git仓库，添加远程仓库，也就是你自己的Octopress地址，pull到远程仓库。在终端执行如下命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mkdir Octopress&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd Octopress&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git init&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git remote add origin git@github.com:username/username.github.com.git&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git pull origin&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;切换到source分支&quot;&gt;&lt;a href=&quot;#切换到source分支&quot; class=&quot;headerlink&quot; title=&quot;切换到source分支&quot;&gt;&lt;/a&gt;切换到source分支&lt;/h3&gt;&lt;p&gt;这时候进入Octopress目录，发现除了初始化生成的.git目录外什么都没有。执行如下命令后source分支的东西就都出来的了。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git checkout source&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;建立github-pages&quot;&gt;&lt;a href=&quot;#建立github-pages&quot; class=&quot;headerlink&quot; title=&quot;建立github pages&quot;&gt;&lt;/a&gt;建立github pages&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rake setup_github_pages&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;拉取master分支&quot;&gt;&lt;a href=&quot;#拉取master分支&quot; class=&quot;headerlink&quot; title=&quot;拉取master分支&quot;&gt;&lt;/a&gt;拉取master分支&lt;/h3&gt;&lt;p&gt;进入_deploy目录，运行如下命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git pull origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;切换回source分支&quot;&gt;&lt;a href=&quot;#切换回source分支&quot; class=&quot;headerlink&quot; title=&quot;切换回source分支&quot;&gt;&lt;/a&gt;切换回source分支&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git checkout source&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;至此，Octopress就在另一台电脑上克隆好了，你就可以在不同的电脑上维护同一个博客了，运行一下如下命令，确认没有问题。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rake generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rake preview&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rake deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;更新和推送&quot;&gt;&lt;a href=&quot;#更新和推送&quot; class=&quot;headerlink&quot; title=&quot;更新和推送&quot;&gt;&lt;/a&gt;更新和推送&lt;/h3&gt;&lt;p&gt;当你要在一台电脑上写博客或更改时，首先更新source仓库。更新master并不是必须的，因为你更改源文件之后还是需要rake generate的。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd Octopress&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git pull origin source&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd _deploy&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git pull origin master&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;写完博客之后不要忘了推送到remote，下面的命令在每次处理完博客事务后记得要运行。&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rake generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git commit –m &amp;quot;commit message&amp;quot;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git push origin source&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rake deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;遇到的问题&quot;&gt;&lt;a href=&quot;#遇到的问题&quot; class=&quot;headerlink&quot; title=&quot;遇到的问题&quot;&gt;&lt;/a&gt;遇到的问题&lt;/h3&gt;&lt;p&gt;当你换了一台新电脑之后，需要重新签名，签名请参考&lt;a href=&quot;http://https://help.github.com/articles/generating-ssh-keys/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;generating-ssh-keys&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      多台电脑写博客之博客克隆
+    
+    </summary>
+    
+      <category term="琐碎杂记" scheme="http://keleyundou.github.io/categories/%E7%90%90%E7%A2%8E%E6%9D%82%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>使用Xib自定义UIView并在Storyboard中使用AutoLayout</title>
+    <link href="http://keleyundou.github.io/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/"/>
+    <id>http://keleyundou.github.io/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/</id>
+    <published>2015-03-20T13:47:56.000Z</published>
+    <updated>2016-03-26T06:41:26.000Z</updated>
+    
+    <content type="html">&lt;p&gt;Xib和Storyboard的使用我就不多叙述。关于如何用Xib自定义一个UIView，并将其添加在ViewController上，使用AutoLayout添加约束条件，使其跟随控制器ViewController的约束条件变化而变化呢？请看下文。&lt;/p&gt;
+&lt;p&gt; 1、 创建一个继承UIView的子类TestView和xib文件&lt;/p&gt;
+&lt;p&gt; &lt;img src=&quot;http://img.blog.csdn.net/20150320213205724&quot; alt=&quot;&quot; width=&quot;640&quot;&gt;&lt;/p&gt;
+&lt;p&gt; 2、 选中xib中的File’s Owner，设置右边工具栏中的Custom Class为你所创建的文件TesView&lt;br&gt; 3、 在TestView.h中添加一个IBOutlet属性&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;@property&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;nonatomic&lt;/span&gt;, &lt;span class=&quot;keyword&quot;&gt;weak&lt;/span&gt;) &lt;span class=&quot;keyword&quot;&gt;IBOutlet&lt;/span&gt; &lt;span class=&quot;built_in&quot;&gt;UIView&lt;/span&gt; *view;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt; 4、 将此IBOutlet 连接到TestView.xib 的View&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150320213447559&quot; alt=&quot;&quot; width=&quot;640&quot; height=&quot;200&quot;&gt;&lt;/p&gt;
+&lt;p&gt; 5、在TestCustomView.m文件中初始化，如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (instancetype)initWithCoder:(&lt;span class=&quot;built_in&quot;&gt;NSCoder&lt;/span&gt; *)aDecoder&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; = [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; initWithCoder:aDecoder];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *className = &lt;span class=&quot;built_in&quot;&gt;NSStringFromClass&lt;/span&gt;([&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; class]);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view = [[[&lt;span class=&quot;built_in&quot;&gt;NSBundle&lt;/span&gt; mainBundle] loadNibNamed:className owner:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; options:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;] firstObject];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; addSubview:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;或者在awakeFromNib中添加也可以：&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)awakeFromNib &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [[[&lt;span class=&quot;built_in&quot;&gt;NSBundle&lt;/span&gt; mainBundle] loadNibNamed:&lt;span class=&quot;built_in&quot;&gt;NSStringFromClass&lt;/span&gt;([&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; class]) owner:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; options:&lt;span class=&quot;literal&quot;&gt;nil&lt;/span&gt;] firstObject];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt; addSubview:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.view];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;6、在Storyboard中引用xib文件&lt;/p&gt;
+&lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150320213639439&quot; alt=&quot;&quot; width=&quot;640&quot;&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      使用Xib自定义UIView并在Storyboard中使用AutoLayout
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Storyboard中TabBar显示灰色外观的问题</title>
+    <link href="http://keleyundou.github.io/2015/03/18/2015-03-18-storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/"/>
+    <id>http://keleyundou.github.io/2015/03/18/2015-03-18-storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/</id>
+    <published>2015-03-18T04:54:01.000Z</published>
+    <updated>2016-03-26T04:05:57.000Z</updated>
+    
+    <content type="html">&lt;p&gt;现象：&lt;/p&gt;&lt;br&gt;&lt;p&gt;tabbar上的图片不是预期的图标，而是呈现出一个该图标的灰色形状，一眼看上去不是让人舒服。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150317152916295&quot; alt=&quot;这里写图片描述&quot;&gt;&lt;/p&gt;
+&lt;p&gt;原因：&lt;/p&gt;&lt;br&gt;tabbar上的图片本质上不是一个图片，而是一个形状图片。系统对我们使用的图片也只是把其中的形状”扣”出来，其余的背景什么的都不要。因为我们可能给背景加了颜色，所以系统扣的时候只是把背景扣出来了，我们模拟时只看到一个方块，而且还是系统处理过成灰色。&lt;br&gt;&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;br&gt;&lt;br&gt;&lt;p&gt;解决办法：&lt;/p&gt;&lt;br&gt;&lt;p&gt;如图，选中Original Image，OK！&lt;/p&gt;&lt;br&gt;&lt;p&gt;或者让UI将染色淡化为透明最好&lt;/p&gt;&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150317153030038&quot; alt=&quot;这里写图片描述&quot;&gt;&lt;br&gt;&lt;p&gt;效果图如下&lt;/p&gt;
+
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;用Storyboard设置Tab Bar Controller 的item选中方法&lt;/p&gt;&lt;br&gt;&lt;a href=&quot;http://stackoverflow.com/questions/21386101/setting-selected-image-in-tab-bar-controller-with-storyboard&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Setting Selected Image in Tab Bar Controller with Storyboard&lt;/a&gt; 链接&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;首先进入Storyboard，选中TabBarItem，选择Show the Identity inspector ，在Runtime Attributes中的Keypath栏添加’selectedImage’，Type选择’Image’， value栏填写 ‘your_image_name’(你图片的名字)&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;如图&lt;/p&gt;&lt;br&gt;&lt;img src=&quot;http://img.blog.csdn.net/20150317173619941&quot; alt=&quot;&quot;&gt;&lt;p&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      Storyboard中TabBarr显示灰色外观的问题
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>iOS系统兼容性需求的方法</title>
+    <link href="http://keleyundou.github.io/2015/03/16/2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/"/>
+    <id>http://keleyundou.github.io/2015/03/16/2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/</id>
+    <published>2015-03-16T06:38:45.000Z</published>
+    <updated>2016-03-26T06:49:56.000Z</updated>
+    
+    <content type="html">&lt;h3 id=&quot;iOS系统兼容性需求的方法&quot;&gt;&lt;a href=&quot;#iOS系统兼容性需求的方法&quot; class=&quot;headerlink&quot; title=&quot;iOS系统兼容性需求的方法&quot;&gt;&lt;/a&gt;iOS系统兼容性需求的方法&lt;/h3&gt;&lt;p&gt;·判断系统版本，按运行时的版本号运行代码&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// System Versioning Preprocessor Macros&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#define SYSTEM_VERSION_GREATER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;使用:&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (SYSTEMVERSIONLESS_THAN(@“&lt;span class=&quot;number&quot;&gt;5.0&lt;/span&gt;”)) &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123; &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	&lt;span class=&quot;comment&quot;&gt;//系统版本小于5.0...&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	Do something... &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</content>
+    
+    <summary type="html">
+    
+      iOS系统兼容性需求的方法
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基于Octopress和github搭建个人博客的过程</title>
+    <link href="http://keleyundou.github.io/2015/03/13/2015-03-13-ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/"/>
+    <id>http://keleyundou.github.io/2015/03/13/2015-03-13-ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/</id>
+    <published>2015-03-13T04:16:14.000Z</published>
+    <updated>2016-03-26T06:45:14.000Z</updated>
+    
+    <content type="html">&lt;p&gt;   促使我搭建个人博客的原因应该归结于那些大牛们都有属于自己的博客站点，感觉挺牛X的；另一方面就是想有个干净整洁的纯技术博客。&lt;/p&gt;
+&lt;p&gt;   下面分享下我是怎么搭建此博客的。&lt;/p&gt;
+&lt;h3 id=&quot;首先安装ruby&quot;&gt;&lt;a href=&quot;#首先安装ruby&quot; class=&quot;headerlink&quot; title=&quot;首先安装ruby&quot;&gt;&lt;/a&gt;首先安装ruby&lt;/h3&gt;&lt;p&gt;   &lt;a href=&quot;http://octopress.org/docs/setup/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://octopress.org/docs/setup/&lt;/a&gt;&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;brew update&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;brew install rbenv&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;brew install ruby-build&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rbenv install 1.9.3-p0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rbenv local 1.9.3-p0&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rbenv rehash&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;   你有可能需要安装老版本的GCC编译器才能顺利安装Ruby 1.9.3:&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;brew tap homebrew/dupes&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;brew install apple-gcc42&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;安装Octopress&quot;&gt;&lt;a href=&quot;#安装Octopress&quot; class=&quot;headerlink&quot; title=&quot;安装Octopress&quot;&gt;&lt;/a&gt;安装Octopress&lt;/h3&gt;&lt;p&gt;先从git上将octopress clone下来：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git clone git://github.com/imathis/octopress.git Octopress&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;cd Octopress&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;然后安装依赖：&quot;&gt;&lt;a href=&quot;#然后安装依赖：&quot; class=&quot;headerlink&quot; title=&quot;然后安装依赖：&quot;&gt;&lt;/a&gt;然后安装依赖：&lt;/h3&gt;&lt;p&gt;进入Octopress目录，执行如下命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;gem install bundler&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rbenv rehash&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;bundle install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;最后安装Octopress&quot;&gt;&lt;a href=&quot;#最后安装Octopress&quot; class=&quot;headerlink&quot; title=&quot;最后安装Octopress&quot;&gt;&lt;/a&gt;最后安装Octopress&lt;/h3&gt;&lt;p&gt;进入Octopress目录，执行如下命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rake install&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;发布Octopress到Github&quot;&gt;&lt;a href=&quot;#发布Octopress到Github&quot; class=&quot;headerlink&quot; title=&quot;发布Octopress到Github&quot;&gt;&lt;/a&gt;发布Octopress到Github&lt;/h3&gt;&lt;p&gt;进入Octopress目录，执行如下命令：&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rake setup_github_pages&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在Repository url中输入刚刚创建的仓库地址：git@github.com:username/username.github.io.git，自行替换username。&lt;/p&gt;
+&lt;p&gt;然后生成静态页面发布&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rake generate&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;rake deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;提交源文件，即source分支&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;git add .&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git commit -m &amp;apos;your message&amp;apos;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;git push origin source&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;博文的发表&quot;&gt;&lt;a href=&quot;#博文的发表&quot; class=&quot;headerlink&quot; title=&quot;博文的发表&quot;&gt;&lt;/a&gt;博文的发表&lt;/h3&gt;&lt;p&gt;进入Octopress目录，执行如下命令：&lt;/p&gt;
+&lt;p&gt;生成博文框架，然后修改生成的文件即可&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rake new_post[&amp;quot;title&amp;quot;]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;# Creates source/_posts/2011-07-03-title.markdown&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;生成静态文件和在本机4000端口生成访问内容&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rake generate &amp;amp;&amp;amp; rake preview&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;发布文件&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rake deploy&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;参考：&lt;/p&gt;
+&lt;p&gt;·&lt;a href=&quot;http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;·&lt;a href=&quot;http://blog.csdn.net/jackystudio/article/details/16117585&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://blog.csdn.net/jackystudio/article/details/16117585&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;·&lt;a href=&quot;http://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;·&lt;a href=&quot;http://www.cnblogs.com/oec2003/archive/2013/05/31/3109577.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.cnblogs.com/oec2003/archive/2013/05/31/3109577.html&lt;/a&gt;&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      基于Octopress和github搭建个人博客的过程
+    
+    </summary>
+    
+      <category term="琐碎杂记" scheme="http://keleyundou.github.io/categories/%E7%90%90%E7%A2%8E%E6%9D%82%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Mac OS X 常用命令</title>
+    <link href="http://keleyundou.github.io/2015/03/13/2015-03-13-mac-os-x-chang-yong-ming-ling/"/>
+    <id>http://keleyundou.github.io/2015/03/13/2015-03-13-mac-os-x-chang-yong-ming-ling/</id>
+    <published>2015-03-13T03:46:11.000Z</published>
+    <updated>2016-03-26T04:05:34.000Z</updated>
+    
+    <content type="html">&lt;p&gt;记录下平时在Mac终端常用的指令&lt;/p&gt;
+&lt;p&gt;当前工作目录&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pwd&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;进入文件夹&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd 文件名&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;上级目录&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd ..&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;返回root&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd ~&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;p&gt;返回上一个访问的目录&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cd -&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;删除&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;rm -r 文件名&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;列出目录下所有文件&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;ls&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;将文件拷贝到目标目录下&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;cp 文件名 目标目录&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;新建文件夹&lt;/p&gt;
+&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;mkdir 文件夹名&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+</content>
+    
+    <summary type="html">
+    
+      我的第一篇Octopress博客
+    
+    </summary>
+    
+      <category term="琐碎杂记" scheme="http://keleyundou.github.io/categories/%E7%90%90%E7%A2%8E%E6%9D%82%E8%AE%B0/"/>
+    
+    
+  </entry>
+  
+</feed>
