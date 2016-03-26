@@ -1,99 +1,77 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
 <head>
   <meta charset="utf-8">
   
   <title>使用Xib自定义UIView并在Storyboard中使用AutoLayout | ColaBean</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="author" content="ColaBean">
+  
   <meta name="description" content="使用Xib自定义UIView并在Storyboard中使用AutoLayout">
-<meta property="og:type" content="article">
-<meta property="og:title" content="使用Xib自定义UIView并在Storyboard中使用AutoLayout">
-<meta property="og:url" content="http://keleyundou.github.io/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/index.html">
-<meta property="og:site_name" content="ColaBean">
-<meta property="og:description" content="使用Xib自定义UIView并在Storyboard中使用AutoLayout">
-<meta property="og:image" content="http://img.blog.csdn.net/20150320213205724">
-<meta property="og:image" content="http://img.blog.csdn.net/20150320213447559">
-<meta property="og:image" content="http://img.blog.csdn.net/20150320213639439">
-<meta property="og:updated_time" content="2016-03-26T04:06:07.000Z">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="使用Xib自定义UIView并在Storyboard中使用AutoLayout">
-<meta name="twitter:description" content="使用Xib自定义UIView并在Storyboard中使用AutoLayout">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20150320213205724">
   
-    <link rel="alternate" href="/atom.xml" title="ColaBean" type="application/atom+xml">
+  <meta name="keywords" content="Xib Storyboard">
+
+  <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <meta property="og:title" content="使用Xib自定义UIView并在Storyboard中使用AutoLayout"/>
+  <meta property="og:site_name" content="ColaBean"/>
+
   
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  <link rel="stylesheet" href="/css/style.css">
+    <meta property="og:image" content="undefined"/>
   
 
+  <link href="/favicon.ico" rel="icon">
+  <link rel="alternate" href="/atom.xml" title="ColaBean" type="application/atom+xml">
+  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
 </head>
 
+
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">ColaBean</a>
-      </h1>
-      
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-          <a class="main-nav-link" href="/About">About</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="Flux RSS"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Rechercher"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://keleyundou.github.io"></form>
-      </div>
-    </div>
-  </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/" class="article-date">
-  <time datetime="2015-03-20T13:47:56.000Z" itemprop="datePublished">2015-03-20</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
+<div id="page" class="site">
+  <div id="primary" class="content-area">
 
-  </div>
-  <div class="article-inner">
+    <header id="header" class="inner"><div class="site-branding">
+  <h1 class="site-title">
+    <a href="/">ColaBean</a>
+  </h1>
+  <p class="site-description"></p>
+</div>
+<nav id="site-navigation" class="main-navigation" role="navigation">
+  <ul>
     
+      <li><a href="/">Home</a></li>
     
-      <header class="article-header">
-        
+      <li><a href="/archives">Archives</a></li>
+    
+  </ul>
+</nav></header>
+
+    <article id="content" class="site-content">
+      <main id="main" class="site-main posts-loop" role="main">
+        <article class="post article">
+
   
-    <h1 class="article-title" itemprop="name">
-      使用Xib自定义UIView并在Storyboard中使用AutoLayout
-    </h1>
+  
+    <h3 class="article-title"><span>使用Xib自定义UIView并在Storyboard中使用AutoLayout</span></h3>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+
+  <div class="article-top-meta">
+    <span class="posted-on">
+      <a href="/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/" rel="bookmark">
+        <time class="entry-date published" datetime="2015-03-20T13:47:56.000Z">
+          2015-03-20
+        </time>
+      </a>
+    </span>
+  </div>
+
+
+  
+
+  <div class="article-content">
+    <div class="entry">
       
         <p>Xib和Storyboard的使用我就不多叙述。关于如何用Xib自定义一个UIView，并将其添加在ViewController上，使用AutoLayout添加约束条件，使其跟随控制器ViewController的约束条件变化而变化呢？请看下文。</p>
 <p> 1、 创建一个继承UIView的子类TestView和xib文件</p>
@@ -113,123 +91,65 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/" data-id="cim8mz8g2000ajg4kmia7mn2h" class="article-share-link">Partager</a>
-      
-      
+        <div class="article-meta pull-left">
+          <span class="post-categories">
+            <i class="icon-categories"></i>
+            
+  
+
+  <a href="/categories/iOS/">iOS</a>
+
+
+          </span>
+          <span class="post-tags">
+            <i class="icon-tags"></i>
+            
+          </span>
+        </div>
+        
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/04/01/2015-04-01-duo-tai-dian-nao-xie-bo-ke-zhi-bo-ke-ke-long/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Récent</strong>
-      <div class="article-nav-title">
-        
-          多台电脑写博客之博客克隆
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/03/18/2015-03-18-storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Ancien</strong>
-      <div class="article-nav-title">Storyboard中TabBar显示灰色外观的问题</div>
-    </a>
-  
-</nav>
-
-  
 </article>
 
-</section>
-        
-          <aside id="sidebar">
   
+<div id="comment">
+
+
+<!-- 多说评论框 start -->
+ <div class="ds-thread" data-thread-key="/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/" data-title="使用Xib自定义UIView并在Storyboard中使用AutoLayout" data-url="http://keleyundou.github.io/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/"></div>
+<!-- 多说评论框 end -->
+<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+<script type="text/javascript">
+var duoshuoQuery = {short_name:"colabean"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+     || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+  </script>
+<!-- 多说公共JS代码 end -->
+
+</div>
+
+
+      </main>
+    </article>
+
+    <footer id="colophon" class="site-footer" role="contentinfo"><div class="site-info">
+  <p class="meta">
+    Proudly powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and
+    Theme by <a href="https://github.com/CodeDaraW/Hacker" target="_blank">Hacker</a>
+    </br>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Catégories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/琐碎杂记/">琐碎杂记</a></li></ul>
-    </div>
-  </div>
-
-
-  
+    &copy; 2016 ColaBean
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">March 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">April 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">March 2015</a></li></ul>
-    </div>
-  </div>
-
-
-  
+  </p>
+</div></footer>
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Articles récents</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2016/03/25/colabean's-new-blog/">ColaBean&#39;s new Blog</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/25/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2015/04/21/2015-04-21-assign,-copy,-retaindeng-guan-jian-zi-de-han-yi/">assign、copy、retain等关键字的含义</a>
-          </li>
-        
-          <li>
-            <a href="/2015/04/01/2015-04-01-duo-tai-dian-nao-xie-bo-ke-zhi-bo-ke-ke-long/">多台电脑写博客之博客克隆</a>
-          </li>
-        
-          <li>
-            <a href="/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/">使用Xib自定义UIView并在Storyboard中使用AutoLayout</a>
-          </li>
-        
-      </ul>
-    </div>
   </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2016 ColaBean<br>
-      Propulsé by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-    <a href="/About" class="mobile-nav-link">About</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
-
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-<script src="/js/script.js"></script>
-
-  </div>
+</div>
 </body>
 </html>
