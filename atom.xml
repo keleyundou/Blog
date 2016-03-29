@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://keleyundou.github.io/"/>
-  <updated>2016-03-26T04:24:13.000Z</updated>
+  <updated>2016-03-29T17:56:26.000Z</updated>
   <id>http://keleyundou.github.io/</id>
   
   <author>
@@ -14,6 +14,115 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>实现Twitter UI效果</title>
+    <link href="http://keleyundou.github.io/2016/03/30/%E5%AE%9E%E7%8E%B0Twitter-UI%E6%95%88%E6%9E%9C/"/>
+    <id>http://keleyundou.github.io/2016/03/30/实现Twitter-UI效果/</id>
+    <published>2016-03-29T17:49:11.000Z</published>
+    <updated>2016-03-29T17:56:26.000Z</updated>
+    
+    <content type="html">&lt;p&gt;在使用&lt;code&gt;Twitter&lt;/code&gt;的APP后，我已开发者的视觉并注意到整体与部分之间相互协调是件极其有意思的事情。这引起了我的好奇心：这是怎么做到的？&lt;/p&gt;
+&lt;p&gt;让我们具体地讨论下这个视图布局：此效果不优雅吗？它看起开就像本应如此，但你仔细的观察后就会发现更多。随着&lt;code&gt;Scrollview&lt;/code&gt;的偏移，图层的覆盖，动作和比例缩放是那么的平滑连贯… … 实在是太喜欢这个效果了。&lt;/p&gt;
+&lt;p&gt;So，就让我们立刻实现这个效果吧。&lt;/p&gt;
+&lt;p&gt;首先，先看下最终效果：&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://github.com/keleyundou/TwitterHeader/blob/master/TwitterProfile.gif&quot; width=&quot;375&quot; height=&quot;667&quot;&gt;&lt;br&gt;&lt;/div&gt;
+
+&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;
+&lt;h3 id=&quot;结构描述&quot;&gt;&lt;a href=&quot;#结构描述&quot; class=&quot;headerlink&quot; title=&quot;结构描述&quot;&gt;&lt;/a&gt;结构描述&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;在写代码之前，我想给你一个关于如何构建UI的简单意见。&lt;/p&gt;
+&lt;p&gt;打开&lt;code&gt;Main.storyboard&lt;/code&gt;文件，在这个控制器里面你会发现2个主要的对象。第一个是一个呈现&lt;code&gt;Header&lt;/code&gt;的视图，第二个是&lt;code&gt;Scrollview&lt;/code&gt;，它包含了&lt;code&gt;Avatar&lt;/code&gt;和账号相关的其他信息，如：&lt;code&gt;username&lt;/code&gt;标签和&lt;code&gt;Follow&lt;/code&gt;按钮。还有一个被叫做&lt;code&gt;Sizer&lt;/code&gt;的视图，它是为了确保&lt;code&gt;Scrollview&lt;/code&gt;拥有足够大的垂直滑动的空间。&lt;/p&gt;
+&lt;p&gt;就像你看到的那样，这个结构非常的简单。稍微注意一下就可发现&lt;code&gt;Header&lt;/code&gt;的外部放置了一个&lt;code&gt;Scrollview&lt;/code&gt;，而不是与其他元素放置在一起。虽然没必严格如此，但这样会使它的结构变动更加灵活。&lt;/p&gt;
+&lt;h3 id=&quot;编码&quot;&gt;&lt;a href=&quot;#编码&quot; class=&quot;headerlink&quot; title=&quot;编码&quot;&gt;&lt;/a&gt;编码&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;如果你仔细的看了最后的动画，将会注意到你要管理2个不同的动作：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;向下拉（当&lt;code&gt;Scrollview&lt;/code&gt;已经停靠在屏幕的顶部的时候）&lt;/li&gt;
+&lt;li&gt;上下滑动&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;第二个动作可以细分为4个小步骤：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;向上滑动，一直到导航条默认的大小并停靠在屏幕的顶部。&lt;/li&gt;
+&lt;li&gt;向上滑动，&lt;code&gt;Avatar&lt;/code&gt;开始逐渐变小。&lt;/li&gt;
+&lt;li&gt;当&lt;code&gt;Header&lt;/code&gt;被固定后，&lt;code&gt;Avatar&lt;/code&gt;会移动到它的下边。&lt;/li&gt;
+&lt;li&gt;当&lt;code&gt;username&lt;/code&gt;标签抵达&lt;code&gt;Header&lt;/code&gt;的顶部时，一个新的白色&lt;code&gt;Label&lt;/code&gt;将会从&lt;code&gt;Header&lt;/code&gt;中心的底部展现。这时&lt;code&gt;Header&lt;/code&gt;的背景图片将会用高斯模糊渲染。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;打开&lt;code&gt;ViewController&lt;/code&gt;让我们一个一个的实现这些步骤。&lt;/p&gt;
+&lt;h3 id=&quot;构建管理者&quot;&gt;&lt;a href=&quot;#构建管理者&quot; class=&quot;headerlink&quot; title=&quot;构建管理者&quot;&gt;&lt;/a&gt;构建管理者&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;首先要做的事情很明显，就是获取关于&lt;code&gt;Scrollview&lt;/code&gt;的偏移量&lt;code&gt;offset&lt;/code&gt;。我们可以通过&lt;code&gt;UIScrollViewDelegate&lt;/code&gt;协议实现&lt;code&gt;scrollViewDidScroll&lt;/code&gt;方法。&lt;/p&gt;
+&lt;p&gt;在一个&lt;code&gt;View&lt;/code&gt;上执行最简单地动画方式是使用&lt;code&gt;Core Animation&lt;/code&gt;逐渐的进行三维变换，并给&lt;code&gt;layer.transform&lt;/code&gt;赋予新值。&lt;/p&gt;
+&lt;p&gt;关于&lt;code&gt;Core Animation&lt;/code&gt;可以参考这篇文章&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.thinkandbuild.it/playing-around-with-core-graphics-core-animation-and-touch-events-part-1/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.thinkandbuild.it/playing-around-with-core-graphics-core-animation-and-touch-events-part-1/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;这些是&lt;code&gt;scrollViewDidScroll:&lt;/code&gt;方法的第一部分&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;CGFloat&lt;/span&gt; offset = scrollView.contentOffset.y;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;CATransform3D&lt;/span&gt; avatarTransform = &lt;span class=&quot;built_in&quot;&gt;CATransform3DIdentity&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;   &lt;span class=&quot;built_in&quot;&gt;CATransform3D&lt;/span&gt; headerTransform = &lt;span class=&quot;built_in&quot;&gt;CATransform3DIdentity&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;在这里我们获取一个当前垂直偏移量&lt;code&gt;offset&lt;/code&gt;，并初始化2个&lt;code&gt;CATransform3D&lt;/code&gt;变量。&lt;/p&gt;
+&lt;h3 id=&quot;下拉&quot;&gt;&lt;a href=&quot;#下拉&quot; class=&quot;headerlink&quot; title=&quot;下拉&quot;&gt;&lt;/a&gt;下拉&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;下拉动作的管理：&lt;br&gt;&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (offset &amp;lt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;CGFloat&lt;/span&gt; headerScaleFactor = -(offset) / header.bounds.size.height;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;span class=&quot;built_in&quot;&gt;CGFloat&lt;/span&gt; headerSizevariation = (header.bounds.size.height * (&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt; + headerScaleFactor) - header.bounds.size.height) / &lt;span class=&quot;number&quot;&gt;2.0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        headerTransform = &lt;span class=&quot;built_in&quot;&gt;CATransform3DTranslate&lt;/span&gt;(headerTransform, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, headerSizevariation, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        headerTransform = &lt;span class=&quot;built_in&quot;&gt;CATransform3DScale&lt;/span&gt;(headerTransform, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt; + headerScaleFactor, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt; + headerScaleFactor, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        header.layer.transform = headerTransform;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+&lt;p&gt;首先，我们检查&lt;code&gt;offset&lt;/code&gt;是否为负数：用户在下拉的过程中，将会进入&lt;code&gt;Scrollview&lt;/code&gt;的弹性区域。&lt;/p&gt;
+&lt;p&gt;剩下的代码就是简单的数学逻辑。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Header&lt;/code&gt;的扩大是因为它的上边缘固定于屏幕的顶部，而底部的图片在等比缩放。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;the transformation is made by scaling and subsequently translating to the top for a value equal to the size variation of the view.&lt;/code&gt;实际上，移动&lt;code&gt;ImageView&lt;/code&gt;图层的中点到顶部并同时缩放它，你可以获得相同的效果。&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt; &lt;img src=&quot;http://www.thinkandbuild.it/wp-content/uploads/2015/01/ImageScale.png&quot;&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;headerScaleFactor&lt;/code&gt;是用来被计算的一部分。我们想用&lt;code&gt;offset&lt;/code&gt;适当的对&lt;code&gt;Header&lt;/code&gt;进行缩放。换句话说，当&lt;code&gt;offset&lt;/code&gt;是&lt;code&gt;Header&lt;/code&gt;高度的2倍时，&lt;code&gt;headerScaleFactor&lt;/code&gt;必须是2.0。&lt;/p&gt;
+&lt;p&gt;我们需要管理的第二个动作是上下滑动。让我们看看，如何一步步通过UI的主要元素完成变换的。&lt;/p&gt;
+&lt;h3 id=&quot;头部（第一阶段）&quot;&gt;&lt;a href=&quot;#头部（第一阶段）&quot; class=&quot;headerlink&quot; title=&quot;头部（第一阶段）&quot;&gt;&lt;/a&gt;头部（第一阶段）&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;当前的&lt;code&gt;offset&lt;/code&gt;应该大于0。&lt;code&gt;Header&lt;/code&gt;应该随&lt;code&gt;offset&lt;/code&gt;进行垂直变换，直到它期望的高度（我们后面将会讲解&lt;code&gt;Header&lt;/code&gt;的高斯模糊）。&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;headerTransform = &lt;span class=&quot;built_in&quot;&gt;CATransform3DTranslate&lt;/span&gt;(headerTransform, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, MAX(-offset_HeaderStop, -offset), &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这句代码非常简单。我们只需定义一个让&lt;code&gt;Header&lt;/code&gt;在此停止移动的最小值。&lt;/p&gt;
+&lt;p&gt;让我感到羞愧的是我比较懒！所以我写死了一些数值，像&lt;code&gt;offset_HeaderStop&lt;/code&gt;。其实，我们可以通过计算UI元素的位置来获取相同的效果。下次有空再改吧。&lt;/p&gt;
+&lt;h3 id=&quot;头像&quot;&gt;&lt;a href=&quot;#头像&quot; class=&quot;headerlink&quot; title=&quot;头像&quot;&gt;&lt;/a&gt;头像&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;Avatar&lt;/code&gt;的缩放与我们处理下拉的逻辑一样，只是在这种情况下，图片是到达底部而不是顶部。这段代码和上边的比较相似，除了减小缩放的比例为1.4。&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Avatar -----------&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;CGFloat&lt;/span&gt; avatarScaleFactor = MIN(offset_HeaderStop, offset) / avatarImage.bounds.size.height / &lt;span class=&quot;number&quot;&gt;1.4&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;CGFloat&lt;/span&gt; avatarSizevariation = (avatarImage.bounds.size.height * (&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt; + avatarScaleFactor) - avatarImage.bounds.size.height) / &lt;span class=&quot;number&quot;&gt;2.0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;avatarTransform = &lt;span class=&quot;built_in&quot;&gt;CATransform3DTranslate&lt;/span&gt;(avatarTransform, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, avatarSizevariation, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;avatarTransform = &lt;span class=&quot;built_in&quot;&gt;CATransform3DScale&lt;/span&gt;(avatarTransform, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;-avatarScaleFactor, &lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;-avatarScaleFactor, &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;就像你看到的，当&lt;code&gt;Header&lt;/code&gt;停止变化时，我们用&lt;code&gt;MIN&lt;/code&gt;函数来使&lt;code&gt;Avatar&lt;/code&gt;的缩放停止。&lt;/p&gt;
+&lt;p&gt;此时，我们根据当前&lt;code&gt;offset&lt;/code&gt;设置最顶层的图层。除非&lt;code&gt;offset&lt;/code&gt;小于等于&lt;code&gt;offset_HeaderStop&lt;/code&gt;，最顶层的图层是&lt;code&gt;Avatar&lt;/code&gt;，否则是&lt;code&gt;Header&lt;/code&gt;。&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (offset &amp;lt;= offset_HeaderStop) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (avatarImage.layer.zPosition &amp;lt; header.layer.zPosition) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                header.layer.zPosition = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125; &lt;span class=&quot;keyword&quot;&gt;else&lt;/span&gt; &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (avatarImage.layer.zPosition &amp;gt;= header.layer.zPosition) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;                header.layer.zPosition = &lt;span class=&quot;number&quot;&gt;2&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;            &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;白色Label&quot;&gt;&lt;a href=&quot;#白色Label&quot; class=&quot;headerlink&quot; title=&quot;白色Label&quot;&gt;&lt;/a&gt;白色Label&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;这段代码是白色&lt;code&gt;Label&lt;/code&gt;的动画：&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  ------------ Label&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;built_in&quot;&gt;CATransform3D&lt;/span&gt; labelTransform = &lt;span class=&quot;built_in&quot;&gt;CATransform3DMakeTranslation&lt;/span&gt;(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, MAX(-distance_W_LabelHeader, offset_B_LabelHeader - offset), &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;headerLabel.layer.transform = labelTransform;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这里有2个令我感到羞愧的变量值：当&lt;code&gt;offset&lt;/code&gt;等于&lt;code&gt;offset_B_LabelHeader&lt;/code&gt;时，黑色的&lt;code&gt;username&lt;/code&gt;标签刚到触碰到&lt;code&gt;Header&lt;/code&gt;的底部。&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame1.png&quot;&gt;&lt;br&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code&gt;distance_W_LabelHeader&lt;/code&gt;是&lt;code&gt;Header&lt;/code&gt;底部与白色&lt;code&gt;Label&lt;/code&gt;终点之间的距离。&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame2.png&quot;&gt;&lt;br&gt;&lt;/div&gt;
+
+&lt;p&gt;这个变换是通过此逻辑计算：黑色&lt;code&gt;Label&lt;/code&gt;触碰到&lt;code&gt;Header&lt;/code&gt;，白色&lt;code&gt;Label&lt;/code&gt;就会立即出现，并且到达&lt;code&gt;Header&lt;/code&gt;中点位置就停止移动。所以我们使用下面代码创建&lt;code&gt;Y&lt;/code&gt;值：&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;MAX(-distance_W_LabelHeader, offset_B_LabelHeader - offset)&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;h3 id=&quot;高斯模糊&quot;&gt;&lt;a href=&quot;#高斯模糊&quot; class=&quot;headerlink&quot; title=&quot;高斯模糊&quot;&gt;&lt;/a&gt;高斯模糊&lt;/h3&gt;&lt;hr&gt;
+&lt;p&gt;最后一个效果是&lt;code&gt;Header&lt;/code&gt;的模糊。为了得到合适的解决方案，我用了3个不同的库… … 我也尝试过用&lt;code&gt;OpenGL ES&lt;/code&gt;创建基类，但实时更新模糊总是非常缓慢。&lt;/p&gt;
+&lt;p&gt;然后我意识到我可以对模糊仅仅计算一次，将不模糊和模糊的图片进行重叠，只是改变&lt;code&gt;alpha&lt;/code&gt;值。我非常确信，&lt;code&gt;Twitter&lt;/code&gt;就是这样做的。&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;viewDidAppear&lt;/code&gt;中，我们计算&lt;code&gt;Header&lt;/code&gt;的模糊值并隐藏它，设置&lt;code&gt;alpha&lt;/code&gt;值为0。&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;// Header - Blurred Image&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;headerBlurImageView = [[&lt;span class=&quot;built_in&quot;&gt;UIImageView&lt;/span&gt; alloc] initWithFrame:header.bounds];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;headerBlurImageView.image = [[&lt;span class=&quot;built_in&quot;&gt;UIImage&lt;/span&gt; imageNamed:&lt;span class=&quot;string&quot;&gt;@&quot;header_bg&quot;&lt;/span&gt;] blurredImageWithRadius:&lt;span class=&quot;number&quot;&gt;10&lt;/span&gt; iterations:&lt;span class=&quot;number&quot;&gt;20&lt;/span&gt; tintColor:[&lt;span class=&quot;built_in&quot;&gt;UIColor&lt;/span&gt; clearColor]];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;headerBlurImageView.contentMode = &lt;span class=&quot;built_in&quot;&gt;UIViewContentModeScaleAspectFill&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;headerBlurImageView.alpha = &lt;span class=&quot;number&quot;&gt;0.0&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;[header insertSubview:headerBlurImageView belowSubview:headerLabel];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;header.clipsToBounds = &lt;span class=&quot;literal&quot;&gt;YES&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;模糊视图是用过&lt;a href=&quot;https://github.com/nicklockwood/FXBlurView&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;code&gt;FXBlurView&lt;/code&gt;&lt;/a&gt;实现的。&lt;/p&gt;
+&lt;p&gt;在&lt;code&gt;scrollViewDidScroll:&lt;/code&gt;方法中，我们只需根据&lt;code&gt;offset&lt;/code&gt;设置&lt;code&gt;alpha&lt;/code&gt;:&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;//  ------------ Blur&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        headerBlurImageView.alpha = MIN(&lt;span class=&quot;number&quot;&gt;1.0&lt;/span&gt;, (offset - offset_B_LabelHeader) / distance_W_LabelHeader);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这个计算的背后逻辑是：&lt;code&gt;alpha&lt;/code&gt;最大值是1，当黑色&lt;code&gt;Label&lt;/code&gt;触碰到&lt;code&gt;Header&lt;/code&gt;时模糊效果开始出现，当白色到达最终位置时，也将停止继续模糊。&lt;/p&gt;
+&lt;p&gt;就这样！&lt;/p&gt;
+&lt;p&gt;我希望你喜欢这个教程。学习如何重现这种很棒的动画效果对我来说是很大的乐趣。&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Swift代码：&lt;a href=&quot;https://github.com/ariok/TB_TwitterUI&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;Download Source&lt;/strong&gt;&lt;/a&gt;&lt;br&gt;OC代码:&lt;a href=&quot;https://github.com/ariok/TB_TwitterUI&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;&lt;strong&gt;Download Source&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr&gt;
+&lt;blockquote&gt;
+&lt;p&gt;原版：&lt;a href=&quot;http://www.thinkandbuild.it/implementing-the-twitter-ios-app-ui/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;IMPLEMENTING THE TWITTER IOS APP UI&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在使用&lt;code&gt;Twitter&lt;/code&gt;的APP后，我已开发者的视觉并注意到整体与部分之间相互协调是件极其有意思的事情。这引起了我的好奇心：这是怎么做到的？&lt;/p&gt;
+&lt;p&gt;让我们具体地讨论下这个视图布局：此效果不优雅吗？它看起开就像本应如此，但你仔细的观察后就会发现更多。随着&lt;code&gt;Scrollview&lt;/code&gt;的偏移，图层的覆盖，动作和比例缩放是那么的平滑连贯… … 实在是太喜欢这个效果了。&lt;/p&gt;
+&lt;p&gt;So，就让我们立刻实现这个效果吧。&lt;/p&gt;
+&lt;p&gt;首先，先看下最终效果：&lt;/p&gt;
+&lt;div align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;https://github.com/keleyundou/TwitterHeader/blob/master/TwitterProfile.gif&quot; width=&quot;375&quot; height=&quot;667&quot;&gt;&lt;br&gt;&lt;/div&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
+    
+    
+      <category term="Tutorial" scheme="http://keleyundou.github.io/tags/Tutorial/"/>
+    
+  </entry>
   
   <entry>
     <title>ColaBean&#39;s new Blog</title>

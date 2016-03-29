@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>实现Twitter UI效果 | ColaBean&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在使用Twitter的APP后，我已开发者的视觉并注意到整体与部分之间相互协调是件极其有意思的事情。这引起了我的好奇心：这是怎么做到的？
+让我们具体地讨论下这个视图布局：此效果不优雅吗？它看起开就像本应如此，但你仔细的观察后就会发现更多。随着Scrollview的偏移，图层的覆盖，动作和比例缩放是那么的平滑连贯… … 实在是太喜欢这个效果了。
+So，就让我们立刻实现这个效果吧。
+首先，先看下最终效">
+<meta property="og:type" content="article">
+<meta property="og:title" content="实现Twitter UI效果">
+<meta property="og:url" content="http://keleyundou.github.io/2016/03/30/实现Twitter-UI效果/index.html">
+<meta property="og:site_name" content="ColaBean's Blog">
+<meta property="og:description" content="在使用Twitter的APP后，我已开发者的视觉并注意到整体与部分之间相互协调是件极其有意思的事情。这引起了我的好奇心：这是怎么做到的？
+让我们具体地讨论下这个视图布局：此效果不优雅吗？它看起开就像本应如此，但你仔细的观察后就会发现更多。随着Scrollview的偏移，图层的覆盖，动作和比例缩放是那么的平滑连贯… … 实在是太喜欢这个效果了。
+So，就让我们立刻实现这个效果吧。
+首先，先看下最终效">
+<meta property="og:image" content="https://github.com/keleyundou/TwitterHeader/blob/master/TwitterProfile.gif">
+<meta property="og:image" content="http://www.thinkandbuild.it/wp-content/uploads/2015/01/ImageScale.png">
+<meta property="og:image" content="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame1.png">
+<meta property="og:image" content="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame2.png">
+<meta property="og:updated_time" content="2016-03-29T17:56:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="实现Twitter UI效果">
+<meta name="twitter:description" content="在使用Twitter的APP后，我已开发者的视觉并注意到整体与部分之间相互协调是件极其有意思的事情。这引起了我的好奇心：这是怎么做到的？
+让我们具体地讨论下这个视图布局：此效果不优雅吗？它看起开就像本应如此，但你仔细的观察后就会发现更多。随着Scrollview的偏移，图层的覆盖，动作和比例缩放是那么的平滑连贯… … 实在是太喜欢这个效果了。
+So，就让我们立刻实现这个效果吧。
+首先，先看下最终效">
+<meta name="twitter:image" content="https://github.com/keleyundou/TwitterHeader/blob/master/TwitterProfile.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="ColaBean&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+    <link href="http://fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ColaBean&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">苟有恒何必三更睡五更起，最无益莫过一日曝十日寒。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/About">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://keleyundou.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-实现Twitter-UI效果" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/30/实现Twitter-UI效果/" class="article-date">
+  <time datetime="2016-03-29T17:49:11.000Z" itemprop="datePublished">2016-03-30</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      实现Twitter UI效果
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在使用<code>Twitter</code>的APP后，我已开发者的视觉并注意到整体与部分之间相互协调是件极其有意思的事情。这引起了我的好奇心：这是怎么做到的？</p>
+<p>让我们具体地讨论下这个视图布局：此效果不优雅吗？它看起开就像本应如此，但你仔细的观察后就会发现更多。随着<code>Scrollview</code>的偏移，图层的覆盖，动作和比例缩放是那么的平滑连贯… … 实在是太喜欢这个效果了。</p>
+<p>So，就让我们立刻实现这个效果吧。</p>
+<p>首先，先看下最终效果：</p>
+<div align="center"><br><img src="https://github.com/keleyundou/TwitterHeader/blob/master/TwitterProfile.gif" width="375" height="667"><br></div>
+
+<a id="more"></a>
+<h3 id="结构描述"><a href="#结构描述" class="headerlink" title="结构描述"></a>结构描述</h3><hr>
+<p>在写代码之前，我想给你一个关于如何构建UI的简单意见。</p>
+<p>打开<code>Main.storyboard</code>文件，在这个控制器里面你会发现2个主要的对象。第一个是一个呈现<code>Header</code>的视图，第二个是<code>Scrollview</code>，它包含了<code>Avatar</code>和账号相关的其他信息，如：<code>username</code>标签和<code>Follow</code>按钮。还有一个被叫做<code>Sizer</code>的视图，它是为了确保<code>Scrollview</code>拥有足够大的垂直滑动的空间。</p>
+<p>就像你看到的那样，这个结构非常的简单。稍微注意一下就可发现<code>Header</code>的外部放置了一个<code>Scrollview</code>，而不是与其他元素放置在一起。虽然没必严格如此，但这样会使它的结构变动更加灵活。</p>
+<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><hr>
+<p>如果你仔细的看了最后的动画，将会注意到你要管理2个不同的动作：</p>
+<ol>
+<li>向下拉（当<code>Scrollview</code>已经停靠在屏幕的顶部的时候）</li>
+<li>上下滑动</li>
+</ol>
+<p>第二个动作可以细分为4个小步骤：</p>
+<ul>
+<li>向上滑动，一直到导航条默认的大小并停靠在屏幕的顶部。</li>
+<li>向上滑动，<code>Avatar</code>开始逐渐变小。</li>
+<li>当<code>Header</code>被固定后，<code>Avatar</code>会移动到它的下边。</li>
+<li>当<code>username</code>标签抵达<code>Header</code>的顶部时，一个新的白色<code>Label</code>将会从<code>Header</code>中心的底部展现。这时<code>Header</code>的背景图片将会用高斯模糊渲染。</li>
+</ul>
+<p>打开<code>ViewController</code>让我们一个一个的实现这些步骤。</p>
+<h3 id="构建管理者"><a href="#构建管理者" class="headerlink" title="构建管理者"></a>构建管理者</h3><hr>
+<p>首先要做的事情很明显，就是获取关于<code>Scrollview</code>的偏移量<code>offset</code>。我们可以通过<code>UIScrollViewDelegate</code>协议实现<code>scrollViewDidScroll</code>方法。</p>
+<p>在一个<code>View</code>上执行最简单地动画方式是使用<code>Core Animation</code>逐渐的进行三维变换，并给<code>layer.transform</code>赋予新值。</p>
+<p>关于<code>Core Animation</code>可以参考这篇文章</p>
+<p><a href="http://www.thinkandbuild.it/playing-around-with-core-graphics-core-animation-and-touch-events-part-1/" target="_blank" rel="external">http://www.thinkandbuild.it/playing-around-with-core-graphics-core-animation-and-touch-events-part-1/</a></p>
+<p>这些是<code>scrollViewDidScroll:</code>方法的第一部分</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGFloat</span> offset = scrollView.contentOffset.y;</span><br><span class="line">   <span class="built_in">CATransform3D</span> avatarTransform = <span class="built_in">CATransform3DIdentity</span>;</span><br><span class="line">   <span class="built_in">CATransform3D</span> headerTransform = <span class="built_in">CATransform3DIdentity</span>;</span><br></pre></td></tr></table></figure>
+<p>在这里我们获取一个当前垂直偏移量<code>offset</code>，并初始化2个<code>CATransform3D</code>变量。</p>
+<h3 id="下拉"><a href="#下拉" class="headerlink" title="下拉"></a>下拉</h3><hr>
+<p>下拉动作的管理：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (offset &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">CGFloat</span> headerScaleFactor = -(offset) / header.bounds.size.height;</span><br><span class="line">        <span class="built_in">CGFloat</span> headerSizevariation = (header.bounds.size.height * (<span class="number">1.0</span> + headerScaleFactor) - header.bounds.size.height) / <span class="number">2.0</span>;</span><br><span class="line">        headerTransform = <span class="built_in">CATransform3DTranslate</span>(headerTransform, <span class="number">0</span>, headerSizevariation, <span class="number">0</span>);</span><br><span class="line">        headerTransform = <span class="built_in">CATransform3DScale</span>(headerTransform, <span class="number">1.0</span> + headerScaleFactor, <span class="number">1.0</span> + headerScaleFactor, <span class="number">0</span>);</span><br><span class="line">        header.layer.transform = headerTransform;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先，我们检查<code>offset</code>是否为负数：用户在下拉的过程中，将会进入<code>Scrollview</code>的弹性区域。</p>
+<p>剩下的代码就是简单的数学逻辑。</p>
+<p><code>Header</code>的扩大是因为它的上边缘固定于屏幕的顶部，而底部的图片在等比缩放。</p>
+<p><code>the transformation is made by scaling and subsequently translating to the top for a value equal to the size variation of the view.</code>实际上，移动<code>ImageView</code>图层的中点到顶部并同时缩放它，你可以获得相同的效果。</p>
+<div align="center"> <img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/ImageScale.png"></div>
+
+<p><code>headerScaleFactor</code>是用来被计算的一部分。我们想用<code>offset</code>适当的对<code>Header</code>进行缩放。换句话说，当<code>offset</code>是<code>Header</code>高度的2倍时，<code>headerScaleFactor</code>必须是2.0。</p>
+<p>我们需要管理的第二个动作是上下滑动。让我们看看，如何一步步通过UI的主要元素完成变换的。</p>
+<h3 id="头部（第一阶段）"><a href="#头部（第一阶段）" class="headerlink" title="头部（第一阶段）"></a>头部（第一阶段）</h3><hr>
+<p>当前的<code>offset</code>应该大于0。<code>Header</code>应该随<code>offset</code>进行垂直变换，直到它期望的高度（我们后面将会讲解<code>Header</code>的高斯模糊）。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">headerTransform = <span class="built_in">CATransform3DTranslate</span>(headerTransform, <span class="number">0</span>, MAX(-offset_HeaderStop, -offset), <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>这句代码非常简单。我们只需定义一个让<code>Header</code>在此停止移动的最小值。</p>
+<p>让我感到羞愧的是我比较懒！所以我写死了一些数值，像<code>offset_HeaderStop</code>。其实，我们可以通过计算UI元素的位置来获取相同的效果。下次有空再改吧。</p>
+<h3 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h3><hr>
+<p><code>Avatar</code>的缩放与我们处理下拉的逻辑一样，只是在这种情况下，图片是到达底部而不是顶部。这段代码和上边的比较相似，除了减小缩放的比例为1.4。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Avatar -----------</span></span><br><span class="line"><span class="built_in">CGFloat</span> avatarScaleFactor = MIN(offset_HeaderStop, offset) / avatarImage.bounds.size.height / <span class="number">1.4</span>;</span><br><span class="line"><span class="built_in">CGFloat</span> avatarSizevariation = (avatarImage.bounds.size.height * (<span class="number">1.0</span> + avatarScaleFactor) - avatarImage.bounds.size.height) / <span class="number">2.0</span>;</span><br><span class="line">avatarTransform = <span class="built_in">CATransform3DTranslate</span>(avatarTransform, <span class="number">0</span>, avatarSizevariation, <span class="number">0</span>);</span><br><span class="line">avatarTransform = <span class="built_in">CATransform3DScale</span>(avatarTransform, <span class="number">1.0</span>-avatarScaleFactor, <span class="number">1.0</span>-avatarScaleFactor, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>就像你看到的，当<code>Header</code>停止变化时，我们用<code>MIN</code>函数来使<code>Avatar</code>的缩放停止。</p>
+<p>此时，我们根据当前<code>offset</code>设置最顶层的图层。除非<code>offset</code>小于等于<code>offset_HeaderStop</code>，最顶层的图层是<code>Avatar</code>，否则是<code>Header</code>。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (offset &lt;= offset_HeaderStop) &#123;</span><br><span class="line">            <span class="keyword">if</span> (avatarImage.layer.zPosition &lt; header.layer.zPosition) &#123;</span><br><span class="line">                header.layer.zPosition = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (avatarImage.layer.zPosition &gt;= header.layer.zPosition) &#123;</span><br><span class="line">                header.layer.zPosition = <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="白色Label"><a href="#白色Label" class="headerlink" title="白色Label"></a>白色Label</h3><hr>
+<p>这段代码是白色<code>Label</code>的动画：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  ------------ Label</span></span><br><span class="line"><span class="built_in">CATransform3D</span> labelTransform = <span class="built_in">CATransform3DMakeTranslation</span>(<span class="number">0</span>, MAX(-distance_W_LabelHeader, offset_B_LabelHeader - offset), <span class="number">0</span>);</span><br><span class="line">headerLabel.layer.transform = labelTransform;</span><br></pre></td></tr></table></figure>
+<p>这里有2个令我感到羞愧的变量值：当<code>offset</code>等于<code>offset_B_LabelHeader</code>时，黑色的<code>username</code>标签刚到触碰到<code>Header</code>的底部。</p>
+<div align="center"><br><img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame1.png"><br></div>
+
+<p><code>distance_W_LabelHeader</code>是<code>Header</code>底部与白色<code>Label</code>终点之间的距离。</p>
+<div align="center"><br><img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame2.png"><br></div>
+
+<p>这个变换是通过此逻辑计算：黑色<code>Label</code>触碰到<code>Header</code>，白色<code>Label</code>就会立即出现，并且到达<code>Header</code>中点位置就停止移动。所以我们使用下面代码创建<code>Y</code>值：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MAX(-distance_W_LabelHeader, offset_B_LabelHeader - offset)</span><br></pre></td></tr></table></figure>
+<h3 id="高斯模糊"><a href="#高斯模糊" class="headerlink" title="高斯模糊"></a>高斯模糊</h3><hr>
+<p>最后一个效果是<code>Header</code>的模糊。为了得到合适的解决方案，我用了3个不同的库… … 我也尝试过用<code>OpenGL ES</code>创建基类，但实时更新模糊总是非常缓慢。</p>
+<p>然后我意识到我可以对模糊仅仅计算一次，将不模糊和模糊的图片进行重叠，只是改变<code>alpha</code>值。我非常确信，<code>Twitter</code>就是这样做的。</p>
+<p>在<code>viewDidAppear</code>中，我们计算<code>Header</code>的模糊值并隐藏它，设置<code>alpha</code>值为0。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Header - Blurred Image</span></span><br><span class="line">headerBlurImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:header.bounds];</span><br><span class="line">headerBlurImageView.image = [[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"header_bg"</span>] blurredImageWithRadius:<span class="number">10</span> iterations:<span class="number">20</span> tintColor:[<span class="built_in">UIColor</span> clearColor]];</span><br><span class="line">headerBlurImageView.contentMode = <span class="built_in">UIViewContentModeScaleAspectFill</span>;</span><br><span class="line">headerBlurImageView.alpha = <span class="number">0.0</span>;</span><br><span class="line">[header insertSubview:headerBlurImageView belowSubview:headerLabel];</span><br><span class="line">header.clipsToBounds = <span class="literal">YES</span>;</span><br></pre></td></tr></table></figure>
+<p>模糊视图是用过<a href="https://github.com/nicklockwood/FXBlurView" target="_blank" rel="external"><code>FXBlurView</code></a>实现的。</p>
+<p>在<code>scrollViewDidScroll:</code>方法中，我们只需根据<code>offset</code>设置<code>alpha</code>:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  ------------ Blur</span></span><br><span class="line">        headerBlurImageView.alpha = MIN(<span class="number">1.0</span>, (offset - offset_B_LabelHeader) / distance_W_LabelHeader);</span><br></pre></td></tr></table></figure>
+<p>这个计算的背后逻辑是：<code>alpha</code>最大值是1，当黑色<code>Label</code>触碰到<code>Header</code>时模糊效果开始出现，当白色到达最终位置时，也将停止继续模糊。</p>
+<p>就这样！</p>
+<p>我希望你喜欢这个教程。学习如何重现这种很棒的动画效果对我来说是很大的乐趣。</p>
+<blockquote>
+<p>Swift代码：<a href="https://github.com/ariok/TB_TwitterUI" target="_blank" rel="external"><strong>Download Source</strong></a><br>OC代码:<a href="https://github.com/ariok/TB_TwitterUI" target="_blank" rel="external"><strong>Download Source</strong></a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>原版：<a href="http://www.thinkandbuild.it/implementing-the-twitter-ios-app-ui/" target="_blank" rel="external">IMPLEMENTING THE TWITTER IOS APP UI</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://keleyundou.github.io/2016/03/30/实现Twitter-UI效果/" data-id="cimdq0gvk000k5h4kh2gphzjl" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tutorial/">Tutorial</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/03/25/colabean's-new-blog/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">ColaBean&#39;s new Blog</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- disqus -->
+<!--  -->
+
+<!-- duoshuo -->
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"colabean"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/琐碎杂记/">琐碎杂记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/03/30/实现Twitter-UI效果/">实现Twitter UI效果</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/25/colabean's-new-blog/">ColaBean&#39;s new Blog</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/21/2015-04-21-assign,-copy,-retaindeng-guan-jian-zi-de-han-yi/">assign、copy、retain等关键字的含义</a>
+          </li>
+        
+          <li>
+            <a href="/2015/04/01/2015-04-01-duo-tai-dian-nao-xie-bo-ke-zhi-bo-ke-ke-long/">多台电脑写博客之博客克隆</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 ColaBean<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/About" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
