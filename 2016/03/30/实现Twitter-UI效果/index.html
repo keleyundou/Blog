@@ -21,7 +21,7 @@ So，就让我们立刻实现这个效果吧。
 <meta property="og:image" content="http://www.thinkandbuild.it/wp-content/uploads/2015/01/ImageScale.png">
 <meta property="og:image" content="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame1.png">
 <meta property="og:image" content="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame2.png">
-<meta property="og:updated_time" content="2016-03-30T03:37:25.000Z">
+<meta property="og:updated_time" content="2016-03-31T05:39:36.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="译：实现Twitter UI效果">
 <meta name="twitter:description" content="在使用Twitter的APP后，我已开发者的视觉并注意到整体与部分之间相互协调是件极其有意思的事情。这引起了我的好奇心：这是怎么做到的？
@@ -116,7 +116,7 @@ So，就让我们立刻实现这个效果吧。
 <p>让我们具体地讨论下这个视图布局：此效果不优雅吗？它看起开就像本应如此，但你仔细的观察后就会发现更多。随着<code>Scrollview</code>的偏移，图层的覆盖，动作和比例缩放是那么的平滑连贯… … 实在是太喜欢这个效果了。</p>
 <p>So，就让我们立刻实现这个效果吧。</p>
 <p>首先，先看下最终效果：</p>
-<div align="center"><br><img src="http://7pn4xs.com1.z0.glb.clouddn.com/colabeanTwitterProfile.gif" width="375" height="667"><br></div>
+<p align="center"><br><img src="http://7pn4xs.com1.z0.glb.clouddn.com/colabeanTwitterProfile.gif" width="375" height="667"><br></p>
 
 <a id="more"></a>
 <h3 id="结构描述"><a href="#结构描述" class="headerlink" title="结构描述"></a>结构描述</h3><hr>
@@ -143,7 +143,7 @@ So，就让我们立刻实现这个效果吧。
 <p>关于<code>Core Animation</code>可以参考这篇文章</p>
 <p><a href="http://www.thinkandbuild.it/playing-around-with-core-graphics-core-animation-and-touch-events-part-1/" target="_blank" rel="external">http://www.thinkandbuild.it/playing-around-with-core-graphics-core-animation-and-touch-events-part-1/</a></p>
 <p>这些是<code>scrollViewDidScroll:</code>方法的第一部分</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGFloat</span> offset = scrollView.contentOffset.y;</span><br><span class="line">   <span class="built_in">CATransform3D</span> avatarTransform = <span class="built_in">CATransform3DIdentity</span>;</span><br><span class="line">   <span class="built_in">CATransform3D</span> headerTransform = <span class="built_in">CATransform3DIdentity</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGFloat</span> offset = scrollView.contentOffset.y;</span><br><span class="line"><span class="built_in">CATransform3D</span> avatarTransform = <span class="built_in">CATransform3DIdentity</span>;</span><br><span class="line"><span class="built_in">CATransform3D</span> headerTransform = <span class="built_in">CATransform3DIdentity</span>;</span><br></pre></td></tr></table></figure>
 <p>在这里我们获取一个当前垂直偏移量<code>offset</code>，并初始化2个<code>CATransform3D</code>变量。</p>
 <h3 id="下拉"><a href="#下拉" class="headerlink" title="下拉"></a>下拉</h3><hr>
 <p>下拉动作的管理：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (offset &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">CGFloat</span> headerScaleFactor = -(offset) / header.bounds.size.height;</span><br><span class="line">        <span class="built_in">CGFloat</span> headerSizevariation = (header.bounds.size.height * (<span class="number">1.0</span> + headerScaleFactor) - header.bounds.size.height) / <span class="number">2.0</span>;</span><br><span class="line">        headerTransform = <span class="built_in">CATransform3DTranslate</span>(headerTransform, <span class="number">0</span>, headerSizevariation, <span class="number">0</span>);</span><br><span class="line">        headerTransform = <span class="built_in">CATransform3DScale</span>(headerTransform, <span class="number">1.0</span> + headerScaleFactor, <span class="number">1.0</span> + headerScaleFactor, <span class="number">0</span>);</span><br><span class="line">        header.layer.transform = headerTransform;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
@@ -151,7 +151,7 @@ So，就让我们立刻实现这个效果吧。
 <p>剩下的代码就是简单的数学逻辑。</p>
 <p><code>Header</code>的扩大是因为它的上边缘固定于屏幕的顶部，而底部的图片在等比缩放。</p>
 <p><code>the transformation is made by scaling and subsequently translating to the top for a value equal to the size variation of the view.</code>实际上，移动<code>ImageView</code>图层的中点到顶部并同时缩放它，你可以获得相同的效果。</p>
-<div align="center"> <img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/ImageScale.png"></div>
+<p align="center"> <img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/ImageScale.png"></p>
 
 <p><code>headerScaleFactor</code>是用来被计算的一部分。我们想用<code>offset</code>适当的对<code>Header</code>进行缩放。换句话说，当<code>offset</code>是<code>Header</code>高度的2倍时，<code>headerScaleFactor</code>必须是2.0。</p>
 <p>我们需要管理的第二个动作是上下滑动。让我们看看，如何一步步通过UI的主要元素完成变换的。</p>
@@ -170,10 +170,10 @@ So，就让我们立刻实现这个效果吧。
 <p>这段代码是白色<code>Label</code>的动画：</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  ------------ Label</span></span><br><span class="line"><span class="built_in">CATransform3D</span> labelTransform = <span class="built_in">CATransform3DMakeTranslation</span>(<span class="number">0</span>, MAX(-distance_W_LabelHeader, offset_B_LabelHeader - offset), <span class="number">0</span>);</span><br><span class="line">headerLabel.layer.transform = labelTransform;</span><br></pre></td></tr></table></figure>
 <p>这里有2个令我感到羞愧的变量值：当<code>offset</code>等于<code>offset_B_LabelHeader</code>时，黑色的<code>username</code>标签刚到触碰到<code>Header</code>的底部。</p>
-<div align="center"><br><img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame1.png"><br></div>
+<p align="center"><br><img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame1.png"><br></p>
 
 <p><code>distance_W_LabelHeader</code>是<code>Header</code>底部与白色<code>Label</code>终点之间的距离。</p>
-<div align="center"><br><img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame2.png"><br></div>
+<p align="center"><br><img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame2.png"><br></p>
 
 <p>这个变换是通过此逻辑计算：黑色<code>Label</code>触碰到<code>Header</code>，白色<code>Label</code>就会立即出现，并且到达<code>Header</code>中点位置就停止移动。所以我们使用下面代码创建<code>Y</code>值：</p>
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MAX(-distance_W_LabelHeader, offset_B_LabelHeader - offset)</span><br></pre></td></tr></table></figure>
@@ -184,7 +184,7 @@ So，就让我们立刻实现这个效果吧。
 <figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Header - Blurred Image</span></span><br><span class="line">headerBlurImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:header.bounds];</span><br><span class="line">headerBlurImageView.image = [[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"header_bg"</span>] blurredImageWithRadius:<span class="number">10</span> iterations:<span class="number">20</span> tintColor:[<span class="built_in">UIColor</span> clearColor]];</span><br><span class="line">headerBlurImageView.contentMode = <span class="built_in">UIViewContentModeScaleAspectFill</span>;</span><br><span class="line">headerBlurImageView.alpha = <span class="number">0.0</span>;</span><br><span class="line">[header insertSubview:headerBlurImageView belowSubview:headerLabel];</span><br><span class="line">header.clipsToBounds = <span class="literal">YES</span>;</span><br></pre></td></tr></table></figure>
 <p>模糊视图是用过<a href="https://github.com/nicklockwood/FXBlurView" target="_blank" rel="external"><code>FXBlurView</code></a>实现的。</p>
 <p>在<code>scrollViewDidScroll:</code>方法中，我们只需根据<code>offset</code>设置<code>alpha</code>:</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  ------------ Blur</span></span><br><span class="line">        headerBlurImageView.alpha = MIN(<span class="number">1.0</span>, (offset - offset_B_LabelHeader) / distance_W_LabelHeader);</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  ------------ Blur</span></span><br><span class="line">headerBlurImageView.alpha = MIN(<span class="number">1.0</span>, (offset - offset_B_LabelHeader) / distance_W_LabelHeader);</span><br></pre></td></tr></table></figure>
 <p>这个计算的背后逻辑是：<code>alpha</code>最大值是1，当黑色<code>Label</code>触碰到<code>Header</code>时模糊效果开始出现，当白色到达最终位置时，也将停止继续模糊。</p>
 <p>就这样！</p>
 <p>我希望你喜欢这个教程。学习如何重现这种很棒的动画效果对我来说是很大的乐趣。</p>
