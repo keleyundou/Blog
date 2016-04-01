@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>即时通讯之输入流中读取基本数据 | ColaBean&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="相应的和写入一样，下面将读取的接口陈列如下：
+
+读取 1 byte
+
+1234567- (int8_t)readChar;&amp;#123;    int8_t v;    [data getBytes:&amp;amp;v range:NSMakeRange(len, 1)];    len++;    return (v &amp;amp; 0x0FF);&amp;#125;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="即时通讯之输入流中读取基本数据">
+<meta property="og:url" content="http://keleyundou.github.io/2016/03/16/即时通讯之输入流中读取基本数据/index.html">
+<meta property="og:site_name" content="ColaBean's Blog">
+<meta property="og:description" content="相应的和写入一样，下面将读取的接口陈列如下：
+
+读取 1 byte
+
+1234567- (int8_t)readChar;&amp;#123;    int8_t v;    [data getBytes:&amp;amp;v range:NSMakeRange(len, 1)];    len++;    return (v &amp;amp; 0x0FF);&amp;#125;">
+<meta property="og:updated_time" content="2016-04-01T14:01:51.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="即时通讯之输入流中读取基本数据">
+<meta name="twitter:description" content="相应的和写入一样，下面将读取的接口陈列如下：
+
+读取 1 byte
+
+1234567- (int8_t)readChar;&amp;#123;    int8_t v;    [data getBytes:&amp;amp;v range:NSMakeRange(len, 1)];    len++;    return (v &amp;amp; 0x0FF);&amp;#125;">
+  
+    <link rel="alternate" href="/atom.xml" title="ColaBean&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+    <link href="http://fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ColaBean&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">苟有恒何必三更睡五更起，最无益莫过一日曝十日寒。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/About">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://keleyundou.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-即时通讯之输入流中读取基本数据" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/03/16/即时通讯之输入流中读取基本数据/" class="article-date">
+  <time datetime="2016-03-16T13:59:33.000Z" itemprop="datePublished">2016-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/琐碎杂记/">琐碎杂记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      即时通讯之输入流中读取基本数据
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>相应的和写入一样，下面将读取的接口陈列如下：</p>
+<ul>
+<li>读取 1 byte</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (int8_t)readChar;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t v;</span><br><span class="line">    [data getBytes:&amp;v range:<span class="built_in">NSMakeRange</span>(len, <span class="number">1</span>)];</span><br><span class="line">    len++;</span><br><span class="line">    <span class="keyword">return</span> (v &amp; <span class="number">0x0FF</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ul>
+<li>读取 2 byte</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (int16_t)readShort;</span><br><span class="line">&#123;</span><br><span class="line">    int32_t ch1 = [<span class="keyword">self</span> read];</span><br><span class="line">    int32_t ch2 = [<span class="keyword">self</span> read];</span><br><span class="line">    <span class="keyword">if</span> ((ch1 | ch2) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">@throw</span> [<span class="built_in">NSException</span> exceptionWithName:<span class="string">@"Exception"</span> reason:<span class="string">@"EOFException"</span> userInfo:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (int16_t)((ch1 &lt;&lt; <span class="number">8</span>) + (ch2 &lt;&lt; <span class="number">0</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>读取 4 byte</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (int32_t)readInt;</span><br><span class="line">&#123;</span><br><span class="line">    int32_t ch1 = [<span class="keyword">self</span> read];</span><br><span class="line">    int32_t ch2 = [<span class="keyword">self</span> read];</span><br><span class="line">    int32_t ch3 = [<span class="keyword">self</span> read];</span><br><span class="line">    int32_t ch4 = [<span class="keyword">self</span> read];</span><br><span class="line">    <span class="keyword">if</span> ((ch1 | ch2 | ch3 | ch4) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">@throw</span> [<span class="built_in">NSException</span> exceptionWithName:<span class="string">@"Exception"</span> reason:<span class="string">@"EOFException"</span> userInfo:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ((ch1 &lt;&lt; <span class="number">24</span>) + (ch2 &lt;&lt; <span class="number">16</span>) + (ch3 &lt;&lt; <span class="number">8</span>) + (ch4 &lt;&lt; <span class="number">0</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>读取 8 byte</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (int64_t)readLong;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">8</span>];</span><br><span class="line">    [data getBytes:&amp;ch range:<span class="built_in">NSMakeRange</span>(len,<span class="number">8</span>)];</span><br><span class="line">    len += <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (((int64_t)ch[<span class="number">0</span>] &lt;&lt; <span class="number">56</span>) +</span><br><span class="line">            ((int64_t)(ch[<span class="number">1</span>] &amp; <span class="number">255</span>) &lt;&lt; <span class="number">48</span>) +</span><br><span class="line">            ((int64_t)(ch[<span class="number">2</span>] &amp; <span class="number">255</span>) &lt;&lt; <span class="number">40</span>) +</span><br><span class="line">            ((int64_t)(ch[<span class="number">3</span>] &amp; <span class="number">255</span>) &lt;&lt; <span class="number">32</span>) +</span><br><span class="line">            ((int64_t)(ch[<span class="number">4</span>] &amp; <span class="number">255</span>) &lt;&lt; <span class="number">24</span>) +</span><br><span class="line">            ((ch[<span class="number">5</span>] &amp; <span class="number">255</span>) &lt;&lt; <span class="number">16</span>) +</span><br><span class="line">            ((ch[<span class="number">6</span>] &amp; <span class="number">255</span>) &lt;&lt;  <span class="number">8</span>) +</span><br><span class="line">            ((ch[<span class="number">7</span>] &amp; <span class="number">255</span>) &lt;&lt;  <span class="number">0</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>BCD时钟转换</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">- (BDSTime)readBCDTime</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">struct</span> BDSTime bcdTime;</span><br><span class="line">    Byte year[<span class="number">2</span>];</span><br><span class="line">    Byte month[<span class="number">1</span>], day[<span class="number">1</span>], hour[<span class="number">1</span>], min[<span class="number">1</span>], sec[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;year range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(year))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(year);</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;month range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(month))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(month);</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;day range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(day))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(day);</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;hour range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(hour))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(hour);</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;min range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(min))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(min);</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;sec range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(sec))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(sec);</span><br><span class="line"></span><br><span class="line">    bcdTime.year = [<span class="keyword">self</span> readBCDToYear:year];</span><br><span class="line"></span><br><span class="line">    bcdTime.month = bcdToInt(month, <span class="keyword">sizeof</span>(month));</span><br><span class="line">    bcdTime.day = bcdToInt(day, <span class="keyword">sizeof</span>(day));</span><br><span class="line">    bcdTime.hour = bcdToInt(hour, <span class="keyword">sizeof</span>(hour));</span><br><span class="line">    bcdTime.min = bcdToInt(min, <span class="keyword">sizeof</span>(min));</span><br><span class="line">    bcdTime.sec = bcdToInt(sec, <span class="keyword">sizeof</span>(sec));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> bcdTime;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">///bcd转int</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span>  bcdToInt(<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *bcd, <span class="keyword">int</span> length)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> dec = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = ((bcd[i] &gt;&gt; <span class="number">4</span>) &amp; <span class="number">0x0F</span>) * <span class="number">10</span> + (bcd[i] &amp; <span class="number">0x0F</span>);</span><br><span class="line">        dec += tmp * pow(<span class="number">100</span>, length - <span class="number">1</span> - i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dec;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (int16_t)readBCDToYear:(Byte *)dt</span><br><span class="line">&#123;</span><br><span class="line">    Byte *year = dt;</span><br><span class="line">    Byte y_high = year[<span class="number">0</span>];</span><br><span class="line">    Byte y_low = year[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    int16_t high = bcdToInt(&amp;y_high, <span class="keyword">sizeof</span>(y_high));</span><br><span class="line">    int16_t low = bcdToInt(&amp;y_low, <span class="keyword">sizeof</span>(y_low));</span><br><span class="line">    <span class="keyword">return</span> high*<span class="number">100</span>+low;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://keleyundou.github.io/2016/03/16/即时通讯之输入流中读取基本数据/" data-id="cimhs49ot000zof4k4tb88gtf" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/解码/">解码</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/03/25/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hello World
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/03/16/即时通讯之基本数据写入到输出流中/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">即时通讯之基本数据写入到输出流中</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+<!-- disqus -->
+<!--  -->
+
+<!-- duoshuo -->
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"colabean"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/琐碎杂记/">琐碎杂记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/03/30/实现Twitter-UI效果/">译：实现Twitter UI效果</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/25/colabean's-new-blog/">ColaBean&#39;s new Blog</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/16/即时通讯之输入流中读取基本数据/">即时通讯之输入流中读取基本数据</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/16/即时通讯之基本数据写入到输出流中/">即时通讯之基本数据写入到输出流中</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 ColaBean<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/About" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

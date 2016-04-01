@@ -73,6 +73,161 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/" class="article-date">
+  <time datetime="2015-03-20T13:47:56.000Z" itemprop="datePublished">2015-03-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/">使用Xib自定义UIView并在Storyboard中使用AutoLayout</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Xib和Storyboard的使用我就不多叙述。关于如何用Xib自定义一个UIView，并将其添加在ViewController上，使用AutoLayout添加约束条件，使其跟随控制器ViewController的约束条件变化而变化呢？请看下文。</p>
+<p> 1、 创建一个继承UIView的子类TestView和xib文件</p>
+<p> <img src="http://img.blog.csdn.net/20150320213205724" alt width="640"/></p>
+<p> 2、 选中xib中的File’s Owner，设置右边工具栏中的Custom Class为你所创建的文件TesView<br> 3、 在TestView.h中添加一个IBOutlet属性</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@property</span> (<span class="keyword">nonatomic</span>, <span class="keyword">weak</span>) <span class="keyword">IBOutlet</span> <span class="built_in">UIView</span> *view;</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://keleyundou.github.io/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/" data-id="cimhs49o8000dof4kgm1q4121" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- disqus -->
+<!--  -->
+
+<!-- duoshuo -->
+
+
+  
+    <article id="post-2015-03-18-storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/18/2015-03-18-storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/" class="article-date">
+  <time datetime="2015-03-18T04:54:01.000Z" itemprop="datePublished">2015-03-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/18/2015-03-18-storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/">Storyboard中TabBar显示灰色外观的问题</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>现象：</p><br><p>tabbar上的图片不是预期的图标，而是呈现出一个该图标的灰色形状，一眼看上去不是让人舒服。</p>
+
+<p><img src="http://img.blog.csdn.net/20150317152916295" alt="这里写图片描述"></p>
+<p>原因：</p><br>tabbar上的图片本质上不是一个图片，而是一个形状图片。系统对我们使用的图片也只是把其中的形状”扣”出来，其余的背景什么的都不要。因为我们可能给背景加了颜色，所以系统扣的时候只是把背景扣出来了，我们模拟时只看到一个方块，而且还是系统处理过成灰色。<br><br>
+        
+          <p class="article-more-link">
+            <a href="/2015/03/18/2015-03-18-storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://keleyundou.github.io/2015/03/18/2015-03-18-storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/" data-id="cimhs49o2000aof4krbcd9nyj" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- disqus -->
+<!--  -->
+
+<!-- duoshuo -->
+
+
+  
+    <article id="post-2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/03/16/2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/" class="article-date">
+  <time datetime="2015-03-16T06:38:45.000Z" itemprop="datePublished">2015-03-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/03/16/2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/">iOS系统兼容性需求的方法</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="iOS系统兼容性需求的方法"><a href="#iOS系统兼容性需求的方法" class="headerlink" title="iOS系统兼容性需求的方法"></a>iOS系统兼容性需求的方法</h3><p>·判断系统版本，按运行时的版本号运行代码</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// System Versioning Preprocessor Macros</span></span><br><span class="line"><span class="meta">#define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)</span></span><br><span class="line"><span class="meta">#define SYSTEM_VERSION_GREATER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)</span></span><br><span class="line"><span class="meta">#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)</span></span><br><span class="line"><span class="meta">#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)</span></span><br><span class="line"><span class="meta">#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)</span></span><br></pre></td></tr></table></figure>
+<p>使用:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (SYSTEMVERSIONLESS_THAN(@“<span class="number">5.0</span>”)) </span><br><span class="line">&#123; </span><br><span class="line">	<span class="comment">//系统版本小于5.0...</span></span><br><span class="line">	Do something... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://keleyundou.github.io/2015/03/16/2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/" data-id="cimhs49o10009of4kq34vgmg5" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- disqus -->
+<!--  -->
+
+<!-- duoshuo -->
+
+
+  
     <article id="post-2015-03-13-ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/03/13/2015-03-13-ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/" class="article-date">
@@ -113,7 +268,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2015/03/13/2015-03-13-ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/" data-id="cimhqgusz00029h4kvnn5qere" class="article-share-link">Share</a>
+      <a data-url="http://keleyundou.github.io/2015/03/13/2015-03-13-ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/" data-id="cimhs49nv0006of4krk0mxvy5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -171,9 +326,64 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2015/03/13/2015-03-13-mac-os-x-chang-yong-ming-ling/" data-id="cimhqgut500059h4kvd6r7m8k" class="article-share-link">Share</a>
+      <a data-url="http://keleyundou.github.io/2015/03/13/2015-03-13-mac-os-x-chang-yong-ming-ling/" data-id="cimhs49ny0007of4k44hltv8v" class="article-share-link">Share</a>
       
       
+    </footer>
+  </div>
+  
+</article>
+
+<!-- disqus -->
+<!--  -->
+
+<!-- duoshuo -->
+
+
+  
+    <article id="post-网络实时监控" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/01/网络实时监控/" class="article-date">
+  <time datetime="2014-04-01T13:22:08.000Z" itemprop="datePublished">2014-04-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/琐碎杂记/">琐碎杂记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2014/04/01/网络实时监控/">网络实时监控</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在做项目时我们对网络监听是必不可少的，那么今天我们就来学习下如何对网络的状态进行实时监听。</p>
+<p>首先，添加第三方<code>Reachability</code>，在自己的工程中加入需要添加<code>Systemconfiguration.framework</code>系统库。</p>
+<p>选择<code>#import&quot;AppDelegate.m&quot;</code>文件，在<code>didFinishLaunchingWithOptions</code>方法中添加如下代码：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//网络检测****************</span></span><br><span class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span>  selector:<span class="keyword">@selector</span>(reachabilityChanged:) name: kReachabilityChangedNotification object: <span class="literal">nil</span>];</span><br><span class="line">hostReach = [Reachability reachabilityWithHostName:<span class="string">@"www.baidu.com"</span>];</span><br><span class="line">[hostReach startNotifier];</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2014/04/01/网络实时监控/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://keleyundou.github.io/2014/04/01/网络实时监控/" data-id="cimhs49oy0011of4kecev7ez3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reachability/">Reachability</a></li></ul>
+
     </footer>
   </div>
   
@@ -209,7 +419,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a></li></ul>
     </div>
   </div>
 
@@ -234,11 +444,11 @@
           </li>
         
           <li>
-            <a href="/2015/08/18/iOS开发之Quartz2D生成PDF-Part2/">iOS开发之Quartz2D生成PDF-Part2</a>
+            <a href="/2016/03/16/即时通讯之输入流中读取基本数据/">即时通讯之输入流中读取基本数据</a>
           </li>
         
           <li>
-            <a href="/2015/08/17/iOS开发之Quartz2D生成PDF-Part1/">iOS开发之Quartz2D生成PDF-Part1</a>
+            <a href="/2016/03/16/即时通讯之基本数据写入到输出流中/">即时通讯之基本数据写入到输出流中</a>
           </li>
         
       </ul>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>网络实时监控 | ColaBean&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在做项目时我们对网络监听是必不可少的，那么今天我们就来学习下如何对网络的状态进行实时监听。
+首先，添加第三方Reachability，在自己的工程中加入需要添加Systemconfiguration.framework系统库。
+选择#import&amp;quot;AppDelegate.m&amp;quot;文件，在didFinishLaunchingWithOptions方法中添加如下代码：
+1234//网络">
+<meta property="og:type" content="article">
+<meta property="og:title" content="网络实时监控">
+<meta property="og:url" content="http://keleyundou.github.io/2014/04/01/网络实时监控/index.html">
+<meta property="og:site_name" content="ColaBean's Blog">
+<meta property="og:description" content="在做项目时我们对网络监听是必不可少的，那么今天我们就来学习下如何对网络的状态进行实时监听。
+首先，添加第三方Reachability，在自己的工程中加入需要添加Systemconfiguration.framework系统库。
+选择#import&amp;quot;AppDelegate.m&amp;quot;文件，在didFinishLaunchingWithOptions方法中添加如下代码：
+1234//网络">
+<meta property="og:updated_time" content="2016-04-01T13:47:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="网络实时监控">
+<meta name="twitter:description" content="在做项目时我们对网络监听是必不可少的，那么今天我们就来学习下如何对网络的状态进行实时监听。
+首先，添加第三方Reachability，在自己的工程中加入需要添加Systemconfiguration.framework系统库。
+选择#import&amp;quot;AppDelegate.m&amp;quot;文件，在didFinishLaunchingWithOptions方法中添加如下代码：
+1234//网络">
+  
+    <link rel="alternate" href="/atom.xml" title="ColaBean&#39;s Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <!-- <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css"> -->
+    <link href="http://fonts.useso.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">ColaBean&#39;s Blog</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">苟有恒何必三更睡五更起，最无益莫过一日曝十日寒。</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/About">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://keleyundou.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-网络实时监控" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2014/04/01/网络实时监控/" class="article-date">
+  <time datetime="2014-04-01T13:22:08.000Z" itemprop="datePublished">2014-04-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/琐碎杂记/">琐碎杂记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      网络实时监控
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在做项目时我们对网络监听是必不可少的，那么今天我们就来学习下如何对网络的状态进行实时监听。</p>
+<p>首先，添加第三方<code>Reachability</code>，在自己的工程中加入需要添加<code>Systemconfiguration.framework</code>系统库。</p>
+<p>选择<code>#import&quot;AppDelegate.m&quot;</code>文件，在<code>didFinishLaunchingWithOptions</code>方法中添加如下代码：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//网络检测****************</span></span><br><span class="line">[[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span>  selector:<span class="keyword">@selector</span>(reachabilityChanged:) name: kReachabilityChangedNotification object: <span class="literal">nil</span>];</span><br><span class="line">hostReach = [Reachability reachabilityWithHostName:<span class="string">@"www.baidu.com"</span>];</span><br><span class="line">[hostReach startNotifier];</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)reachabilityChanged:(<span class="built_in">NSNotification</span>*)note&#123;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"==_=="</span>);</span><br><span class="line">    Reachability* curReach= [note object];</span><br><span class="line">    <span class="built_in">NSParameterAssert</span>([curReach isKindOfClass: [Reachability class]]);</span><br><span class="line">    [<span class="keyword">self</span> updateInterfaceWithReachability:curReach];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 更新网络状态</span></span><br><span class="line">- (<span class="keyword">void</span>)updateInterfaceWithReachability: (Reachability*)curReach</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//对连接改变做出响应的处理动作。</span></span><br><span class="line"></span><br><span class="line">    NetworkStatus status=[curReach currentReachabilityStatus];</span><br><span class="line">    <span class="built_in">NSUserDefaults</span> * user =[<span class="built_in">NSUserDefaults</span> standardUserDefaults];</span><br><span class="line">    <span class="keyword">if</span> (status== NotReachable) &#123; <span class="comment">//没有连接到网络就弹出提实况</span></span><br><span class="line">        [user removeObjectForKey:<span class="string">@"network"</span>];</span><br><span class="line">        [user setBool:<span class="literal">NO</span> forKey:<span class="string">@"network"</span>];</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span> showAlert:<span class="string">@"网络连接被断开"</span>];</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        [user removeObjectForKey:<span class="string">@"network"</span>];</span><br><span class="line">        [user setBool:<span class="literal">YES</span> forKey:<span class="string">@"network"</span>];</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span> showAlert:<span class="string">@"网络连接成功"</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%@"</span>,[user objectForKey:<span class="string">@"network"</span>]);</span><br><span class="line"></span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter]postNotificationName:<span class="string">@"network"</span> object:user];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">-(<span class="keyword">void</span>)showAlert:(<span class="built_in">NSString</span> *)message&#123;</span><br><span class="line">    <span class="built_in">UIAlertView</span>*alert= [[<span class="built_in">UIAlertView</span> alloc] initWithTitle:message</span><br><span class="line">                                                                  message:<span class="literal">nil</span> delegate:<span class="literal">nil</span></span><br><span class="line">                                                      cancelButtonTitle:<span class="string">@"确定"</span>otherButtonTitles:<span class="literal">nil</span>];</span><br><span class="line">    [alert show];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再选择<code>#import&quot;ViewController.m&quot;</code>文件，在此<code>viewDidLoad</code>中添加注册通知:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)viewDidLoad</span><br><span class="line">&#123;</span><br><span class="line">    [<span class="keyword">super</span> viewDidLoad];</span><br><span class="line">    <span class="comment">// Do any additional setup after loading the view.</span></span><br><span class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(network:) name:<span class="string">@"network"</span> object:<span class="literal">nil</span>];</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-(<span class="keyword">void</span>)network:(<span class="built_in">NSNotification</span> *)note&#123;</span><br><span class="line">     <span class="keyword">id</span> obj = [note object];<span class="comment">//获取到传递的对象</span></span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"---%@-----"</span>,[obj objectForKey:<span class="string">@"network"</span>]);</span><br><span class="line">    <span class="built_in">BOOL</span> isOpen = [[obj objectForKey:<span class="string">@"network"</span>] intValue];</span><br><span class="line">    <span class="built_in">NSLog</span>(<span class="string">@"%d"</span>,isOpen);</span><br><span class="line">    <span class="keyword">if</span> (isOpen) &#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"--有网络--"</span>);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"--无网络--"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最近学会的一个怎么实现网络实时监控的简易方法。欢迎大家能指出其中不恰当的地方。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://keleyundou.github.io/2014/04/01/网络实时监控/" data-id="cimhs49oy0011of4kecev7ez3" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reachability/">Reachability</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/03/13/2015-03-13-mac-os-x-chang-yong-ming-ling/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Mac OS X 常用命令
+        
+      </div>
+    </a>
+  
+  
+</nav>
+
+  
+</article>
+
+<!-- disqus -->
+<!--  -->
+
+<!-- duoshuo -->
+
+<section id="comments">
+  <!-- Duoshuo Comment BEGIN -->
+  <div class="ds-thread"></div>
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"colabean"};
+        (function() {
+          var ds = document.createElement('script');
+          ds.type = 'text/javascript';ds.async = true;
+          ds.src = 'http://static.duoshuo.com/embed.js';
+          ds.charset = 'UTF-8';
+          (document.getElementsByTagName('head')[0]
+          || document.getElementsByTagName('body')[0]).appendChild(ds);
+        })();
+  </script>
+<!-- Duoshuo Comment END -->
+</section>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/iOS/">iOS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/琐碎杂记/">琐碎杂记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/03/30/实现Twitter-UI效果/">译：实现Twitter UI效果</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/25/colabean's-new-blog/">ColaBean&#39;s new Blog</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/25/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/16/即时通讯之输入流中读取基本数据/">即时通讯之输入流中读取基本数据</a>
+          </li>
+        
+          <li>
+            <a href="/2016/03/16/即时通讯之基本数据写入到输出流中/">即时通讯之基本数据写入到输出流中</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2016 ColaBean<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/About" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
