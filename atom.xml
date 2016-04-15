@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://keleyundou.github.io/"/>
-  <updated>2016-04-01T12:33:40.000Z</updated>
+  <updated>2016-04-15T06:29:01.000Z</updated>
   <id>http://keleyundou.github.io/</id>
   
   <author>
@@ -14,6 +14,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>iOS8 App Groups 数据共享</title>
+    <link href="http://keleyundou.github.io/2016/04/15/iOS8-App-Groups-%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB/"/>
+    <id>http://keleyundou.github.io/2016/04/15/iOS8-App-Groups-数据共享/</id>
+    <published>2016-04-15T06:09:44.000Z</published>
+    <updated>2016-04-15T06:29:01.000Z</updated>
+    
+    <content type="html">&lt;p&gt;一般情况下，APP之间很难直接通信，即便是&lt;code&gt;AppExtension&lt;/code&gt; 与&lt;code&gt;host App&lt;/code&gt; 之间也不能直接通信。事无绝对，APP之间的数据共享有2种方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;KeyChain&lt;/li&gt;
+&lt;li&gt;App Groups&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面我们就讲讲如何通过&lt;code&gt;App Groups&lt;/code&gt;这个功能进行APP之间通信的。&lt;br&gt;&lt;a id=&quot;more&quot;&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Step-1-创建一个工程&quot;&gt;&lt;a href=&quot;#Step-1-创建一个工程&quot; class=&quot;headerlink&quot; title=&quot;Step 1 创建一个工程&quot;&gt;&lt;/a&gt;Step 1 创建一个工程&lt;/h2&gt;&lt;p&gt;用&lt;code&gt;Xcode&lt;/code&gt;创建&lt;code&gt;Single View Application&lt;/code&gt;下的一个工程，工程名是&lt;code&gt;CBAppGroupSimeple&lt;/code&gt;。如图：&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7pn4xs.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-04-15%2011%E6%97%B618%E5%88%8620%E7%A7%92.png&quot; width=&quot;400&quot; alt=&quot;创建工程&quot;&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;Step-2-添加AppGroup&quot;&gt;&lt;a href=&quot;#Step-2-添加AppGroup&quot; class=&quot;headerlink&quot; title=&quot;Step 2 添加AppGroup&quot;&gt;&lt;/a&gt;Step 2 添加&lt;code&gt;AppGroup&lt;/code&gt;&lt;/h2&gt;&lt;p&gt;进入&lt;code&gt;Target&lt;/code&gt;，选择&lt;code&gt;Capabilities&lt;/code&gt; -&amp;gt; &lt;code&gt;App Groups&lt;/code&gt;（使用此功能的前提是具备开发者账号）。接下来，点击&lt;code&gt;+&lt;/code&gt;添加一个唯一标识，例如：&lt;code&gt;group.xxx.xxx&lt;/code&gt;，然后勾上左侧的复选框。如图：&lt;/p&gt;
+&lt;p&gt;图一：&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7pn4xs.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-04-15%2011%E6%97%B645%E5%88%8607%E7%A7%92.png&quot; ,=&quot;&quot; width=&quot;600&quot; alt=&quot;选择开发者账号&quot;&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;图二：&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7pn4xs.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-04-15%2011%E6%97%B647%E5%88%8610%E7%A7%92.png&quot; ,=&quot;&quot; width=&quot;400&quot; alt=&quot;添加group&quot;&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;Step-3-共享数据&quot;&gt;&lt;a href=&quot;#Step-3-共享数据&quot; class=&quot;headerlink&quot; title=&quot;Step 3 共享数据&quot;&gt;&lt;/a&gt;Step 3 共享数据&lt;/h2&gt;&lt;p&gt;在实现此功能前，我们先简单布局一下&lt;code&gt;UI&lt;/code&gt;。往&lt;code&gt;Storyboard&lt;/code&gt;上添加一个&lt;code&gt;UITextField&lt;/code&gt;和一个&lt;code&gt;UIButton&lt;/code&gt;。给&lt;code&gt;UIButton&lt;/code&gt;添加一个点击事件&lt;code&gt;saveAction:&lt;/code&gt;。具体代码如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;IBAction&lt;/span&gt;)saveAction:(&lt;span class=&quot;keyword&quot;&gt;id&lt;/span&gt;)sender&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;NSUserDefaults&lt;/span&gt; *userDefaults = [[&lt;span class=&quot;built_in&quot;&gt;NSUserDefaults&lt;/span&gt; alloc] initWithSuiteName:&lt;span class=&quot;string&quot;&gt;@&quot;group.colabean.simeple.appgroup&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [userDefaults setObject:&lt;span class=&quot;keyword&quot;&gt;self&lt;/span&gt;.inputTextField.text forKey:&lt;span class=&quot;string&quot;&gt;@&quot;kCBSharedData&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;Run&lt;/code&gt;一下工程，输入一些数据，点击&lt;code&gt;Save&lt;/code&gt;按钮。&lt;/p&gt;
+&lt;h2 id=&quot;Step-4-获取共享的数据&quot;&gt;&lt;a href=&quot;#Step-4-获取共享的数据&quot; class=&quot;headerlink&quot; title=&quot;Step 4 获取共享的数据&quot;&gt;&lt;/a&gt;Step 4 获取共享的数据&lt;/h2&gt;&lt;p&gt;我们重复&lt;code&gt;Step 1&lt;/code&gt;，&lt;code&gt;Step 2&lt;/code&gt;，创建另一个&lt;code&gt;Simple&lt;/code&gt;，工程名是&lt;code&gt;CBAppGroupOtherSimple&lt;/code&gt;，添加&lt;code&gt;AppGroup&lt;/code&gt;并将上一个工程中创建的唯一标识（&lt;code&gt;group.colabean.simeple.appgroup&lt;/code&gt;）勾上。&lt;/p&gt;
+&lt;p&gt;在我们的&lt;code&gt;viewDidLoad:&lt;/code&gt;中获取共享的数据，代码如下：&lt;/p&gt;
+&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)viewDidLoad &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [&lt;span class=&quot;keyword&quot;&gt;super&lt;/span&gt; viewDidLoad];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;comment&quot;&gt;// Do any additional setup after loading the view, typically from a nib.&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;NSUserDefaults&lt;/span&gt; *userDefaults = [[&lt;span class=&quot;built_in&quot;&gt;NSUserDefaults&lt;/span&gt; alloc] initWithSuiteName:&lt;span class=&quot;string&quot;&gt;@&quot;group.colabean.simeple.appgroup&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;NSString&lt;/span&gt; *content = [userDefaults objectForKey:&lt;span class=&quot;string&quot;&gt;@&quot;kCBSharedData&quot;&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;built_in&quot;&gt;NSLog&lt;/span&gt;(&lt;span class=&quot;string&quot;&gt;@&quot;shared data: %@&quot;&lt;/span&gt;, content);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;&lt;code&gt;Run&lt;/code&gt;一下工程，将会立即获取到从&lt;code&gt;CBAppGroupSimple&lt;/code&gt;工程中共享的数据。如图：&lt;/p&gt;
+&lt;p align=&quot;center&quot;&gt;&lt;br&gt;&lt;img src=&quot;http://7pn4xs.com1.z0.glb.clouddn.com/%E6%88%AA%E5%9B%BE%202016-04-15%2012%E6%97%B610%E5%88%8658%E7%A7%92.png&quot; width=&quot;500&quot; alt=&quot;打印结果&quot;&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;就是这么简单任性。&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://github.com/keleyundou/ColaBeanSimple/tree/master/App%20Groups&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;DownLoadSimple&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;Reference&quot;&gt;&lt;a href=&quot;#Reference&quot; class=&quot;headerlink&quot; title=&quot;Reference&quot;&gt;&lt;/a&gt;Reference&lt;/h2&gt;&lt;blockquote&gt;
+&lt;p&gt;&lt;a href=&quot;http://www.theappguruz.com/blog/ios8-app-groups&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://www.theappguruz.com/blog/ios8-app-groups&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;一般情况下，APP之间很难直接通信，即便是&lt;code&gt;AppExtension&lt;/code&gt; 与&lt;code&gt;host App&lt;/code&gt; 之间也不能直接通信。事无绝对，APP之间的数据共享有2种方法：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;KeyChain&lt;/li&gt;
+&lt;li&gt;App Groups&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;下面我们就讲讲如何通过&lt;code&gt;App Groups&lt;/code&gt;这个功能进行APP之间通信的。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
+    
+    
+      <category term="Tutorial" scheme="http://keleyundou.github.io/tags/Tutorial/"/>
+    
+      <category term="AppGroups" scheme="http://keleyundou.github.io/tags/AppGroups/"/>
+    
+  </entry>
   
   <entry>
     <title>译：实现Twitter UI效果</title>
@@ -490,9 +549,9 @@
       <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
     
     
-      <category term="PDF" scheme="http://keleyundou.github.io/tags/PDF/"/>
-    
       <category term="Tutorial" scheme="http://keleyundou.github.io/tags/Tutorial/"/>
+    
+      <category term="PDF" scheme="http://keleyundou.github.io/tags/PDF/"/>
     
   </entry>
   
@@ -537,9 +596,9 @@
       <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
     
     
-      <category term="PDF" scheme="http://keleyundou.github.io/tags/PDF/"/>
-    
       <category term="Tutorial" scheme="http://keleyundou.github.io/tags/Tutorial/"/>
+    
+      <category term="PDF" scheme="http://keleyundou.github.io/tags/PDF/"/>
     
   </entry>
   
