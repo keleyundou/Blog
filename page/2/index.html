@@ -91,6 +91,62 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-2015-04-21-assign,-copy,-retaindeng-guan-jian-zi-de-han-yi" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/21/2015-04-21-assign,-copy,-retaindeng-guan-jian-zi-de-han-yi/" class="article-date">
+  <time datetime="2015-04-21T06:06:31.000Z" itemprop="datePublished">2015-04-21</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/iOS/">iOS</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/04/21/2015-04-21-assign,-copy,-retaindeng-guan-jian-zi-de-han-yi/">assign、copy、retain等关键字的含义</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>assign:简单赋值，不更改索引计数</p>
+<p>copy:建立一个索引计数为1的对象，然后释放旧对象</p>
+<p>retain:释放就对象，将旧对象的值赋予输入对象，再将输入对象的索引计数加1</p>
+<p>copy 其实就是建立了一个相同的对象，而retain不是：</p>
+<p>比如，一个NSString对象，地址为0x1111，内容为@”Hello，world！”；copy到另一个NSString对象之后，地址为0x2222，内容相同，新的对象retain为1，旧的对象索引计数没用变化。</p>
+<p>retain到另一个NSString对象之后，地址相同（建立一个指针，指针拷贝），内容相同，这个对象的retain值+1</p>
+<p>也就是说，retain是指针拷贝，而copy是内容拷贝。拷贝之前都会将旧的对象给释放掉。<br>
+        
+          <p class="article-more-link">
+            <a href="/2015/04/21/2015-04-21-assign,-copy,-retaindeng-guan-jian-zi-de-han-yi/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://keleyundou.github.io/2015/04/21/2015-04-21-assign,-copy,-retaindeng-guan-jian-zi-de-han-yi/" data-id="cir63za6f0008fq4k8yx4hxw0" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+<!-- disqus -->
+<!--  -->
+
+<!-- duoshuo -->
+
+
+  
     <article id="post-2015-04-01-duo-tai-dian-nao-xie-bo-ke-zhi-bo-ke-ke-long" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2015/04/01/2015-04-01-duo-tai-dian-nao-xie-bo-ke-zhi-bo-ke-ke-long/" class="article-date">
@@ -128,7 +184,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2015/04/01/2015-04-01-duo-tai-dian-nao-xie-bo-ke-zhi-bo-ke-ke-long/" data-id="cin1bhfhq000c0a4kd4uocvtj" class="article-share-link">Share</a>
+      <a data-url="http://keleyundou.github.io/2015/04/01/2015-04-01-duo-tai-dian-nao-xie-bo-ke-zhi-bo-ke-ke-long/" data-id="cir63za6r000jfq4k2z9thaoa" class="article-share-link">Share</a>
       
       
     </footer>
@@ -182,7 +238,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/" data-id="cin1bhfho000a0a4kr9zqoi2a" class="article-share-link">Share</a>
+      <a data-url="http://keleyundou.github.io/2015/03/20/2015-03-20-shi-yong-xibzi-ding-yi-uiviewbing-zai-storyboardzhong-shi-yong-autolayout/" data-id="cir63za6u000pfq4k3zsuiz45" class="article-share-link">Share</a>
       
       
     </footer>
@@ -235,7 +291,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2015/03/18/2015-03-18-storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/" data-id="cin1bhfhm00070a4k16bzvz04" class="article-share-link">Share</a>
+      <a data-url="http://keleyundou.github.io/2015/03/18/2015-03-18-storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/" data-id="cir63za6a0005fq4k7f9tgg6f" class="article-share-link">Share</a>
       
       
     </footer>
@@ -283,7 +339,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2015/03/16/2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/" data-id="cin1bhfhl00060a4k5hf8ib7r" class="article-share-link">Share</a>
+      <a data-url="http://keleyundou.github.io/2015/03/16/2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/" data-id="cir63za680004fq4kmcmpymmh" class="article-share-link">Share</a>
       
       
     </footer>
@@ -338,7 +394,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2015/03/13/2015-03-13-ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/" data-id="cin1bhfhe00020a4k5lz0wtrl" class="article-share-link">Share</a>
+      <a data-url="http://keleyundou.github.io/2015/03/13/2015-03-13-ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/" data-id="cir63za5x0000fq4k02akwaya" class="article-share-link">Share</a>
       
       
     </footer>
@@ -396,7 +452,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2015/03/13/2015-03-13-mac-os-x-chang-yong-ming-ling/" data-id="cin1bhfhj00050a4kefmv3e9z" class="article-share-link">Share</a>
+      <a data-url="http://keleyundou.github.io/2015/03/13/2015-03-13-mac-os-x-chang-yong-ming-ling/" data-id="cir63za630002fq4kgfflzdr8" class="article-share-link">Share</a>
       
       
     </footer>
@@ -449,7 +505,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2014/04/01/网络实时监控/" data-id="cin1bhfif00100a4kylpsnko3" class="article-share-link">Share</a>
+      <a data-url="http://keleyundou.github.io/2014/04/01/网络实时监控/" data-id="cir63za7a0016fq4kt6fec5mr" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Reachability/">Reachability</a></li></ul>
@@ -490,7 +546,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/07/">七月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/04/">四月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/03/">三月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">一月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/08/">八月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">四月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/03/">三月 2015</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/04/">四月 2014</a></li></ul>
     </div>
   </div>
 
@@ -501,6 +557,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/07/28/iOS开发之正则入门/">iOS开发之正则入门</a>
+          </li>
         
           <li>
             <a href="/2016/04/15/iOS8-App-Groups-数据共享/">iOS8 App Groups 数据共享</a>
@@ -516,10 +576,6 @@
         
           <li>
             <a href="/2016/03/25/hello-world/">Hello World</a>
-          </li>
-        
-          <li>
-            <a href="/2016/03/16/即时通讯之输入流中读取基本数据/">即时通讯之输入流中读取基本数据</a>
           </li>
         
       </ul>
