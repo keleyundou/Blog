@@ -87,21 +87,21 @@
 
 
 <meta name="description" content="语法
-‘^’ 、’$’ 分别表示匹配字符串的开始和结束
+&amp;#39;^&amp;#39; 、&amp;#39;$&amp;#39; 分别表示匹配字符串的开始和结束
 
-eg: “^one”
+eg: &amp;quot;^one&amp;quot;
 
 以one开头的字符串
 
-eg: “two$”
+eg: &amp;quot;two$&amp;quot;
 
 以two结尾的字符串
 
-eg: “^apple$”
+eg: &amp;quot;^apple$&amp;quot;
 
 以apple开头和结尾的字符串
 
-eg: “banana”
+eg: &amp;quot;banana&amp;quot;
 
 表示包含banana的字符串">
 <meta property="og:type" content="article">
@@ -109,42 +109,42 @@ eg: “banana”
 <meta property="og:url" content="http://keleyundou.github.io/2016/07/28/iOS开发之正则入门/index.html">
 <meta property="og:site_name" content="ColaBean's Blog">
 <meta property="og:description" content="语法
-‘^’ 、’$’ 分别表示匹配字符串的开始和结束
+&amp;#39;^&amp;#39; 、&amp;#39;$&amp;#39; 分别表示匹配字符串的开始和结束
 
-eg: “^one”
+eg: &amp;quot;^one&amp;quot;
 
 以one开头的字符串
 
-eg: “two$”
+eg: &amp;quot;two$&amp;quot;
 
 以two结尾的字符串
 
-eg: “^apple$”
+eg: &amp;quot;^apple$&amp;quot;
 
 以apple开头和结尾的字符串
 
-eg: “banana”
+eg: &amp;quot;banana&amp;quot;
 
 表示包含banana的字符串">
-<meta property="og:updated_time" content="2016-07-28T09:43:04.000Z">
+<meta property="og:updated_time" content="2016-07-28T10:09:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之正则入门">
 <meta name="twitter:description" content="语法
-‘^’ 、’$’ 分别表示匹配字符串的开始和结束
+&amp;#39;^&amp;#39; 、&amp;#39;$&amp;#39; 分别表示匹配字符串的开始和结束
 
-eg: “^one”
+eg: &amp;quot;^one&amp;quot;
 
 以one开头的字符串
 
-eg: “two$”
+eg: &amp;quot;two$&amp;quot;
 
 以two结尾的字符串
 
-eg: “^apple$”
+eg: &amp;quot;^apple$&amp;quot;
 
 以apple开头和结尾的字符串
 
-eg: “banana”
+eg: &amp;quot;banana&amp;quot;
 
 表示包含banana的字符串">
 
@@ -339,141 +339,143 @@ eg: “banana”
 
       
         <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul>
-<li>‘^’ 、’$’ 分别表示匹配字符串的开始和结束</li>
+<li><code>&#39;^&#39;</code> 、<code>&#39;$&#39;</code> 分别表示匹配字符串的开始和结束</li>
 </ul>
-<p>eg: “^one”</p>
+<p>eg: <code>&quot;^one&quot;</code></p>
 <blockquote>
 <p>以one开头的字符串</p>
 </blockquote>
-<p>eg: “two$”</p>
+<p>eg: <code>&quot;two$&quot;</code></p>
 <blockquote>
 <p>以two结尾的字符串</p>
 </blockquote>
-<p>eg: “^apple$”</p>
+<p>eg: <code>&quot;^apple$&quot;</code></p>
 <blockquote>
 <p>以<code>apple</code>开头和结尾的字符串</p>
 </blockquote>
-<p>eg: “banana”</p>
+<p>eg: <code>&quot;banana&quot;</code></p>
 <blockquote>
 <p>表示包含<code>banana</code>的字符串</p>
 </blockquote>
 <a id="more"></a>
 <ul>
-<li>‘*’、’+’、’?’ 分别表示[0, +∞), [1, +∞), [0,1]</li>
+<li><code>&#39;*&#39;</code>、<code>&#39;+&#39;</code>、<code>&#39;?&#39;</code> 分别表示[0, +∞), [1, +∞), [0,1]</li>
 </ul>
-<p>eg: “ab*”</p>
+<p>eg: <code>&quot;ab*&quot;</code></p>
 <blockquote>
 <p>字符串中有一个<code>a</code>其后跟着零或多个<code>b</code></p>
 </blockquote>
-<p>eg: “ab+”</p>
+<p>eg: <code>&quot;ab+&quot;</code></p>
 <blockquote>
 <p>字符串中有一个<code>a</code>其后跟着一或多个<code>b</code></p>
 </blockquote>
-<p>eg: “ab?”</p>
+<p>eg: <code>&quot;ab?&quot;</code></p>
 <blockquote>
 <p>字符串中有一个<code>a</code>其后跟着零或多个<code>b</code></p>
 </blockquote>
-<p>eg: “a?b+$”</p>
+<p>eg: <code>&quot;a?b+$&quot;</code></p>
 <blockquote>
 <p>字符串中的结尾最多有一个<code>a</code>且其后跟着至少有一个<code>b</code></p>
 </blockquote>
 <ul>
-<li>‘{}’ 表示一个重复的范围</li>
+<li><code>&#39;{}&#39;</code> 表示一个重复的范围</li>
 </ul>
-<p>eg: “ab{4}”</p>
+<p>eg: <code>&quot;ab{4}&quot;</code></p>
 <blockquote>
 <p>字符串中有一个<code>a</code>其后跟着4个<code>b</code></p>
 </blockquote>
-<p>eg: “ab{1,}”</p>
+<p>eg: <code>&quot;ab{1,}&quot;</code></p>
 <blockquote>
 <p>字符串中有一个<code>a</code>其后跟着至少一个<code>b</code></p>
 </blockquote>
-<p>eg: “ab{3,4}”</p>
+<p>eg: <code>&quot;ab{3,4}&quot;</code></p>
 <blockquote>
 <p>字符串中有一个<code>a</code>其后跟着3到4个<code>b</code></p>
-<hr>
-<p>PS:</p>
-<p>‘*’ === {0, +∞}</p>
-<p>‘+’ === {1, +∞}</p>
-<p>‘?’ === {0, 1}</p>
-<hr>
 </blockquote>
+<hr>
+<blockquote>
+<p>PS:</p>
+<p><code>&#39;*&#39;</code> === {0, +∞}</p>
+<p><code>&#39;+&#39;</code> === {1, +∞}</p>
+<p><code>&#39;?&#39;</code> === {0, 1}</p>
+</blockquote>
+<hr>
 <ul>
-<li>‘|’ 表示或</li>
+<li><code>&#39;|&#39;</code> 表示或</li>
 </ul>
-<p>eg: “a|b”</p>
+<p>eg: <code>&quot;a|b&quot;</code></p>
 <blockquote>
 <p>字符串中存在<code>a</code>或<code>b</code>，两者不能同时存在</p>
 </blockquote>
-<p>eg: “(a|bcd)ef”</p>
+<p>eg: <code>&quot;(a|bcd)ef&quot;</code></p>
 <blockquote>
 <p>表示”aef”或”bcdef”</p>
 </blockquote>
-<p>eg: “(a|b)*c”</p>
+<p>eg: <code>&quot;(a|b)*c&quot;</code></p>
 <blockquote>
 <p>字符串中混有零或多个<code>a</code> <code>b</code>，紧跟<code>c</code></p>
 </blockquote>
 <ul>
-<li>‘[]’ 表示方括号内选择1-N个符合语法的字符有且仅选一个</li>
+<li><code>&#39;[]&#39;</code> 表示方括号内选择1-N个符合语法的字符有且仅选一个</li>
 </ul>
-<p>eg: [ab]</p>
+<p>eg: <code>&quot;[ab]&quot;</code></p>
 <blockquote>
 <p>字符串中有一个<code>a</code>或<code>b</code> === “a|b”</p>
 </blockquote>
-<p>eg: [a-d]</p>
+<p>eg: <code>&quot;[a-d]&quot;</code></p>
 <blockquote>
 <p>字符串中含有一个<code>a</code>到<code>d</code>的字母</p>
 </blockquote>
-<p>eg: ^[a-zA-Z]</p>
+<p>eg: <code>&quot;^[a-zA-Z]&quot;</code></p>
 <blockquote>
 <p>字符串已字母开头</p>
 </blockquote>
-<p>eg: “[0-9]a”</p>
+<p>eg: <code>&quot;[0-9]a&quot;</code></p>
 <blockquote>
 <p>字母<code>a</code>的前面含有一个数字</p>
 </blockquote>
-<p>eg: “[a-zA-Z0-9]$”</p>
+<p>eg: <code>&quot;[a-zA-Z0-9]$&quot;</code></p>
 <blockquote>
 <p>字符串以一个字母数字结束</p>
 </blockquote>
 <ul>
-<li>‘.’ 表示匹配除换行（\r\n）之外的单个字符</li>
+<li><code>&#39;.&#39;</code> 表示匹配除换行（\r\n）之外的单个字符</li>
 </ul>
-<p>eg: “a.[a-z]”</p>
+<p>eg: <code>&quot;a.[a-z]&quot;</code></p>
 <blockquote>
 <p>字符串中有一个<code>a</code>后面跟着一个任意字符和一个小写字母</p>
 </blockquote>
-<p>eg: “^.{5}$”</p>
+<p>eg: <code>&quot;^.{5}$&quot;</code></p>
 <blockquote>
 <p>任意一个长度为5的字符串</p>
 </blockquote>
 <ul>
-<li>‘\num’ 表示<code>&quot;\num&quot;</code>之前的字符重复的个数，其中<code>num</code>表示一个正整数，</li>
+<li><code>&#39;\num&#39;</code> 表示<code>&quot;\num&quot;</code>之前的字符重复的个数，其中<code>num</code>表示一个正整数，</li>
 </ul>
-<p>eg: “(.)|1”</p>
+<p>eg: <code>&quot;(.)|1&quot;</code></p>
 <blockquote>
 <p>2个连续的相同字符???</p>
 </blockquote>
-<p>eg: “10{1,2}”</p>
+<p>eg: <code>&quot;10\{1,2}&quot;</code></p>
 <blockquote>
 <p>数字1后面跟着1或2个0</p>
 </blockquote>
-<p>eg: “0{3,}”</p>
+<p>eg: <code>&quot;0\{3,}&quot;</code></p>
 <blockquote>
 <p>数字0后面跟着3或更多的0</p>
 </blockquote>
 <ul>
-<li>[^x] 表示不期望出现的一个字符(x)</li>
+<li><code>[^x]</code> 表示不期望出现的一个字符(x)</li>
 </ul>
-<p>eg: “@[^a-zA-Z]@”</p>
+<p>eg: <code>&quot;@[^a-zA-Z]@&quot;</code></p>
 <blockquote>
 <p>两个<code>@</code>中不希望出现字母</p>
 </blockquote>
 <ul>
-<li>‘\d’ 匹配一个数字字符 === [0-9]</li>
-<li>‘\D’ 匹配一个非数字字符 === [^0-9]</li>
-<li>‘\w’ 匹配字母数字下划线 === [a-zA-Z0-9_]</li>
-<li>‘\W’ 匹配非字母数字下划线汉字</li>
+<li><code>&#39;\d&#39;</code> 匹配一个数字字符 === [0-9]</li>
+<li><code>&#39;\D&#39;</code> 匹配一个非数字字符 === [^0-9]</li>
+<li><code>&#39;\w&#39;</code> 匹配字母数字下划线 === [a-zA-Z0-9_]</li>
+<li><code>&#39;\W&#39;</code> 匹配非字母数字下划线汉字</li>
 </ul>
 <hr>
 <blockquote>
