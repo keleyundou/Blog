@@ -5,16 +5,88 @@
   
   <title>iOS开发之正则入门 | ColaBean&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ColaBean&apos;s Blog">
+  <meta name="description" content="语法
+‘^’ 、’$’ 分别表示匹配字符串的开始和结束
+
+eg: “^one”
+
+以one开头的字符串
+
+eg: “two$”
+
+以two结尾的字符串
+
+eg: “^apple$”
+
+以apple开头和结尾的字符串
+
+eg: “banana”
+
+表示包含banana的字符串
+
+
+‘*’、’+’、’?’ 分别表示[0, +∞), [1, +∞), [0,1]
+
+eg: “ab*”
+
+字符串中有一个a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS开发之正则入门">
 <meta property="og:url" content="http://keleyundou.github.io/2016/07/28/iOS开发之正则入门/index.html">
 <meta property="og:site_name" content="ColaBean's Blog">
-<meta property="og:description" content="ColaBean&apos;s Blog">
-<meta property="og:updated_time" content="2016-07-28T09:15:47.000Z">
+<meta property="og:description" content="语法
+‘^’ 、’$’ 分别表示匹配字符串的开始和结束
+
+eg: “^one”
+
+以one开头的字符串
+
+eg: “two$”
+
+以two结尾的字符串
+
+eg: “^apple$”
+
+以apple开头和结尾的字符串
+
+eg: “banana”
+
+表示包含banana的字符串
+
+
+‘*’、’+’、’?’ 分别表示[0, +∞), [1, +∞), [0,1]
+
+eg: “ab*”
+
+字符串中有一个a">
+<meta property="og:updated_time" content="2016-07-28T09:29:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发之正则入门">
-<meta name="twitter:description" content="ColaBean&apos;s Blog">
+<meta name="twitter:description" content="语法
+‘^’ 、’$’ 分别表示匹配字符串的开始和结束
+
+eg: “^one”
+
+以one开头的字符串
+
+eg: “two$”
+
+以two结尾的字符串
+
+eg: “^apple$”
+
+以apple开头和结尾的字符串
+
+eg: “banana”
+
+表示包含banana的字符串
+
+
+‘*’、’+’、’?’ 分别表示[0, +∞), [1, +∞), [0,1]
+
+eg: “ab*”
+
+字符串中有一个a">
   
     <link rel="alternate" href="/atom.xml" title="ColaBean&#39;s Blog" type="application/atom+xml">
   
@@ -96,6 +168,10 @@
   <time datetime="2016-07-28T09:15:47.000Z" itemprop="datePublished">2016-07-28</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/琐碎杂记/">琐碎杂记</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -112,13 +188,156 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><ul>
+<li>‘^’ 、’$’ 分别表示匹配字符串的开始和结束</li>
+</ul>
+<p>eg: “^one”</p>
+<blockquote>
+<p>以one开头的字符串</p>
+</blockquote>
+<p>eg: “two$”</p>
+<blockquote>
+<p>以two结尾的字符串</p>
+</blockquote>
+<p>eg: “^apple$”</p>
+<blockquote>
+<p>以<code>apple</code>开头和结尾的字符串</p>
+</blockquote>
+<p>eg: “banana”</p>
+<blockquote>
+<p>表示包含<code>banana</code>的字符串</p>
+</blockquote>
+<ul>
+<li>‘*’、’+’、’?’ 分别表示[0, +∞), [1, +∞), [0,1]</li>
+</ul>
+<p>eg: “ab*”</p>
+<blockquote>
+<p>字符串中有一个<code>a</code>其后跟着零或多个<code>b</code></p>
+</blockquote>
+<p>eg: “ab+”</p>
+<blockquote>
+<p>字符串中有一个<code>a</code>其后跟着一或多个<code>b</code></p>
+</blockquote>
+<p>eg: “ab?”</p>
+<blockquote>
+<p>字符串中有一个<code>a</code>其后跟着零或多个<code>b</code></p>
+</blockquote>
+<p>eg: “a?b+$”</p>
+<blockquote>
+<p>字符串中的结尾最多有一个<code>a</code>且其后跟着至少有一个<code>b</code></p>
+</blockquote>
+<ul>
+<li>‘{}’ 表示一个重复的范围</li>
+</ul>
+<p>eg: “ab{4}”</p>
+<blockquote>
+<p>字符串中有一个<code>a</code>其后跟着4个<code>b</code></p>
+</blockquote>
+<p>eg: “ab{1,}”</p>
+<blockquote>
+<p>字符串中有一个<code>a</code>其后跟着至少一个<code>b</code></p>
+</blockquote>
+<p>eg: “ab{3,4}”</p>
+<blockquote>
+<p>字符串中有一个<code>a</code>其后跟着3到4个<code>b</code></p>
+<hr>
+<p>PS:</p>
+<p>‘*’ === {0, +∞}</p>
+<p>‘+’ === {1, +∞}</p>
+<p>‘?’ === {0, 1}</p>
+<hr>
+</blockquote>
+<ul>
+<li>‘|’ 表示或</li>
+</ul>
+<p>eg: “a|b”</p>
+<blockquote>
+<p>字符串中存在<code>a</code>或<code>b</code>，两者不能同时存在</p>
+</blockquote>
+<p>eg: “(a|bcd)ef”</p>
+<blockquote>
+<p>表示”aef”或”bcdef”</p>
+</blockquote>
+<p>eg: “(a|b)*c”</p>
+<blockquote>
+<p>字符串中混有零或多个<code>a</code> <code>b</code>，紧跟<code>c</code></p>
+</blockquote>
+<ul>
+<li>‘[]’ 表示方括号内选择1-N个符合语法的字符有且仅选一个</li>
+</ul>
+<p>eg: [ab]</p>
+<blockquote>
+<p>字符串中有一个<code>a</code>或<code>b</code> === “a|b”</p>
+</blockquote>
+<p>eg: [a-d]</p>
+<blockquote>
+<p>字符串中含有一个<code>a</code>到<code>d</code>的字母</p>
+</blockquote>
+<p>eg: ^[a-zA-Z]</p>
+<blockquote>
+<p>字符串已字母开头</p>
+</blockquote>
+<p>eg: “[0-9]a”</p>
+<blockquote>
+<p>字母<code>a</code>的前面含有一个数字</p>
+</blockquote>
+<p>eg: “[a-zA-Z0-9]$”</p>
+<blockquote>
+<p>字符串以一个字母数字结束</p>
+</blockquote>
+<ul>
+<li>‘.’ 表示匹配除换行（\r\n）之外的单个字符</li>
+</ul>
+<p>eg: “a.[a-z]”</p>
+<blockquote>
+<p>字符串中有一个<code>a</code>后面跟着一个任意字符和一个小写字母</p>
+</blockquote>
+<p>eg: “^.{5}$”</p>
+<blockquote>
+<p>任意一个长度为5的字符串</p>
+</blockquote>
+<ul>
+<li>‘\num’ 表示<code>&quot;\num&quot;</code>之前的字符重复的个数，其中<code>num</code>表示一个正整数，</li>
+</ul>
+<p>eg: “(.)|1”</p>
+<blockquote>
+<p>2个连续的相同字符???</p>
+</blockquote>
+<p>eg: “10{1,2}”</p>
+<blockquote>
+<p>数字1后面跟着1或2个0</p>
+</blockquote>
+<p>eg: “0{3,}”</p>
+<blockquote>
+<p>数字0后面跟着3或更多的0</p>
+</blockquote>
+<ul>
+<li>[^x] 表示不期望出现的一个字符(x)</li>
+</ul>
+<p>eg: “@[^a-zA-Z]@”</p>
+<blockquote>
+<p>两个<code>@</code>中不希望出现字母</p>
+</blockquote>
+<ul>
+<li>‘\d’ 匹配一个数字字符 === [0-9]</li>
+<li>‘\D’ 匹配一个非数字字符 === [^0-9]</li>
+<li>‘\w’ 匹配字母数字下划线 === [a-zA-Z0-9_]</li>
+<li>‘\W’ 匹配非字母数字下划线汉字</li>
+</ul>
+<hr>
+<blockquote>
+<p>Reference</p>
+<p><a href="http://www.admin10000.com/document/5944.html" target="_blank" rel="external">http://www.admin10000.com/document/5944.html</a></p>
+</blockquote>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2016/07/28/iOS开发之正则入门/" data-id="cir63za6s000lfq4kmobhrpcb" class="article-share-link">Share</a>
+      <a data-url="http://keleyundou.github.io/2016/07/28/iOS开发之正则入门/" data-id="cir64ecgz000tvp4kfsn976dt" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/正则/">正则</a></li></ul>
+
     </footer>
   </div>
   

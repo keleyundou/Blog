@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>iOS系统兼容性需求的方法 | ColaBean&#39;s Blog</title>
+  <title>Tag: 正则 | ColaBean&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="iOS系统兼容性需求的方法">
-<meta property="og:type" content="article">
-<meta property="og:title" content="iOS系统兼容性需求的方法">
-<meta property="og:url" content="http://keleyundou.github.io/2015/03/16/2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/index.html">
+  <meta name="description" content="ColaBean&apos;s Blog">
+<meta property="og:type" content="website">
+<meta property="og:title" content="ColaBean's Blog">
+<meta property="og:url" content="http://keleyundou.github.io/tags/正则/index.html">
 <meta property="og:site_name" content="ColaBean's Blog">
-<meta property="og:description" content="iOS系统兼容性需求的方法">
-<meta property="og:updated_time" content="2016-03-26T06:49:56.000Z">
+<meta property="og:description" content="ColaBean&apos;s Blog">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS系统兼容性需求的方法">
-<meta name="twitter:description" content="iOS系统兼容性需求的方法">
+<meta name="twitter:title" content="ColaBean's Blog">
+<meta name="twitter:description" content="ColaBean&apos;s Blog">
   
     <link rel="alternate" href="/atom.xml" title="ColaBean&#39;s Blog" type="application/atom+xml">
   
@@ -90,89 +89,40 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/03/16/2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/" class="article-date">
-  <time datetime="2015-03-16T06:38:45.000Z" itemprop="datePublished">2015-03-16</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/iOS/">iOS</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      iOS系统兼容性需求的方法
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2016/07/28/iOS开发之正则入门/" class="archive-article-date">
+  <time datetime="2016-07-28T09:15:47.000Z" itemprop="datePublished">7月 28</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/07/28/iOS开发之正则入门/">iOS开发之正则入门</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="iOS系统兼容性需求的方法"><a href="#iOS系统兼容性需求的方法" class="headerlink" title="iOS系统兼容性需求的方法"></a>iOS系统兼容性需求的方法</h3><p>·判断系统版本，按运行时的版本号运行代码</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// System Versioning Preprocessor Macros</span></span><br><span class="line"><span class="meta">#define SYSTEM_VERSION_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)</span></span><br><span class="line"><span class="meta">#define SYSTEM_VERSION_GREATER_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)</span></span><br><span class="line"><span class="meta">#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)</span></span><br><span class="line"><span class="meta">#define SYSTEM_VERSION_LESS_THAN(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)</span></span><br><span class="line"><span class="meta">#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v) ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)</span></span><br></pre></td></tr></table></figure>
-<p>使用:</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (SYSTEMVERSIONLESS_THAN(@“<span class="number">5.0</span>”)) </span><br><span class="line">&#123; </span><br><span class="line">	<span class="comment">//系统版本小于5.0...</span></span><br><span class="line">	Do something... </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://keleyundou.github.io/2015/03/16/2015-03-16-iosxi-tong-jian-rong-xing-xu-qiu-de-fang-fa/" data-id="cir64ecgc0006vp4kqbj0y0qx" class="article-share-link">Share</a>
-      
-      
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2015/03/18/2015-03-18-storyboardzhong-tabbarxian-shi-hui-se-wai-guan-de-wen-ti/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          Storyboard中TabBar显示灰色外观的问题
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2015/03/13/2015-03-13-ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">基于Octopress和github搭建个人博客的过程</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
-<!-- disqus -->
-<!--  -->
-
-<!-- duoshuo -->
-
-<section id="comments">
-  <!-- Duoshuo Comment BEGIN -->
-  <div class="ds-thread"></div>
-    <script type="text/javascript">
-      var duoshuoQuery = {short_name:"colabean"};
-        (function() {
-          var ds = document.createElement('script');
-          ds.type = 'text/javascript';ds.async = true;
-          ds.src = 'http://static.duoshuo.com/embed.js';
-          ds.charset = 'UTF-8';
-          (document.getElementsByTagName('head')[0]
-          || document.getElementsByTagName('body')[0]).appendChild(ds);
-        })();
-  </script>
-<!-- Duoshuo Comment END -->
-</section>
 
 </section>
         
