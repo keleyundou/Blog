@@ -366,7 +366,7 @@
 <p>3.上面两点其实就是assign和retain的区别，assign就是直接赋值，从而会引起1中的问题。当数据为int, float,等原生类型时，可以使用assign。retain就如2中所述，使用了引用计数，retain引起引用计数+1，release引起引用计数-1，当引用计数为0时，dealloc函数将会被调用，内存被回收。</p>
 <p>4.copy是在你不希望a和b共享同一块内存是使用到。a和b各自有各自的内存。</p>
 <p>5.atomic 和 nonatomic用来决定编译器生成的getter和setter是否为原子操作。在多线程环境下，原子操作是必要的，否则有可能引起错误的结果。加了atomic后, setter函数会变成这样：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (property != newValue) &#123;</span><br><span class="line">	[property release];</span><br><span class="line">	property = [newValue retain];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (property != newValue) &#123;</div><div class="line">	[property release];</div><div class="line">	property = [newValue <span class="keyword">retain</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
       
     </div>
 
