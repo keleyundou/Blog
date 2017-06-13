@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://keleyundou.github.io/"/>
-  <updated>2016-07-29T10:29:33.000Z</updated>
+  <updated>2017-06-13T03:03:52.000Z</updated>
   <id>http://keleyundou.github.io/</id>
   
   <author>
@@ -14,6 +14,73 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>APNs原理及环境搭建</title>
+    <link href="http://keleyundou.github.io/2017/06/13/APNs%E5%8E%9F%E7%90%86%E5%8F%8A%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/"/>
+    <id>http://keleyundou.github.io/2017/06/13/APNs原理及环境搭建/</id>
+    <published>2017-06-13T02:43:51.000Z</published>
+    <updated>2017-06-13T03:03:52.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="APNs"><a href="#APNs" class="headerlink" title="APNs"></a>APNs</h1><p>推送在我们的生活中无处不在，下面就已开发者的角度来为你介绍其工作原理及如何搭建push server环境。<br>一款APP要想收到消息推送，有一个必要前提——配置推送证书。这里不在介绍如何配置推送证书。<br><a id="more"></a></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="server下发消息给APP"><a href="#server下发消息给APP" class="headerlink" title="server下发消息给APP"></a>server下发消息给APP</h3><p>Provider将消息推送给APNs，APNs将消息推送给Device，Device再将消息通知给APP。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/741964-e1810ee703aa2a38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="remote_notif_simple_2x.png"></p>
+<h3 id="推送原理"><a href="#推送原理" class="headerlink" title="推送原理"></a>推送原理</h3><p>推送的前提是Device需向APNs发起注册注册，注册成功后APNs下发一个deviceToken给APP，APP再将其发送给Provider，当有要被推送的消息时，Provider会将消息结合deviceToken按指定的消息格式打包发送给APNs，然后由APNs推送给Device。</p>
+<h4 id="deviceToken生成"><a href="#deviceToken生成" class="headerlink" title="deviceToken生成"></a>deviceToken生成</h4><p><img src="http://upload-images.jianshu.io/upload_images/741964-bdc4ff3b379c5bd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt="token_generation_2x.png"></p>
+<ol>
+<li>Device向APNs注册远程推送服务</li>
+<li>APNs经过内部流程处理生成一个deviceToken，下发给Device</li>
+<li>Device将获取到的deviceToken发送给Provider</li>
+</ol>
+<h4 id="推送过程"><a href="#推送过程" class="headerlink" title="推送过程"></a>推送过程</h4><p><img src="http://upload-images.jianshu.io/upload_images/741964-a406a6f2f707d0a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt="token_trust_2x.png"></p>
+<ol>
+<li>APP链接APNs的过程中，APNs会验证deviceToken，链接成功后会维持一个TCP长连接</li>
+<li>Provider将消息结合deviceToken封包发送给APNs</li>
+<li>APNs将接收到的消息发送给deviceToken设备</li>
+<li>设备再将收到的消息通知给APP</li>
+</ol>
+<h2 id="server搭建"><a href="#server搭建" class="headerlink" title="server搭建"></a>server搭建</h2><h3 id="合成PEM证书"><a href="#合成PEM证书" class="headerlink" title="合成PEM证书"></a>合成PEM证书</h3><p>命令行：</p>
+<ul>
+<li>生成公钥</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl x509 -in aps_development.cer -inform der -out PushPublicCert.pem</div></pre></td></tr></table></figure>
+<ul>
+<li>生成私钥</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl pkcs12 -nocerts -out PushPrivateKey.pem -in Push.p12</div></pre></td></tr></table></figure>
+<ul>
+<li><p>将刚才生成的两个pem文件合成到一个文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat PushPublicCert.pem PushPrivateKey.pem &gt; ck.pem</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试证书是否正常工作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">telnet gateway.sandbox.push.apple.com 2195</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用SSL证书和私钥来设置一个安全的链接去链接苹果服务器</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert PushPublicCert.pem -key PushPrivateKey.pem</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl s_client -connect api.push.apple.com:443 -cert PushPublicCert.pem -key PushPrivateKey.pem</div></pre></td></tr></table></figure>
+<h3 id="server-code"><a href="#server-code" class="headerlink" title="server code"></a>server code</h3><p>旧：<br>开发环境：gateway.sandbox.push.apple.com:2195<br>发布环境：gateway.push.apple.com:2195</p>
+<p>新：<br>开发环境：api.development.push.apple.com:443<br>发布环境：api.push.apple.com:443</p>
+<p><a href="https://github.com/keleyundou/APNsProject" target="_blank" rel="external">Download_APNsProject</a></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>以前仅知道原理，至于服务端如何与苹果服务器通信没有一点概念。于是利用闲暇时间翻阅资料写了篇关于APNs如何在服务端发送。争取不做口头的巨人行动的矮子（初中的时候班主任就时刻告诉我们这句话，现在基本上抛之脑后 冷汗！冷汗！）。目前只是整理了基于SSL协议的TCP长连接流通讯，HTTP/2后续会整理出来。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><blockquote>
+<p><a href="https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1" target="_blank" rel="external">AppleDoc——APNs</a></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;APNs&quot;&gt;&lt;a href=&quot;#APNs&quot; class=&quot;headerlink&quot; title=&quot;APNs&quot;&gt;&lt;/a&gt;APNs&lt;/h1&gt;&lt;p&gt;推送在我们的生活中无处不在，下面就已开发者的角度来为你介绍其工作原理及如何搭建push server环境。&lt;br&gt;一款APP要想收到消息推送，有一个必要前提——配置推送证书。这里不在介绍如何配置推送证书。&lt;br&gt;
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
+    
+    
+      <category term="APNs" scheme="http://keleyundou.github.io/tags/APNs/"/>
+    
+  </entry>
   
   <entry>
     <title>随笔之Hexo升级之路</title>
@@ -285,9 +352,9 @@
       <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
     
     
-      <category term="Tutorial" scheme="http://keleyundou.github.io/tags/Tutorial/"/>
-    
       <category term="AppGroups" scheme="http://keleyundou.github.io/tags/AppGroups/"/>
+    
+      <category term="Tutorial" scheme="http://keleyundou.github.io/tags/Tutorial/"/>
     
   </entry>
   
@@ -766,9 +833,9 @@
       <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
     
     
-      <category term="PDF" scheme="http://keleyundou.github.io/tags/PDF/"/>
-    
       <category term="Tutorial" scheme="http://keleyundou.github.io/tags/Tutorial/"/>
+    
+      <category term="PDF" scheme="http://keleyundou.github.io/tags/PDF/"/>
     
   </entry>
   
@@ -813,9 +880,9 @@
       <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
     
     
-      <category term="PDF" scheme="http://keleyundou.github.io/tags/PDF/"/>
-    
       <category term="Tutorial" scheme="http://keleyundou.github.io/tags/Tutorial/"/>
+    
+      <category term="PDF" scheme="http://keleyundou.github.io/tags/PDF/"/>
     
   </entry>
   

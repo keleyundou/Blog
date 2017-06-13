@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="APNs," />
 
 
 
@@ -86,15 +86,20 @@
 
 
 
-<meta name="description" content="ColaBean&apos;s Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="ColaBean's Blog">
-<meta property="og:url" content="http://keleyundou.github.io/tags/编码/index.html">
+<meta name="description" content="APNs推送在我们的生活中无处不在，下面就已开发者的角度来为你介绍其工作原理及如何搭建push server环境。一款APP要想收到消息推送，有一个必要前提——配置推送证书。这里不在介绍如何配置推送证书。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="APNs原理及环境搭建">
+<meta property="og:url" content="http://keleyundou.github.io/2017/06/13/APNs原理及环境搭建/index.html">
 <meta property="og:site_name" content="ColaBean's Blog">
-<meta property="og:description" content="ColaBean&apos;s Blog">
+<meta property="og:description" content="APNs推送在我们的生活中无处不在，下面就已开发者的角度来为你介绍其工作原理及如何搭建push server环境。一款APP要想收到消息推送，有一个必要前提——配置推送证书。这里不在介绍如何配置推送证书。">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/741964-e1810ee703aa2a38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/741964-bdc4ff3b379c5bd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/741964-a406a6f2f707d0a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640">
+<meta property="og:updated_time" content="2017-06-13T03:03:52.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ColaBean's Blog">
-<meta name="twitter:description" content="ColaBean&apos;s Blog">
+<meta name="twitter:title" content="APNs原理及环境搭建">
+<meta name="twitter:description" content="APNs推送在我们的生活中无处不在，下面就已开发者的角度来为你介绍其工作原理及如何搭建push server环境。一款APP要想收到消息推送，有一个必要前提——配置推送证书。这里不在介绍如何配置推送证书。">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/741964-e1810ee703aa2a38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620">
 
 
 
@@ -115,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://keleyundou.github.io/tags/编码/"/>
+  <link rel="canonical" href="http://keleyundou.github.io/2017/06/13/APNs原理及环境搭建/"/>
 
-  <title> 标签: 编码 | ColaBean's Blog </title>
+  <title> APNs原理及环境搭建 | ColaBean's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -138,7 +143,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -259,46 +264,211 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        编码
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                APNs原理及环境搭建
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-13T10:43:51+08:00" content="2017-06-13">
+              2017-06-13
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2017/06/13/APNs原理及环境搭建/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/13/APNs原理及环境搭建/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="APNs"><a href="#APNs" class="headerlink" title="APNs"></a>APNs</h1><p>推送在我们的生活中无处不在，下面就已开发者的角度来为你介绍其工作原理及如何搭建push server环境。<br>一款APP要想收到消息推送，有一个必要前提——配置推送证书。这里不在介绍如何配置推送证书。<br><a id="more"></a></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="server下发消息给APP"><a href="#server下发消息给APP" class="headerlink" title="server下发消息给APP"></a>server下发消息给APP</h3><p>Provider将消息推送给APNs，APNs将消息推送给Device，Device再将消息通知给APP。</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/741964-e1810ee703aa2a38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/620" alt="remote_notif_simple_2x.png"></p>
+<h3 id="推送原理"><a href="#推送原理" class="headerlink" title="推送原理"></a>推送原理</h3><p>推送的前提是Device需向APNs发起注册注册，注册成功后APNs下发一个deviceToken给APP，APP再将其发送给Provider，当有要被推送的消息时，Provider会将消息结合deviceToken按指定的消息格式打包发送给APNs，然后由APNs推送给Device。</p>
+<h4 id="deviceToken生成"><a href="#deviceToken生成" class="headerlink" title="deviceToken生成"></a>deviceToken生成</h4><p><img src="http://upload-images.jianshu.io/upload_images/741964-bdc4ff3b379c5bd1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt="token_generation_2x.png"></p>
+<ol>
+<li>Device向APNs注册远程推送服务</li>
+<li>APNs经过内部流程处理生成一个deviceToken，下发给Device</li>
+<li>Device将获取到的deviceToken发送给Provider</li>
+</ol>
+<h4 id="推送过程"><a href="#推送过程" class="headerlink" title="推送过程"></a>推送过程</h4><p><img src="http://upload-images.jianshu.io/upload_images/741964-a406a6f2f707d0a1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/640" alt="token_trust_2x.png"></p>
+<ol>
+<li>APP链接APNs的过程中，APNs会验证deviceToken，链接成功后会维持一个TCP长连接</li>
+<li>Provider将消息结合deviceToken封包发送给APNs</li>
+<li>APNs将接收到的消息发送给deviceToken设备</li>
+<li>设备再将收到的消息通知给APP</li>
+</ol>
+<h2 id="server搭建"><a href="#server搭建" class="headerlink" title="server搭建"></a>server搭建</h2><h3 id="合成PEM证书"><a href="#合成PEM证书" class="headerlink" title="合成PEM证书"></a>合成PEM证书</h3><p>命令行：</p>
+<ul>
+<li>生成公钥</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl x509 -in aps_development.cer -inform der -out PushPublicCert.pem</div></pre></td></tr></table></figure>
+<ul>
+<li>生成私钥</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl pkcs12 -nocerts -out PushPrivateKey.pem -in Push.p12</div></pre></td></tr></table></figure>
+<ul>
+<li><p>将刚才生成的两个pem文件合成到一个文件中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cat PushPublicCert.pem PushPrivateKey.pem &gt; ck.pem</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试证书是否正常工作</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">telnet gateway.sandbox.push.apple.com 2195</div></pre></td></tr></table></figure>
+</li>
+<li><p>利用SSL证书和私钥来设置一个安全的链接去链接苹果服务器</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl s_client -connect gateway.sandbox.push.apple.com:2195 -cert PushPublicCert.pem -key PushPrivateKey.pem</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">openssl s_client -connect api.push.apple.com:443 -cert PushPublicCert.pem -key PushPrivateKey.pem</div></pre></td></tr></table></figure>
+<h3 id="server-code"><a href="#server-code" class="headerlink" title="server code"></a>server code</h3><p>旧：<br>开发环境：gateway.sandbox.push.apple.com:2195<br>发布环境：gateway.push.apple.com:2195</p>
+<p>新：<br>开发环境：api.development.push.apple.com:443<br>发布环境：api.push.apple.com:443</p>
+<p><a href="https://github.com/keleyundou/APNsProject" target="_blank" rel="external">Download_APNsProject</a></p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>以前仅知道原理，至于服务端如何与苹果服务器通信没有一点概念。于是利用闲暇时间翻阅资料写了篇关于APNs如何在服务端发送。争取不做口头的巨人行动的矮子（初中的时候班主任就时刻告诉我们这句话，现在基本上抛之脑后 冷汗！冷汗！）。目前只是整理了基于SSL协议的TCP长连接流通讯，HTTP/2后续会整理出来。</p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><blockquote>
+<p><a href="https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html#//apple_ref/doc/uid/TP40008194-CH8-SW1" target="_blank" rel="external">AppleDoc——APNs</a></p>
+</blockquote>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2016/03/16/即时通讯之基本数据写入到输出流中/" itemprop="url">
-              
-                <span itemprop="name">即时通讯之基本数据写入到输出流中</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-03-16T21:53:52+08:00"
-              content="2016-03-16" >
-          03-16
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/APNs/" rel="tag">#APNs</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/07/29/随笔之Hexo升级之路/" rel="next" title="随笔之Hexo升级之路">
+                <i class="fa fa-chevron-left"></i> 随笔之Hexo升级之路
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+        <div class="ds-share flat" data-thread-key="2017/06/13/APNs原理及环境搭建/"
+     data-title="APNs原理及环境搭建"
+     data-content=""
+     data-url="http://keleyundou.github.io/2017/06/13/APNs原理及环境搭建/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
+      
+    </div>
+  </div>
 
 
           </div>
@@ -306,6 +476,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/06/13/APNs原理及环境搭建/"
+           data-title="APNs原理及环境搭建" data-url="http://keleyundou.github.io/2017/06/13/APNs原理及环境搭建/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -325,8 +503,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/myicon.jpg"
@@ -412,6 +599,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#APNs"><span class="nav-number">1.</span> <span class="nav-text">APNs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.1.</span> <span class="nav-text">原理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#server下发消息给APP"><span class="nav-number">1.1.1.</span> <span class="nav-text">server下发消息给APP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推送原理"><span class="nav-number">1.1.2.</span> <span class="nav-text">推送原理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#deviceToken生成"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">deviceToken生成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推送过程"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">推送过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#server搭建"><span class="nav-number">1.2.</span> <span class="nav-text">server搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#合成PEM证书"><span class="nav-number">1.2.1.</span> <span class="nav-text">合成PEM证书</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#server-code"><span class="nav-number">1.2.2.</span> <span class="nav-text">server code</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">1.3.</span> <span class="nav-text">结语</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Reference"><span class="nav-number">1.4.</span> <span class="nav-text">Reference</span></a></li></ol></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -515,6 +713,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
