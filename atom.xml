@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://keleyundou.github.io/"/>
-  <updated>2017-06-13T03:03:52.000Z</updated>
+  <updated>2017-08-09T07:01:12.000Z</updated>
   <id>http://keleyundou.github.io/</id>
   
   <author>
@@ -14,6 +14,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Tech sites</title>
+    <link href="http://keleyundou.github.io/2017/08/09/Tech-sites/"/>
+    <id>http://keleyundou.github.io/2017/08/09/Tech-sites/</id>
+    <published>2017-08-09T07:00:38.000Z</published>
+    <updated>2017-08-09T07:01:12.000Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript" target="_blank" rel="external">JavaScript Doc</a></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/JavaScript/A_re-introduction_to_JavaScript&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Ja
+    
+    </summary>
+    
+      <category term="Tech" scheme="http://keleyundou.github.io/categories/Tech/"/>
+    
+    
+      <category term="Tech" scheme="http://keleyundou.github.io/tags/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title>APNs原理及环境搭建</title>
@@ -1111,58 +1137,6 @@
     </summary>
     
       <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>基于Octopress和github搭建个人博客的过程</title>
-    <link href="http://keleyundou.github.io/2015/03/13/2015-03-13-ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/"/>
-    <id>http://keleyundou.github.io/2015/03/13/2015-03-13-ji-yu-octopresshe-githubda-jian-ge-ren-bo-ke-de-guo-cheng/</id>
-    <published>2015-03-13T04:16:14.000Z</published>
-    <updated>2016-03-26T06:45:14.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>   促使我搭建个人博客的原因应该归结于那些大牛们都有属于自己的博客站点，感觉挺牛X的；另一方面就是想有个干净整洁的纯技术博客。</p>
-<p>   下面分享下我是怎么搭建此博客的。</p>
-<h3 id="首先安装ruby"><a href="#首先安装ruby" class="headerlink" title="首先安装ruby"></a>首先安装ruby</h3><p>   <a href="http://octopress.org/docs/setup/" target="_blank" rel="external">http://octopress.org/docs/setup/</a></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">brew update</div><div class="line">brew install rbenv</div><div class="line">brew install ruby-build</div><div class="line"></div><div class="line">rbenv install 1.9.3-p0</div><div class="line">rbenv local 1.9.3-p0</div><div class="line">rbenv rehash</div></pre></td></tr></table></figure>
-<p>   你有可能需要安装老版本的GCC编译器才能顺利安装Ruby 1.9.3:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">brew tap homebrew/dupes</div><div class="line">brew install apple-gcc42</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<h3 id="安装Octopress"><a href="#安装Octopress" class="headerlink" title="安装Octopress"></a>安装Octopress</h3><p>先从git上将octopress clone下来：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone git://github.com/imathis/octopress.git Octopress</div><div class="line">cd Octopress</div></pre></td></tr></table></figure>
-<h3 id="然后安装依赖："><a href="#然后安装依赖：" class="headerlink" title="然后安装依赖："></a>然后安装依赖：</h3><p>进入Octopress目录，执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">gem install bundler</div><div class="line">rbenv rehash</div><div class="line">bundle install</div></pre></td></tr></table></figure>
-<h3 id="最后安装Octopress"><a href="#最后安装Octopress" class="headerlink" title="最后安装Octopress"></a>最后安装Octopress</h3><p>进入Octopress目录，执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rake install</div></pre></td></tr></table></figure>
-<h3 id="发布Octopress到Github"><a href="#发布Octopress到Github" class="headerlink" title="发布Octopress到Github"></a>发布Octopress到Github</h3><p>进入Octopress目录，执行如下命令：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rake setup_github_pages</div></pre></td></tr></table></figure>
-<p>在Repository url中输入刚刚创建的仓库地址：git@github.com:username/username.github.io.git，自行替换username。</p>
-<p>然后生成静态页面发布</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rake generate</div><div class="line">rake deploy</div></pre></td></tr></table></figure>
-<p>提交源文件，即source分支</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git commit -m &apos;your message&apos;</div><div class="line">git push origin source</div></pre></td></tr></table></figure>
-<h3 id="博文的发表"><a href="#博文的发表" class="headerlink" title="博文的发表"></a>博文的发表</h3><p>进入Octopress目录，执行如下命令：</p>
-<p>生成博文框架，然后修改生成的文件即可</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">rake new_post[&quot;title&quot;]</div><div class="line"># Creates source/_posts/2011-07-03-title.markdown</div></pre></td></tr></table></figure>
-<p>生成静态文件和在本机4000端口生成访问内容</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rake generate &amp;&amp; rake preview</div></pre></td></tr></table></figure>
-<p>发布文件</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rake deploy</div></pre></td></tr></table></figure>
-<p>参考：</p>
-<p>·<a href="http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/" target="_blank" rel="external">http://blog.devtang.com/blog/2012/02/10/setup-blog-based-on-github/</a></p>
-<p>·<a href="http://blog.csdn.net/jackystudio/article/details/16117585" target="_blank" rel="external">http://blog.csdn.net/jackystudio/article/details/16117585</a></p>
-<p>·<a href="http://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/" target="_blank" rel="external">http://shengmingzhiqing.com/blog/octopress-tutorials-toc.html/</a></p>
-<p>·<a href="http://www.cnblogs.com/oec2003/archive/2013/05/31/3109577.html" target="_blank" rel="external">http://www.cnblogs.com/oec2003/archive/2013/05/31/3109577.html</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      基于Octopress和github搭建个人博客的过程
-    
-    </summary>
-    
-      <category term="琐碎杂记" scheme="http://keleyundou.github.io/categories/%E7%90%90%E7%A2%8E%E6%9D%82%E8%AE%B0/"/>
     
     
   </entry>
