@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://keleyundou.github.io/"/>
-  <updated>2017-08-15T08:19:42.000Z</updated>
+  <updated>2017-08-15T08:55:56.000Z</updated>
   <id>http://keleyundou.github.io/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://keleyundou.github.io/2017/08/15/Dispatch-Semaphore/"/>
     <id>http://keleyundou.github.io/2017/08/15/Dispatch-Semaphore/</id>
     <published>2017-08-15T08:18:16.000Z</published>
-    <updated>2017-08-15T08:19:42.000Z</updated>
+    <updated>2017-08-15T08:55:56.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="信号量-semaphore"><a href="#信号量-semaphore" class="headerlink" title="信号量: semaphore"></a>信号量: <code>semaphore</code></h3><p>创建一个并发控制来同步任务和有限资源访问，换句话说，就是控制并发的线程数量。</p>
 <p>当并行执行的处理更新数据时，会产生数据不一致的情况，有时程序还会异常结束。虽然使用<code>Serial Dispatch Queue</code>和<code>dispatch_barrier_async</code>函数可以避免此类问题，但有必要进行更细粒度的排他控制。例如下面这种情况，将所有数据追加到<code>NSMutableArray</code>中。</p>
