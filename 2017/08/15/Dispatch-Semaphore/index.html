@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="编码," />
+  <meta name="keywords" content="GCD," />
 
 
 
@@ -86,28 +86,22 @@
 
 
 
-<meta name="description" content="在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。
-
-将 1 byte 数值写入输出流中， 先写入高位
-
-1234567- (void)writeChar:(int8_t)v;&amp;#123;    int8_t ch[1];    ch[0] = (v &amp;amp; 0x0FF);    [data appen">
+<meta name="description" content="信号量: semaphore创建一个并发控制来同步任务和有限资源访问，换句话说，就是控制并发的线程数量。
+当并行执行的处理更新数据时，会产生数据不一致的情况，有时程序还会异常结束。虽然使用Serial Dispatch Queue和dispatch_barrier_async函数可以避免此类问题，但有必要进行更细粒度的排他控制。例如下面这种情况，将所有数据追加到NSMutableArray中。
+1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="即时通讯之基本数据写入到输出流中">
-<meta property="og:url" content="http://keleyundou.github.io/2016/03/16/即时通讯之基本数据写入到输出流中/index.html">
+<meta property="og:title" content="Dispatch Semaphore">
+<meta property="og:url" content="http://keleyundou.github.io/2017/08/15/Dispatch-Semaphore/index.html">
 <meta property="og:site_name" content="ColaBean's Blog">
-<meta property="og:description" content="在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。
-
-将 1 byte 数值写入输出流中， 先写入高位
-
-1234567- (void)writeChar:(int8_t)v;&amp;#123;    int8_t ch[1];    ch[0] = (v &amp;amp; 0x0FF);    [data appen">
-<meta property="og:updated_time" content="2016-04-01T13:59:06.000Z">
+<meta property="og:description" content="信号量: semaphore创建一个并发控制来同步任务和有限资源访问，换句话说，就是控制并发的线程数量。
+当并行执行的处理更新数据时，会产生数据不一致的情况，有时程序还会异常结束。虽然使用Serial Dispatch Queue和dispatch_barrier_async函数可以避免此类问题，但有必要进行更细粒度的排他控制。例如下面这种情况，将所有数据追加到NSMutableArray中。
+1">
+<meta property="og:updated_time" content="2017-08-15T08:19:42.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="即时通讯之基本数据写入到输出流中">
-<meta name="twitter:description" content="在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。
-
-将 1 byte 数值写入输出流中， 先写入高位
-
-1234567- (void)writeChar:(int8_t)v;&amp;#123;    int8_t ch[1];    ch[0] = (v &amp;amp; 0x0FF);    [data appen">
+<meta name="twitter:title" content="Dispatch Semaphore">
+<meta name="twitter:description" content="信号量: semaphore创建一个并发控制来同步任务和有限资源访问，换句话说，就是控制并发的线程数量。
+当并行执行的处理更新数据时，会产生数据不一致的情况，有时程序还会异常结束。虽然使用Serial Dispatch Queue和dispatch_barrier_async函数可以避免此类问题，但有必要进行更细粒度的排他控制。例如下面这种情况，将所有数据追加到NSMutableArray中。
+1">
 
 
 
@@ -128,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://keleyundou.github.io/2016/03/16/即时通讯之基本数据写入到输出流中/"/>
+  <link rel="canonical" href="http://keleyundou.github.io/2017/08/15/Dispatch-Semaphore/"/>
 
-  <title> 即时通讯之基本数据写入到输出流中 | ColaBean's Blog </title>
+  <title> Dispatch Semaphore | ColaBean's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -293,7 +287,7 @@
             
             
               
-                即时通讯之基本数据写入到输出流中
+                Dispatch Semaphore
               
             
           </h1>
@@ -305,8 +299,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-03-16T21:53:52+08:00" content="2016-03-16">
-              2016-03-16
+            <time itemprop="dateCreated" datetime="2017-08-15T16:18:16+08:00" content="2017-08-15">
+              2017-08-15
             </time>
           </span>
 
@@ -319,8 +313,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/琐碎杂记/" itemprop="url" rel="index">
-                    <span itemprop="name">琐碎杂记</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -335,8 +329,8 @@
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/03/16/即时通讯之基本数据写入到输出流中/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/03/16/即时通讯之基本数据写入到输出流中/" itemprop="commentsCount"></span>
+                <a href="/2017/08/15/Dispatch-Semaphore/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/08/15/Dispatch-Semaphore/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -359,32 +353,48 @@
       
 
       
-        <p>在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。</p>
-<ul>
-<li>将 1 byte 数值写入输出流中， 先写入高位</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)writeChar:(int8_t)v;</div><div class="line">&#123;</div><div class="line">    int8_t ch[<span class="number">1</span>];</div><div class="line">    ch[<span class="number">0</span>] = (v &amp; <span class="number">0x0FF</span>);</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len++;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+        <h3 id="信号量-semaphore"><a href="#信号量-semaphore" class="headerlink" title="信号量: semaphore"></a>信号量: <code>semaphore</code></h3><p>创建一个并发控制来同步任务和有限资源访问，换句话说，就是控制并发的线程数量。</p>
+<p>当并行执行的处理更新数据时，会产生数据不一致的情况，有时程序还会异常结束。虽然使用<code>Serial Dispatch Queue</code>和<code>dispatch_barrier_async</code>函数可以避免此类问题，但有必要进行更细粒度的排他控制。例如下面这种情况，将所有数据追加到<code>NSMutableArray</code>中。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">  <span class="built_in">NSMutableArray</span> *buffer = @[].mutableCopy;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">      <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">          [buffer addObject:@(i)];</div><div class="line">      &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>因为此段代码使用<code>Global Dispatch Queue</code>更新<code>NSMutableArray</code>类对象，所以执行后由于内存错误导致程序异常结束的概率很高。此时应使用<code>Dispatch Semaphore</code>。</p>
 <a id="more"></a>
+<p><code>semaphore</code> 相关函数</p>
 <ul>
-<li>将 2 byte 数值写入输出流中， 先写入高位</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)writeShort:(int16_t)v;</div><div class="line">&#123;</div><div class="line">    int8_t ch[<span class="number">2</span>];</div><div class="line">    ch[<span class="number">0</span>] = (v &amp; <span class="number">0x0FF00</span>) &gt;&gt; <span class="number">8</span>;</div><div class="line">    ch[<span class="number">1</span>] = (v &amp; <span class="number">0x0FF</span>);</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len += <span class="keyword">sizeof</span>(ch);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>将 4 byte 数值写入输出流中， 先写入高位</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)writeInt:(int32_t)v;</div><div class="line">&#123;</div><div class="line">    int8_t ch[<span class="number">4</span>];</div><div class="line">    <span class="keyword">for</span> (int32_t i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(ch); i++) &#123;</div><div class="line">        ch[i] = ((v &gt;&gt; ((<span class="number">3</span>-i) * <span class="number">8</span>)) &amp; <span class="number">0x0FF</span>);</div><div class="line">    &#125;</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len += <span class="keyword">sizeof</span>(ch);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>将 8 byte 数值写入输出流中， 先写入高位</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)writeLong:(int64_t)v;</div><div class="line">&#123;</div><div class="line">    int8_t ch[<span class="number">8</span>];</div><div class="line">    <span class="keyword">for</span> (int32_t i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(ch); i++) &#123;</div><div class="line">        ch[i] = ((v &gt;&gt; ((<span class="number">7</span>-i) * <span class="number">8</span>)) &amp; <span class="number">0x0FF</span>);</div><div class="line">    &#125;</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len += <span class="keyword">sizeof</span>(ch);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li>将 BCD时钟 写入输出流中</li>
-</ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">- (Byte)int_toBCD:(<span class="keyword">unsigned</span> <span class="keyword">int</span>)v</div><div class="line">&#123;</div><div class="line">    Byte d1 = v / <span class="number">10</span>;</div><div class="line">    Byte d2 = v % <span class="number">10</span>;</div><div class="line">    Byte d = (d1 &lt;&lt; <span class="number">4</span>) | d2;</div><div class="line">    <span class="keyword">return</span> d;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)writeBCDTime:(BDSTime *)time;</div><div class="line">&#123;</div><div class="line">    <span class="comment">//write year</span></div><div class="line">    [<span class="keyword">self</span> writeYearBCDTime:time -&gt; year];</div><div class="line">    <span class="comment">//write month</span></div><div class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; month];</div><div class="line">    <span class="comment">//write day</span></div><div class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; day];</div><div class="line">    <span class="comment">//write hour</span></div><div class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; hour];</div><div class="line">    <span class="comment">//write min</span></div><div class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; min];</div><div class="line">    <span class="comment">//write sec</span></div><div class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; sec];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)writeYearBCDTime:(int16_t)v</div><div class="line">&#123;</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> high, low;</div><div class="line">    high = v / <span class="number">100</span>;</div><div class="line">    low = v % <span class="number">100</span>;</div><div class="line"></div><div class="line">    int8_t ch[<span class="number">2</span>];</div><div class="line">    ch[<span class="number">0</span>] = int_toBCD(high);</div><div class="line">    ch[<span class="number">1</span>] = int_toBCD(low);</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len += <span class="keyword">sizeof</span>(ch);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)writeOtherBCDTime:(int8_t)v</div><div class="line">&#123;</div><div class="line">    int8_t ch[<span class="number">1</span>];</div><div class="line">    ch[<span class="number">0</span>] = int_toBCD(v);</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len += <span class="keyword">sizeof</span>(ch);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<hr>
+<li><p>dispatch_semaphore_create</p>
 <blockquote>
-<p>下载地址：<a href="https://github.com/keleyundou/BDWRDataDemo" target="_blank" rel="external">BDWRDataDemo</a></p>
+<p>创建一个信号的总量 参数是一个整数，表示初始值</p>
 </blockquote>
+</li>
+<li><p>dispatch_semaphore_signal</p>
+<blockquote>
+<p>发送一个信号，使信号总量+1</p>
+</blockquote>
+</li>
+<li><p>dispatch_semaphore_wait</p>
+<blockquote>
+<p>等待一个信号，使信号总量-1，当信号总量&lt;0时，会一直等待阻塞线程，直到信号量再次大于0的时候再执行</p>
+</blockquote>
+</li>
+</ul>
+<p>在前面的代码片段中使用<code>Dispatch Semaphore</code>看看。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">  dispatch_semaphore_t dsema = dispatch_semaphore_create(<span class="number">1</span>);</div><div class="line">  <span class="built_in">NSMutableArray</span> *buffer = @[].mutableCopy;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">      <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">          dispatch_semaphore_wait(dsema, DISPATCH_TIME_FOREVER);</div><div class="line">          [buffer addObject:@(i)];</div><div class="line">          dispatch_semaphore_signal(dsema);</div><div class="line">      &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>再举个例子：改变某个变量值</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">  dispatch_semaphore_t dsema = dispatch_semaphore_create(<span class="number">1</span>);</div><div class="line">  __block <span class="keyword">int</span> sum = <span class="number">1000</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">      <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">          dispatch_semaphore_wait(dsema, DISPATCH_TIME_FOREVER);</div><div class="line">          <span class="keyword">int</span> value = arc4random()%<span class="number">4</span> + <span class="number">5</span>;</div><div class="line">          <span class="built_in">NSLog</span>(<span class="string">@"%d-%d = %d"</span>,sum,value, sum-value);</div><div class="line">          sum=sum-value;</div><div class="line">          dispatch_semaphore_signal(dsema);</div><div class="line">      &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>根据打印的日志看看效果</p>
+<ul>
+<li>未使用信号量操作</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910625</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910640</span>] <span class="number">1000</span><span class="number">-5</span> = <span class="number">995</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910626</span>] <span class="number">1000</span><span class="number">-6</span> = <span class="number">994</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910628</span>] <span class="number">1000</span><span class="number">-5</span> = <span class="number">995</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910711</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910713</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910712</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910714</span>] <span class="number">1000</span><span class="number">-6</span> = <span class="number">994</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910625</span>] <span class="number">993</span><span class="number">-7</span> = <span class="number">986</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910715</span>] <span class="number">993</span><span class="number">-5</span> = <span class="number">988</span></div></pre></td></tr></table></figure>
+<ul>
+<li>使用信号量操作</li>
+</ul>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.994</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908711</span>] <span class="number">1000</span><span class="number">-6</span> = <span class="number">994</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908695</span>] <span class="number">994</span><span class="number">-5</span> = <span class="number">989</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908697</span>] <span class="number">989</span><span class="number">-7</span> = <span class="number">982</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908694</span>] <span class="number">982</span><span class="number">-5</span> = <span class="number">977</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908962</span>] <span class="number">977</span><span class="number">-8</span> = <span class="number">969</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908963</span>] <span class="number">969</span><span class="number">-6</span> = <span class="number">963</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908964</span>] <span class="number">963</span><span class="number">-6</span> = <span class="number">957</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908965</span>] <span class="number">957</span><span class="number">-6</span> = <span class="number">951</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908711</span>] <span class="number">951</span><span class="number">-8</span> = <span class="number">943</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908966</span>] <span class="number">943</span><span class="number">-8</span> = <span class="number">935</span></div></pre></td></tr></table></figure>
+<hr>
+<p>Reference:</p>
+<ul>
+<li><a href="https://pan.baidu.com/s/1pKLEJl5" target="_blank" rel="external">Objective-C高级编程</a></li>
+<li><a href="https://m.aliyun.com/yunqi/articles/30814?spm=5176.100239.0.0.lr2290" target="_blank" rel="external">GCD之信号量机制</a></li>
+</ul>
 
       
     </div>
@@ -407,7 +417,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/编码/" rel="tag">#编码</a>
+            <a href="/tags/GCD/" rel="tag">#GCD</a>
           
         </div>
       
@@ -416,17 +426,13 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/01/18/关于字体适配的那些事/" rel="next" title="关于字体适配的那些事">
-                <i class="fa fa-chevron-left"></i> 关于字体适配的那些事
+              <a href="/2017/08/09/Tech-sites/" rel="next" title="Tech sites">
+                <i class="fa fa-chevron-left"></i> Tech sites
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/03/16/即时通讯之输入流中读取基本数据/" rel="prev" title="即时通讯之输入流中读取基本数据">
-                即时通讯之输入流中读取基本数据 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -441,10 +447,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/03/16/即时通讯之基本数据写入到输出流中/"
-     data-title="即时通讯之基本数据写入到输出流中"
+        <div class="ds-share flat" data-thread-key="2017/08/15/Dispatch-Semaphore/"
+     data-title="Dispatch Semaphore"
      data-content=""
-     data-url="http://keleyundou.github.io/2016/03/16/即时通讯之基本数据写入到输出流中/">
+     data-url="http://keleyundou.github.io/2017/08/15/Dispatch-Semaphore/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -471,8 +477,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/16/即时通讯之基本数据写入到输出流中/"
-           data-title="即时通讯之基本数据写入到输出流中" data-url="http://keleyundou.github.io/2016/03/16/即时通讯之基本数据写入到输出流中/">
+      <div class="ds-thread" data-thread-key="2017/08/15/Dispatch-Semaphore/"
+           data-title="Dispatch Semaphore" data-url="http://keleyundou.github.io/2017/08/15/Dispatch-Semaphore/">
       </div>
     
   </div>
@@ -599,7 +605,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#信号量-semaphore"><span class="nav-number">1.</span> <span class="nav-text">信号量: semaphore</span></a></li></ol></div>
             
           </div>
         </section>
