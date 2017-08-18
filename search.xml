@@ -4,6 +4,61 @@
   
     
     <entry>
+      <title><![CDATA[How to use PlistBuddy]]></title>
+      <url>http://keleyundou.github.io/2017/08/18/How-to-use-PlistBuddy/</url>
+      <content type="html"><![CDATA[<h2 id="PlistBuddy"><a href="#PlistBuddy" class="headerlink" title="PlistBuddy"></a>PlistBuddy</h2><p>一个plist文件操作工具。记录下方便以后使用，常用以下4个方法：</p>
+<ul>
+<li>Add 添加</li>
+<li>Delete 删除</li>
+<li>Set 更新</li>
+<li>Print 读取</li>
+<li>…</li>
+</ul>
+<a id="more"></a>
+<p>更多方法可 <code>--help</code>， 以上具体使用方法如下：</p>
+<h3 id="Add"><a href="#Add" class="headerlink" title="Add"></a>Add</h3><ul>
+<li>添加一个<code>key</code>:<code>code</code> <code>value</code>:<code>404</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/libexec/PlistBuddy <span class="string">"Add :code integer 404"</span> t1.plist</div></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Dict &#123;</div><div class="line">    code = 404</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>添加<code>Array</code>，先创建一个数组变量<code>list</code>, 然后往<code>list</code>中添加数据</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">/usr/libexec/PlistBuddy <span class="string">"Add :list Array"</span> t1.plist</div><div class="line">/usr/libexec/PlistBuddy <span class="string">"Add :list: string a1"</span> t1.plist</div><div class="line"><span class="comment"># 根据索引插入值</span></div><div class="line">/usr/libexec/PlistBuddy <span class="string">"Add :list:0 string a2"</span> t1.plist</div></pre></td></tr></table></figure>
+<p>结果如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">Dict &#123;</div><div class="line">    list = Array &#123;</div><div class="line">        a2</div><div class="line">        a1</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li>添加<code>Dict</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">/usr/libexec/PlistBuddy <span class="string">"Add :result Dict"</span> t1.plist</div><div class="line">/usr/libexec/PlistBuddy <span class="string">"Add :result:name string Tom"</span> t1.plist</div><div class="line">/usr/libexec/PlistBuddy <span class="string">"Add :result:age integer 18"</span> t1.plist</div><div class="line">/usr/libexec/PlistBuddy <span class="string">"Add :result:list Array"</span> t1.plist</div><div class="line">/usr/libexec/PlistBuddy <span class="string">"Add :result:list: string aa"</span> t1.plist</div></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Dict &#123;</div><div class="line">    result = Dict &#123;</div><div class="line">        age = 18</div><div class="line">        list = Array &#123;</div><div class="line">            aa</div><div class="line">        &#125;</div><div class="line">        name = Tom</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Delete"><a href="#Delete" class="headerlink" title="Delete"></a>Delete</h3><ul>
+<li>根据<code>key</code>删除 对应的<code>value</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/libexec/PlistBuddy <span class="string">"Delete :code"</span> t1.plist</div></pre></td></tr></table></figure>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><ul>
+<li>根据<code>key</code>更新<code>value</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">/usr/libexec/PlistBuddy <span class="string">"Set :code 200"</span></div></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">Dict &#123;</div><div class="line">    code = 200</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Print"><a href="#Print" class="headerlink" title="Print"></a>Print</h3><ul>
+<li>根据<code>key</code>读取<code>value</code></li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">/usr/libexec/PlistBuddy <span class="string">"Print"</span> t1.plist</div><div class="line">/usr/libexec/PlistBuddy <span class="string">"Print :code"</span> t1.plist</div></pre></td></tr></table></figure>
+<p>结果如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># t1.plist</span></div><div class="line">Dict &#123;</div><div class="line">    result = Dict &#123;</div><div class="line">        age = 18</div><div class="line">        list = Array &#123;</div><div class="line">            aa</div><div class="line">        &#125;</div><div class="line">        name = Tom</div><div class="line">    &#125;</div><div class="line">    code = 200</div><div class="line">    list = Array &#123;</div><div class="line">        a2</div><div class="line">        a1</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="comment"># code</span></div><div class="line">200</div></pre></td></tr></table></figure>
+<hr>
+<p><a href="https://github.com/keleyundou/blog_demo_repo/tree/master/PlistBuddy" target="_blank" rel="external">Demo</a></p>
+<!--
+ http://fgimian.github.io/blog/2015/06/27/a-simple-plistbuddy-tutorial/
+ http://www.jianshu.com/p/2167f755c47e
+ -->
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[Dispatch Semaphore]]></title>
       <url>http://keleyundou.github.io/2017/08/15/Dispatch-Semaphore/</url>
       <content type="html"><![CDATA[<h3 id="信号量"><a href="#信号量" class="headerlink" title="信号量"></a>信号量</h3><!-- 创建一个并发控制来同步任务和有限资源访问，换句话说，就是控制并发的线程数量。 -->
