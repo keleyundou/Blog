@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://keleyundou.github.io/"/>
-  <updated>2017-08-18T09:12:45.000Z</updated>
+  <updated>2017-08-18T09:15:08.000Z</updated>
   <id>http://keleyundou.github.io/</id>
   
   <author>
@@ -20,14 +20,14 @@
     <link href="http://keleyundou.github.io/2017/08/18/How-to-use-PlistBuddy/"/>
     <id>http://keleyundou.github.io/2017/08/18/How-to-use-PlistBuddy/</id>
     <published>2017-08-18T08:19:36.000Z</published>
-    <updated>2017-08-18T09:12:45.000Z</updated>
+    <updated>2017-08-18T09:15:08.000Z</updated>
     
     <content type="html"><![CDATA[<h2 id="PlistBuddy"><a href="#PlistBuddy" class="headerlink" title="PlistBuddy"></a>PlistBuddy</h2><p>一个plist文件操作工具。记录下方便以后使用，常用以下4个方法：</p>
 <ul>
-<li><em>Add</em> 添加</li>
-<li><em>Delete</em> 删除</li>
-<li><em>Set</em> 更新</li>
-<li><em>Print</em> 读取</li>
+<li><em><code>Add</code></em> 添加</li>
+<li><em><code>Delete</code></em> 删除</li>
+<li><em><code>Set</code></em> 更新</li>
+<li><em><code>Print</code></em> 读取</li>
 <li>…</li>
 </ul>
 <a id="more"></a>
@@ -77,10 +77,10 @@
     
       &lt;h2 id=&quot;PlistBuddy&quot;&gt;&lt;a href=&quot;#PlistBuddy&quot; class=&quot;headerlink&quot; title=&quot;PlistBuddy&quot;&gt;&lt;/a&gt;PlistBuddy&lt;/h2&gt;&lt;p&gt;一个plist文件操作工具。记录下方便以后使用，常用以下4个方法：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;em&gt;Add&lt;/em&gt; 添加&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Delete&lt;/em&gt; 删除&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Set&lt;/em&gt; 更新&lt;/li&gt;
-&lt;li&gt;&lt;em&gt;Print&lt;/em&gt; 读取&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;code&gt;Add&lt;/code&gt;&lt;/em&gt; 添加&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;code&gt;Delete&lt;/code&gt;&lt;/em&gt; 删除&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;code&gt;Set&lt;/code&gt;&lt;/em&gt; 更新&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;&lt;code&gt;Print&lt;/code&gt;&lt;/em&gt; 读取&lt;/li&gt;
 &lt;li&gt;…&lt;/li&gt;
 &lt;/ul&gt;
     
