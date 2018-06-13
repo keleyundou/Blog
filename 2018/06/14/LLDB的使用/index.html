@@ -1,0 +1,909 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LLDB," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ColaBean's Blog" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="控制台查看所有LLDB指令，可以用$help">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LLDB的使用">
+<meta property="og:url" content="http://keleyundou.github.io/2018/06/14/LLDB的使用/index.html">
+<meta property="og:site_name" content="ColaBean's Blog">
+<meta property="og:description" content="控制台查看所有LLDB指令，可以用$help">
+<meta property="og:updated_time" content="2018-06-13T17:06:09.666Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LLDB的使用">
+<meta name="twitter:description" content="控制台查看所有LLDB指令，可以用$help">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 10348000,
+      author: 'ColaBean'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://keleyundou.github.io/2018/06/14/LLDB的使用/"/>
+
+  <title> LLDB的使用 | ColaBean's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">ColaBean's Blog</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">苟有恒何必三更睡五更起，最无益莫过一日曝十日寒。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                LLDB的使用
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-06-14T00:47:36+08:00" content="2018-06-14">
+              2018-06-14
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/06/14/LLDB的使用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/06/14/LLDB的使用/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>控制台查看所有<code>LLDB</code>指令，可以用<code>$help</code></p>
+<a id="more"></a>
+<h3 id="断点"><a href="#断点" class="headerlink" title="断点"></a>断点</h3><h4 id="添加断点"><a href="#添加断点" class="headerlink" title="添加断点"></a>添加断点</h4><ul>
+<li><p><code>$breakpoint set -n test</code></p>
+</li>
+<li><p><code>$breakpoint set -n &quot;[HomeHotViewController insertItems:isUp:]&quot;</code></p>
+</li>
+<li><p><code>b -n &quot;-[HomeViewController insertItems:isUp:]&quot;</code></p>
+</li>
+</ul>
+<p>OC方法需加双引号<code>&quot;[clasName method]&quot;</code></p>
+<h4 id="查看断点"><a href="#查看断点" class="headerlink" title="查看断点"></a>查看断点</h4><ul>
+<li><code>$breakpoint list</code></li>
+</ul>
+<h4 id="禁用、开启某个断点"><a href="#禁用、开启某个断点" class="headerlink" title="禁用、开启某个断点"></a>禁用、开启某个断点</h4><ul>
+<li><p><code>$breakpoint disable/enable 7</code></p>
+</li>
+<li><p><code>$breakpoint disable/enable 7.1</code></p>
+</li>
+</ul>
+<p>控制台查看禁用某个断点后的信息（含有<code>Options: disabled</code>）如下：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">(lldb) breakpoint list</div><div class="line"><span class="type">Current</span> breakpoints:</div><div class="line"><span class="number">7</span>: name = 'insertItems:isUp:', locations = <span class="number">4</span>, resolved = <span class="number">4</span>, hit <span class="built_in">count</span> = <span class="number">0</span> <span class="type">Options</span>: disabled </div><div class="line"><span class="number">7.1</span>: <span class="keyword">where</span> = <span class="type">Demo</span>`-[<span class="type">HomeFigureViewController</span> insertItems:isUp:] + <span class="number">52</span> at <span class="type">HomeFigureViewController</span>.m:<span class="number">360</span>, address = <span class="number">0x0000000105aede04</span>, resolved, hit <span class="built_in">count</span> = <span class="number">0</span> </div><div class="line"><span class="number">7.2</span>: <span class="keyword">where</span> = <span class="type">Demo</span>`-[<span class="type">HomeHotViewController</span> insertItems:isUp:] + <span class="number">65</span> at <span class="type">HomeHotViewController</span>.m:<span class="number">204</span>, address = <span class="number">0x0000000105cdd341</span>, resolved, hit <span class="built_in">count</span> = <span class="number">0</span> </div><div class="line"><span class="number">7.3</span>: <span class="keyword">where</span> = <span class="type">Demo</span>`-[<span class="type">TopicViewController</span> insertItems:isUp:] + <span class="number">52</span> at <span class="type">TopicViewController</span>.m:<span class="number">276</span>, address = <span class="number">0x0000000105d67f94</span>, resolved, hit <span class="built_in">count</span> = <span class="number">0</span> </div><div class="line"><span class="number">7.4</span>: <span class="keyword">where</span> = <span class="type">Demo</span>`-[lashNewsViewController insertItems:isUp:] + <span class="number">55</span> at lashNewsViewController.m:<span class="number">163</span>, address = <span class="number">0x0000000105f3c787</span>, resolved, hit <span class="built_in">count</span> = <span class="number">0</span></div></pre></td></tr></table></figure>
+<h4 id="删除断点"><a href="#删除断点" class="headerlink" title="删除断点"></a>删除断点</h4><ul>
+<li><code>$breakpoint delete 6/6.1</code></li>
+</ul>
+<h4 id="给某个方法添加断点"><a href="#给某个方法添加断点" class="headerlink" title="给某个方法添加断点"></a>给某个方法添加断点</h4><p>全局含有某个方法的地方均设置断点</p>
+<ul>
+<li><code>$breakpoint set --selector insertItems:isUp:</code></li>
+</ul>
+<p>根据方法关键字全局设置断点</p>
+<ul>
+<li><code>$breakpoint set -r insertItems:</code></li>
+</ul>
+<p>给具体某个类中的方法设置断点</p>
+<ul>
+<li><code>$breakpoint set --file HomeHotViewController.m --selector insertItems:isUp:</code></li>
+</ul>
+<h4 id="附加指令"><a href="#附加指令" class="headerlink" title="附加指令"></a>附加指令</h4><p>添加断点附加加指令</p>
+<ul>
+<li><code>$breakpoint command add 2.1</code></li>
+</ul>
+<p>控制台的输出如下，需要输入相应指令，结束输入<code>DONE</code>按回车键</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="type">Enter</span> your debugger command(s).  <span class="type">Type</span> '<span class="type">DONE'</span> to end.</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+<p>查询断点附加指令</p>
+<ul>
+<li><code>$breakpoint command list 2.1</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(lldb) breakpoint command list <span class="number">2.1</span></div><div class="line"><span class="type">Breakpoint</span> <span class="number">2.1</span>:</div><div class="line">    <span class="type">Breakpoint</span> commands:</div><div class="line">        po <span class="keyword">self</span></div><div class="line">        po <span class="keyword">self</span>.view</div></pre></td></tr></table></figure>
+<p>删除附加指令</p>
+<ul>
+<li><code>$breakpoint command delete 2.1</code></li>
+</ul>
+<h3 id="查看堆栈信息"><a href="#查看堆栈信息" class="headerlink" title="查看堆栈信息"></a>查看堆栈信息</h3><ul>
+<li><p><code>$bt</code></p>
+</li>
+<li><p><code>$up</code> 跳转上一步调用的方法查看信息</p>
+</li>
+<li><p><code>$down</code> 跳转下一步调用的方法查看信息</p>
+</li>
+<li><p><code>$frame select 2</code> 跳转到堆栈信息中的某个方法</p>
+</li>
+<li><p><code>$frame variable</code> 查看当前方法所有变量</p>
+</li>
+<li><p><code>$thread return</code> 回滚上一次调用的方法并return</p>
+</li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">(lldb) breakpoint list</div><div class="line"><span class="type">Current</span> breakpoints:</div><div class="line"><span class="number">1</span>: name = '-[<span class="type">TestViewController</span> test2]', locations = <span class="number">1</span>, resolved = <span class="number">1</span>, hit <span class="built_in">count</span> = <span class="number">1</span></div><div class="line">  <span class="number">1.1</span>: <span class="keyword">where</span> = <span class="type">Demo</span>`-[<span class="type">TestViewController</span> test2] + <span class="number">30</span> at <span class="type">TestViewController</span>.m:<span class="number">37</span>, address = <span class="number">0x000000010caf2cce</span>, resolved, hit <span class="built_in">count</span> = <span class="number">1</span> </div><div class="line">(lldb) bt</div><div class="line">* thread #<span class="number">1</span>, queue = 'com.apple.main-thread', stop reason = breakpoint <span class="number">1.1</span></div><div class="line">  * frame #<span class="number">0</span>: <span class="number">0x000000010caf2cce</span> <span class="type">Demo</span>`-[<span class="type">TestViewController</span> test2](<span class="keyword">self</span>=<span class="number">0x00007f903dc09910</span>, _cmd=<span class="string">"test2"</span>) at <span class="type">TestViewController</span>.m:<span class="number">37</span></div><div class="line">    frame #<span class="number">1</span>: <span class="number">0x000000010caf2c9e</span> <span class="type">Demo</span>`-[<span class="type">TestViewController</span> test1](<span class="keyword">self</span>=<span class="number">0x00007f903dc09910</span>, _cmd=<span class="string">"test1"</span>) at <span class="type">TestViewController</span>.m:<span class="number">33</span></div><div class="line">    frame #<span class="number">2</span>: <span class="number">0x000000010caf2e01</span> <span class="type">Demo</span>`-[<span class="type">TestViewController</span> touchesBegan:withEvent:](<span class="keyword">self</span>=<span class="number">0x00007f903dc09910</span>, _cmd=<span class="string">"touchesBegan:withEvent:"</span>, touches=<span class="number">1</span> element, event=<span class="number">0x000060000011a4c0</span>) at <span class="type">TestViewController</span>.m:<span class="number">52</span></div><div class="line">    frame #<span class="number">3</span>: <span class="number">0x000000010e0e07c7</span> <span class="type">UIKit</span>`forwardTouchMethod + <span class="number">340</span></div><div class="line">    frame #<span class="number">4</span>: <span class="number">0x000000010e0e0662</span> <span class="type">UIKit</span>`-[<span class="type">UIResponder</span> touchesBegan:withEvent:] + <span class="number">49</span></div><div class="line">    frame #<span class="number">5</span>: <span class="number">0x000000010df28e7a</span> <span class="type">UIKit</span>`-[<span class="type">UIWindow</span> _sendTouchesForEvent:] + <span class="number">2052</span></div><div class="line">    frame #<span class="number">6</span>: <span class="number">0x000000010df2a821</span> <span class="type">UIKit</span>`-[<span class="type">UIWindow</span> sendEvent:] + <span class="number">4086</span></div><div class="line">    frame #<span class="number">7</span>: <span class="number">0x000000010dece370</span> <span class="type">UIKit</span>`-[<span class="type">UIApplication</span> sendEvent:] + <span class="number">352</span></div><div class="line">    frame #<span class="number">8</span>: <span class="number">0x000000010e80f57f</span> <span class="type">UIKit</span>`__dispatchPreprocessedEventFromEventQueue + <span class="number">2796</span></div><div class="line">    frame #<span class="number">9</span>: <span class="number">0x000000010e812194</span> <span class="type">UIKit</span>`__handleEventQueueInternal + <span class="number">5949</span></div><div class="line">    frame #<span class="number">10</span>: <span class="number">0x0000000111bd8bb1</span> <span class="type">CoreFoundation</span>`__CFRUNLOOP_IS_CALLING_OUT_TO_A_SOURCE0_PERFORM_FUNCTION__ + <span class="number">17</span></div><div class="line">    frame #<span class="number">11</span>: <span class="number">0x0000000111bbd4af</span> <span class="type">CoreFoundation</span>`__CFRunLoopDoSources0 + <span class="number">271</span></div><div class="line">    frame #<span class="number">12</span>: <span class="number">0x0000000111bbca6f</span> <span class="type">CoreFoundation</span>`__CFRunLoopRun + <span class="number">1263</span></div><div class="line">    frame #<span class="number">13</span>: <span class="number">0x0000000111bbc30b</span> <span class="type">CoreFoundation</span>`<span class="type">CFRunLoopRunSpecific</span> + <span class="number">635</span></div><div class="line">    frame #<span class="number">14</span>: <span class="number">0x0000000115997a73</span> <span class="type">GraphicsServices</span>`<span class="type">GSEventRunModal</span> + <span class="number">62</span></div><div class="line">    frame #<span class="number">15</span>: <span class="number">0x000000010deb30b7</span> <span class="type">UIKit</span>`<span class="type">UIApplicationMain</span> + <span class="number">159</span></div><div class="line">    frame #<span class="number">16</span>: <span class="number">0x000000010caf2e9f</span> <span class="type">Demo</span>`main(argc=<span class="number">1</span>, argv=<span class="number">0x00007ffee3111090</span>) at main.m:<span class="number">18</span></div><div class="line">    frame #<span class="number">17</span>: <span class="number">0x00000001110dc955</span> libdyld.dylib`start + <span class="number">1</span></div><div class="line">(lldb) up</div><div class="line">frame #<span class="number">1</span>: <span class="number">0x000000010caf2c9e</span> <span class="type">Demo</span>`-[<span class="type">TestViewController</span> test1](<span class="keyword">self</span>=<span class="number">0x00007f903dc09910</span>, _cmd=<span class="string">"test1"</span>) at <span class="type">TestViewController</span>.m:<span class="number">33</span></div><div class="line">   <span class="number">30</span>  	</div><div class="line">   <span class="number">31</span>  	- (void)test1 &#123;</div><div class="line">   <span class="number">32</span>  	    <span class="type">NSLog</span>(@<span class="string">"%s"</span>, __func__);</div><div class="line">-&gt; <span class="number">33</span>  	    [4m[[0mself test2];</div><div class="line">   <span class="number">34</span>  	&#125;</div><div class="line">   <span class="number">35</span>  	</div><div class="line">   <span class="number">36</span>  	- (void)test2 &#123;</div><div class="line">(lldb) down</div><div class="line">frame #<span class="number">0</span>: <span class="number">0x000000010caf2cce</span> <span class="type">Demo</span>`-[<span class="type">TestViewController</span> test2](<span class="keyword">self</span>=<span class="number">0x00007f903dc09910</span>, _cmd=<span class="string">"test2"</span>) at <span class="type">TestViewController</span>.m:<span class="number">37</span></div><div class="line">   <span class="number">34</span>  	&#125;</div><div class="line">   <span class="number">35</span>  	</div><div class="line">   <span class="number">36</span>  	- (void)test2 &#123;</div><div class="line">-&gt; <span class="number">37</span>  	    [4mN[0mSLog(@<span class="string">"%s"</span>, __func__);</div><div class="line">   <span class="number">38</span>  	    [<span class="keyword">self</span> test3];</div><div class="line">   <span class="number">39</span>  	&#125;</div><div class="line">   <span class="number">40</span>  	</div><div class="line">(lldb) frame select <span class="number">2</span></div><div class="line">frame #<span class="number">2</span>: <span class="number">0x000000010caf2e01</span> <span class="type">Demo</span>`-[<span class="type">TestViewController</span> touchesBegan:withEvent:](<span class="keyword">self</span>=<span class="number">0x00007f903dc09910</span>, _cmd=<span class="string">"touchesBegan:withEvent:"</span>, touches=<span class="number">1</span> element, event=<span class="number">0x000060000011a4c0</span>) at <span class="type">TestViewController</span>.m:<span class="number">52</span></div><div class="line">   <span class="number">49</span>  	</div><div class="line">   <span class="number">50</span>  	- (void)touchesBegan:(<span class="type">NSSet</span>&lt;<span class="type">UITouch</span> *&gt; *)touches withEvent:(<span class="type">UIEvent</span> *)event &#123;</div><div class="line">   <span class="number">51</span>  	    <span class="type">NSLog</span>(@<span class="string">"%s"</span>, __func__);</div><div class="line">-&gt; <span class="number">52</span>  	    [4m[[0mself test1];</div><div class="line">   <span class="number">53</span>  	    </div><div class="line">   <span class="number">54</span>  	&#125;</div><div class="line">   <span class="number">55</span>  	</div><div class="line">(lldb)</div></pre></td></tr></table></figure>
+<!-- 
+### 流程控制
+
+> `$c` --continue 程序继续执行
+
+> `$n` --next 单步执行，遇子函数会当做整体处理
+
+> `$s` --step in 单步执行，遇子函数会进入子函数体 -->
+<h3 id="内存断点"><a href="#内存断点" class="headerlink" title="内存断点"></a>内存断点</h3><p>给某个对象的属性设置断点</p>
+<ul>
+<li><code>$watchpoint set variable p1-&gt;_name</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">(lldb) watchpoint <span class="keyword">set</span> variable p1-&gt;_name</div><div class="line"><span class="type">Watchpoint</span> created: <span class="type">Watchpoint</span> <span class="number">1</span>: addr = <span class="number">0x604000037168</span> size = <span class="number">8</span> state = enabled type = w</div><div class="line">    declare @ '/<span class="type">Users</span>/icepoint/<span class="type">Desktop</span>/<span class="type">Demo</span>/<span class="type">Demo</span>/<span class="type">TestViewController</span>.m:<span class="number">30</span>'</div><div class="line">    watchpoint spec = 'p1-&gt;_name'</div><div class="line">    new value: <span class="number">0x0000000109ab8848</span></div></pre></td></tr></table></figure>
+<p>更具内存地址设置断点</p>
+<ul>
+<li><code>$watchpoint set expression 0x000060c000221528</code></li>
+</ul>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">(lldb) frame variable</div><div class="line">(<span class="type">TestViewController</span> *) <span class="keyword">self</span> = <span class="number">0x00007f890bc08f00</span></div><div class="line">(<span class="type">SEL</span>) _cmd = <span class="string">"viewDidLoad"</span></div><div class="line">(<span class="type">Person</span> *) p1 = <span class="number">0x000060c000221520</span></div><div class="line">(<span class="type">Person</span> *) p2 = <span class="number">0x4084d80000000000</span></div><div class="line">(lldb) p &amp;p1-&gt;_name</div><div class="line">(<span class="type">NSString</span> **) $<span class="number">0</span> = <span class="number">0x000060c000221528</span></div><div class="line">(lldb) watchpoint <span class="keyword">set</span> expression <span class="number">0x000060c000221528</span></div><div class="line"><span class="type">Watchpoint</span> created: <span class="type">Watchpoint</span> <span class="number">1</span>: addr = <span class="number">0x60c000221528</span> size = <span class="number">8</span> state = enabled type = w</div><div class="line">    new value: <span class="number">4418234440</span></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LLDB/" rel="tag">#LLDB</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/18/How-to-use-PlistBuddy/" rel="next" title="How to use PlistBuddy">
+                <i class="fa fa-chevron-left"></i> How to use PlistBuddy
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2018/06/14/LLDB的使用/"
+           data-title="LLDB的使用" data-url="http://keleyundou.github.io/2018/06/14/LLDB的使用/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/myicon.jpg"
+               alt="ColaBean" />
+          <p class="site-author-name" itemprop="name">ColaBean</p>
+          <p class="site-description motion-element" itemprop="description">ColaBean's Blog</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">26</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">17</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/keleyundou" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/YaweiMaa" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/mgios" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#断点"><span class="nav-number">1.</span> <span class="nav-text">断点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#添加断点"><span class="nav-number">1.1.</span> <span class="nav-text">添加断点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查看断点"><span class="nav-number">1.2.</span> <span class="nav-text">查看断点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#禁用、开启某个断点"><span class="nav-number">1.3.</span> <span class="nav-text">禁用、开启某个断点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#删除断点"><span class="nav-number">1.4.</span> <span class="nav-text">删除断点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#给某个方法添加断点"><span class="nav-number">1.5.</span> <span class="nav-text">给某个方法添加断点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#附加指令"><span class="nav-number">1.6.</span> <span class="nav-text">附加指令</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查看堆栈信息"><span class="nav-number">2.</span> <span class="nav-text">查看堆栈信息</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#内存断点"><span class="nav-number">3.</span> <span class="nav-text">内存断点</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ColaBean</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"colabean"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+       search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+    'use strict';
+    $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+            // get the contents from search data
+            isfetched = true;
+            $('.popup').detach().appendTo('.header-inner');
+            var datas = $( "entry", xmlResponse ).map(function() {
+                return {
+                    title: $( "title", this ).text(),
+                    content: $("content",this).text(),
+                    url: $( "url" , this).text()
+                };
+            }).get();
+            var $input = document.getElementById(search_id);
+            var $resultContent = document.getElementById(content_id);
+            $input.addEventListener('input', function(){
+                var matchcounts = 0;
+                var str='<ul class=\"search-result-list\">';
+                var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                $resultContent.innerHTML = "";
+                if (this.value.trim().length > 1) {
+                // perform local searching
+                datas.forEach(function(data) {
+                    var isMatch = true;
+                    var content_index = [];
+                    var data_title = data.title.trim().toLowerCase();
+                    var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                    var data_url = data.url;
+                    var index_title = -1;
+                    var index_content = -1;
+                    var first_occur = -1;
+                    // only match artiles with not empty titles and contents
+                    if(data_title != '' && data_content != '') {
+                        keywords.forEach(function(keyword, i) {
+                            index_title = data_title.indexOf(keyword);
+                            index_content = data_content.indexOf(keyword);
+                            if( index_title < 0 && index_content < 0 ){
+                                isMatch = false;
+                            } else {
+                                if (index_content < 0) {
+                                    index_content = 0;
+                                }
+                                if (i == 0) {
+                                    first_occur = index_content;
+                                }
+                            }
+                        });
+                    }
+                    // show search results
+                    if (isMatch) {
+                        matchcounts += 1;
+                        str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                        var content = data.content.trim().replace(/<[^>]+>/g,"");
+                        if (first_occur >= 0) {
+                            // cut out 100 characters
+                            var start = first_occur - 20;
+                            var end = first_occur + 80;
+                            if(start < 0){
+                                start = 0;
+                            }
+                            if(start == 0){
+                                end = 50;
+                            }
+                            if(end > content.length){
+                                end = content.length;
+                            }
+                            var match_content = content.substring(start, end);
+                            // highlight all keywords
+                            keywords.forEach(function(keyword){
+                                var regS = new RegExp(keyword, "gi");
+                                match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                            });
+
+                            str += "<p class=\"search-result\">" + match_content +"...</p>"
+                        }
+                        str += "</li>";
+                    }
+                })};
+                str += "</ul>";
+                if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+                if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+                $resultContent.innerHTML = str;
+            });
+            proceedsearch();
+        }
+    });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+</body>
+</html>
