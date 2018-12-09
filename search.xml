@@ -3,6 +3,25 @@
   
     
     <entry>
+      <title>结构型模式</title>
+      <link href="/2018/12/09/structural-patterns/"/>
+      <url>/2018/12/09/structural-patterns/</url>
+      
+        <content type="html"><![CDATA[<!-- ![](./asset-test/article-header-img.jpg) --><a id="more"></a><img src="/2018/12/09/structural-patterns/AdapterPattern.png" title="适配器模式"><img src="/2018/12/09/structural-patterns/BridgePattern.png" title="桥接模式"><img src="/2018/12/09/structural-patterns/DecoratorPattern.png" title="装饰器模式"><img src="/2018/12/09/structural-patterns/FacadePattern.png" title="外观模式">]]></content>
+      
+      
+      <categories>
+          
+          <category> 设计模式 </category>
+          
+          <category> 结构性模式 </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    <entry>
       <title>设计模式类型</title>
       <link href="/2018/12/08/design-pattern-doc/"/>
       <url>/2018/12/08/design-pattern-doc/</url>
