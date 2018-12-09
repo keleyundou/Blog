@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Tutorial,iOS,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ColaBean's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="在使用Twitter的APP后，我已开发者的视觉并注意到整体与部分之间相互协调是件极其有意思的事情。这引起了我的好奇心：这是怎么做到的？ 让我们具体地讨论下这个视图布局：此效果不优雅吗？它看起开就像本应如此，但你仔细的观察后就会发现更多。随着Scrollview的偏移，图层的覆盖，动作和比例缩放是那么的平滑连贯… … 实在是太喜欢这个效果了。 So，就让我们立刻实现这个效果吧。 首先，先看下最终效">
+<meta name="keywords" content="Tutorial,iOS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="译：实现Twitter UI效果">
+<meta property="og:url" content="http://keleyundou.github.io/2016/03/实现Twitter-UI效果/index.html">
+<meta property="og:site_name" content="ColaBean&#39;s Blog">
+<meta property="og:description" content="在使用Twitter的APP后，我已开发者的视觉并注意到整体与部分之间相互协调是件极其有意思的事情。这引起了我的好奇心：这是怎么做到的？ 让我们具体地讨论下这个视图布局：此效果不优雅吗？它看起开就像本应如此，但你仔细的观察后就会发现更多。随着Scrollview的偏移，图层的覆盖，动作和比例缩放是那么的平滑连贯… … 实在是太喜欢这个效果了。 So，就让我们立刻实现这个效果吧。 首先，先看下最终效">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://7pn4xs.com1.z0.glb.clouddn.com/colabeanTwitterProfile.gif">
+<meta property="og:image" content="http://www.thinkandbuild.it/wp-content/uploads/2015/01/ImageScale.png">
+<meta property="og:image" content="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame1.png">
+<meta property="og:image" content="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame2.png">
+<meta property="og:updated_time" content="2016-04-01T12:33:40.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="译：实现Twitter UI效果">
+<meta name="twitter:description" content="在使用Twitter的APP后，我已开发者的视觉并注意到整体与部分之间相互协调是件极其有意思的事情。这引起了我的好奇心：这是怎么做到的？ 让我们具体地讨论下这个视图布局：此效果不优雅吗？它看起开就像本应如此，但你仔细的观察后就会发现更多。随着Scrollview的偏移，图层的覆盖，动作和比例缩放是那么的平滑连贯… … 实在是太喜欢这个效果了。 So，就让我们立刻实现这个效果吧。 首先，先看下最终效">
+<meta name="twitter:image" content="http://7pn4xs.com1.z0.glb.clouddn.com/colabeanTwitterProfile.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://keleyundou.github.io/2016/03/实现Twitter-UI效果/">
+
+
+
+
+
+  <title>译：实现Twitter UI效果 | ColaBean's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ColaBean's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">苟有恒何必三更睡五更起，最无益莫过一日曝十日寒。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://keleyundou.github.io/2016/03/实现Twitter-UI效果/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ColaBean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/myicon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ColaBean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">译：实现Twitter UI效果</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-30T01:49:11+08:00">
+                2016-03-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在使用<code>Twitter</code>的APP后，我已开发者的视觉并注意到整体与部分之间相互协调是件极其有意思的事情。这引起了我的好奇心：这是怎么做到的？</p>
+<p>让我们具体地讨论下这个视图布局：此效果不优雅吗？它看起开就像本应如此，但你仔细的观察后就会发现更多。随着<code>Scrollview</code>的偏移，图层的覆盖，动作和比例缩放是那么的平滑连贯… … 实在是太喜欢这个效果了。</p>
+<p>So，就让我们立刻实现这个效果吧。</p>
+<p>首先，先看下最终效果：</p>
+<p align="center"><br><img src="http://7pn4xs.com1.z0.glb.clouddn.com/colabeanTwitterProfile.gif" width="375" height="667"><br></p>
+
+<a id="more"></a>
+<h3 id="结构描述"><a href="#结构描述" class="headerlink" title="结构描述"></a>结构描述</h3><hr>
+<p>在写代码之前，我想给你一个关于如何构建UI的简单意见。</p>
+<p>打开<code>Main.storyboard</code>文件，在这个控制器里面你会发现2个主要的对象。第一个是一个呈现<code>Header</code>的视图，第二个是<code>Scrollview</code>，它包含了<code>Avatar</code>和账号相关的其他信息，如：<code>username</code>标签和<code>Follow</code>按钮。还有一个被叫做<code>Sizer</code>的视图，它是为了确保<code>Scrollview</code>拥有足够大的垂直滑动的空间。</p>
+<p>就像你看到的那样，这个结构非常的简单。稍微注意一下就可发现<code>Header</code>的外部放置了一个<code>Scrollview</code>，而不是与其他元素放置在一起。虽然没必严格如此，但这样会使它的结构变动更加灵活。</p>
+<h3 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h3><hr>
+<p>如果你仔细的看了最后的动画，将会注意到你要管理2个不同的动作：</p>
+<ol>
+<li>向下拉（当<code>Scrollview</code>已经停靠在屏幕的顶部的时候）</li>
+<li>上下滑动</li>
+</ol>
+<p>第二个动作可以细分为4个小步骤：</p>
+<ul>
+<li>向上滑动，一直到导航条默认的大小并停靠在屏幕的顶部。</li>
+<li>向上滑动，<code>Avatar</code>开始逐渐变小。</li>
+<li>当<code>Header</code>被固定后，<code>Avatar</code>会移动到它的下边。</li>
+<li>当<code>username</code>标签抵达<code>Header</code>的顶部时，一个新的白色<code>Label</code>将会从<code>Header</code>中心的底部展现。这时<code>Header</code>的背景图片将会用高斯模糊渲染。</li>
+</ul>
+<p>打开<code>ViewController</code>让我们一个一个的实现这些步骤。</p>
+<h3 id="构建管理者"><a href="#构建管理者" class="headerlink" title="构建管理者"></a>构建管理者</h3><hr>
+<p>首先要做的事情很明显，就是获取关于<code>Scrollview</code>的偏移量<code>offset</code>。我们可以通过<code>UIScrollViewDelegate</code>协议实现<code>scrollViewDidScroll</code>方法。</p>
+<p>在一个<code>View</code>上执行最简单地动画方式是使用<code>Core Animation</code>逐渐的进行三维变换，并给<code>layer.transform</code>赋予新值。</p>
+<p>关于<code>Core Animation</code>可以参考这篇文章</p>
+<p><a href="http://www.thinkandbuild.it/playing-around-with-core-graphics-core-animation-and-touch-events-part-1/" target="_blank" rel="noopener">http://www.thinkandbuild.it/playing-around-with-core-graphics-core-animation-and-touch-events-part-1/</a></p>
+<p>这些是<code>scrollViewDidScroll:</code>方法的第一部分</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGFloat</span> offset = scrollView.contentOffset.y;</span><br><span class="line"><span class="built_in">CATransform3D</span> avatarTransform = <span class="built_in">CATransform3DIdentity</span>;</span><br><span class="line"><span class="built_in">CATransform3D</span> headerTransform = <span class="built_in">CATransform3DIdentity</span>;</span><br></pre></td></tr></table></figure>
+<p>在这里我们获取一个当前垂直偏移量<code>offset</code>，并初始化2个<code>CATransform3D</code>变量。</p>
+<h3 id="下拉"><a href="#下拉" class="headerlink" title="下拉"></a>下拉</h3><hr>
+<p>下拉动作的管理：<br><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (offset &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="built_in">CGFloat</span> headerScaleFactor = -(offset) / header.bounds.size.height;</span><br><span class="line">        <span class="built_in">CGFloat</span> headerSizevariation = (header.bounds.size.height * (<span class="number">1.0</span> + headerScaleFactor) - header.bounds.size.height) / <span class="number">2.0</span>;</span><br><span class="line">        headerTransform = <span class="built_in">CATransform3DTranslate</span>(headerTransform, <span class="number">0</span>, headerSizevariation, <span class="number">0</span>);</span><br><span class="line">        headerTransform = <span class="built_in">CATransform3DScale</span>(headerTransform, <span class="number">1.0</span> + headerScaleFactor, <span class="number">1.0</span> + headerScaleFactor, <span class="number">0</span>);</span><br><span class="line">        header.layer.transform = headerTransform;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>首先，我们检查<code>offset</code>是否为负数：用户在下拉的过程中，将会进入<code>Scrollview</code>的弹性区域。</p>
+<p>剩下的代码就是简单的数学逻辑。</p>
+<p><code>Header</code>的扩大是因为它的上边缘固定于屏幕的顶部，而底部的图片在等比缩放。</p>
+<p><code>the transformation is made by scaling and subsequently translating to the top for a value equal to the size variation of the view.</code>实际上，移动<code>ImageView</code>图层的中点到顶部并同时缩放它，你可以获得相同的效果。</p>
+<p align="center"> <img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/ImageScale.png"></p>
+
+<p><code>headerScaleFactor</code>是用来被计算的一部分。我们想用<code>offset</code>适当的对<code>Header</code>进行缩放。换句话说，当<code>offset</code>是<code>Header</code>高度的2倍时，<code>headerScaleFactor</code>必须是2.0。</p>
+<p>我们需要管理的第二个动作是上下滑动。让我们看看，如何一步步通过UI的主要元素完成变换的。</p>
+<h3 id="头部（第一阶段）"><a href="#头部（第一阶段）" class="headerlink" title="头部（第一阶段）"></a>头部（第一阶段）</h3><hr>
+<p>当前的<code>offset</code>应该大于0。<code>Header</code>应该随<code>offset</code>进行垂直变换，直到它期望的高度（我们后面将会讲解<code>Header</code>的高斯模糊）。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">headerTransform = <span class="built_in">CATransform3DTranslate</span>(headerTransform, <span class="number">0</span>, MAX(-offset_HeaderStop, -offset), <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>这句代码非常简单。我们只需定义一个让<code>Header</code>在此停止移动的最小值。</p>
+<p>让我感到羞愧的是我比较懒！所以我写死了一些数值，像<code>offset_HeaderStop</code>。其实，我们可以通过计算UI元素的位置来获取相同的效果。下次有空再改吧。</p>
+<h3 id="头像"><a href="#头像" class="headerlink" title="头像"></a>头像</h3><hr>
+<p><code>Avatar</code>的缩放与我们处理下拉的逻辑一样，只是在这种情况下，图片是到达底部而不是顶部。这段代码和上边的比较相似，除了减小缩放的比例为1.4。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Avatar -----------</span></span><br><span class="line"><span class="built_in">CGFloat</span> avatarScaleFactor = MIN(offset_HeaderStop, offset) / avatarImage.bounds.size.height / <span class="number">1.4</span>;</span><br><span class="line"><span class="built_in">CGFloat</span> avatarSizevariation = (avatarImage.bounds.size.height * (<span class="number">1.0</span> + avatarScaleFactor) - avatarImage.bounds.size.height) / <span class="number">2.0</span>;</span><br><span class="line">avatarTransform = <span class="built_in">CATransform3DTranslate</span>(avatarTransform, <span class="number">0</span>, avatarSizevariation, <span class="number">0</span>);</span><br><span class="line">avatarTransform = <span class="built_in">CATransform3DScale</span>(avatarTransform, <span class="number">1.0</span>-avatarScaleFactor, <span class="number">1.0</span>-avatarScaleFactor, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
+<p>就像你看到的，当<code>Header</code>停止变化时，我们用<code>MIN</code>函数来使<code>Avatar</code>的缩放停止。</p>
+<p>此时，我们根据当前<code>offset</code>设置最顶层的图层。除非<code>offset</code>小于等于<code>offset_HeaderStop</code>，最顶层的图层是<code>Avatar</code>，否则是<code>Header</code>。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (offset &lt;= offset_HeaderStop) &#123;</span><br><span class="line">            <span class="keyword">if</span> (avatarImage.layer.zPosition &lt; header.layer.zPosition) &#123;</span><br><span class="line">                header.layer.zPosition = <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">if</span> (avatarImage.layer.zPosition &gt;= header.layer.zPosition) &#123;</span><br><span class="line">                header.layer.zPosition = <span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="白色Label"><a href="#白色Label" class="headerlink" title="白色Label"></a>白色Label</h3><hr>
+<p>这段代码是白色<code>Label</code>的动画：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  ------------ Label</span></span><br><span class="line"><span class="built_in">CATransform3D</span> labelTransform = <span class="built_in">CATransform3DMakeTranslation</span>(<span class="number">0</span>, MAX(-distance_W_LabelHeader, offset_B_LabelHeader - offset), <span class="number">0</span>);</span><br><span class="line">headerLabel.layer.transform = labelTransform;</span><br></pre></td></tr></table></figure>
+<p>这里有2个令我感到羞愧的变量值：当<code>offset</code>等于<code>offset_B_LabelHeader</code>时，黑色的<code>username</code>标签刚到触碰到<code>Header</code>的底部。</p>
+<p align="center"><br><img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame1.png"><br></p>
+
+<p><code>distance_W_LabelHeader</code>是<code>Header</code>底部与白色<code>Label</code>终点之间的距离。</p>
+<p align="center"><br><img src="http://www.thinkandbuild.it/wp-content/uploads/2015/01/shame2.png"><br></p>
+
+<p>这个变换是通过此逻辑计算：黑色<code>Label</code>触碰到<code>Header</code>，白色<code>Label</code>就会立即出现，并且到达<code>Header</code>中点位置就停止移动。所以我们使用下面代码创建<code>Y</code>值：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">MAX(-distance_W_LabelHeader, offset_B_LabelHeader - offset)</span><br></pre></td></tr></table></figure>
+<h3 id="高斯模糊"><a href="#高斯模糊" class="headerlink" title="高斯模糊"></a>高斯模糊</h3><hr>
+<p>最后一个效果是<code>Header</code>的模糊。为了得到合适的解决方案，我用了3个不同的库… … 我也尝试过用<code>OpenGL ES</code>创建基类，但实时更新模糊总是非常缓慢。</p>
+<p>然后我意识到我可以对模糊仅仅计算一次，将不模糊和模糊的图片进行重叠，只是改变<code>alpha</code>值。我非常确信，<code>Twitter</code>就是这样做的。</p>
+<p>在<code>viewDidAppear</code>中，我们计算<code>Header</code>的模糊值并隐藏它，设置<code>alpha</code>值为0。</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Header - Blurred Image</span></span><br><span class="line">headerBlurImageView = [[<span class="built_in">UIImageView</span> alloc] initWithFrame:header.bounds];</span><br><span class="line">headerBlurImageView.image = [[<span class="built_in">UIImage</span> imageNamed:<span class="string">@"header_bg"</span>] blurredImageWithRadius:<span class="number">10</span> iterations:<span class="number">20</span> tintColor:[<span class="built_in">UIColor</span> clearColor]];</span><br><span class="line">headerBlurImageView.contentMode = <span class="built_in">UIViewContentModeScaleAspectFill</span>;</span><br><span class="line">headerBlurImageView.alpha = <span class="number">0.0</span>;</span><br><span class="line">[header insertSubview:headerBlurImageView belowSubview:headerLabel];</span><br><span class="line">header.clipsToBounds = <span class="literal">YES</span>;</span><br></pre></td></tr></table></figure>
+<p>模糊视图是用过<a href="https://github.com/nicklockwood/FXBlurView" target="_blank" rel="noopener"><code>FXBlurView</code></a>实现的。</p>
+<p>在<code>scrollViewDidScroll:</code>方法中，我们只需根据<code>offset</code>设置<code>alpha</code>:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//  ------------ Blur</span></span><br><span class="line">headerBlurImageView.alpha = MIN(<span class="number">1.0</span>, (offset - offset_B_LabelHeader) / distance_W_LabelHeader);</span><br></pre></td></tr></table></figure>
+<p>这个计算的背后逻辑是：<code>alpha</code>最大值是1，当黑色<code>Label</code>触碰到<code>Header</code>时模糊效果开始出现，当白色到达最终位置时，也将停止继续模糊。</p>
+<p>就这样！</p>
+<p>我希望你喜欢这个教程。学习如何重现这种很棒的动画效果对我来说是很大的乐趣。</p>
+<blockquote>
+<p>Swift代码：<a href="https://github.com/ariok/TB_TwitterUI" target="_blank" rel="noopener"><strong>Download Source</strong></a><br>OC代码: <a href="https://github.com/ariok/TB_TwitterUI" target="_blank" rel="noopener"><strong>Download Source</strong></a></p>
+</blockquote>
+<hr>
+<blockquote>
+<p>原版：<a href="http://www.thinkandbuild.it/implementing-the-twitter-ios-app-ui/" target="_blank" rel="noopener">IMPLEMENTING THE TWITTER IOS APP UI</a></p>
+</blockquote>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="ColaBean 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tutorial/" rel="tag"># Tutorial</a>
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/03/colabean's-new-blog/" rel="next" title="ColaBean's new Blog">
+                <i class="fa fa-chevron-left"></i> ColaBean's new Blog
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/04/iOS8-App-Groups-数据共享/" rel="prev" title="iOS8 App Groups 数据共享">
+                iOS8 App Groups 数据共享 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/myicon.jpg" alt="ColaBean">
+            
+              <p class="site-author-name" itemprop="name">ColaBean</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/keleyundou" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/YaweiMaa" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/mgios" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#结构描述"><span class="nav-number">1.</span> <span class="nav-text">结构描述</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编码"><span class="nav-number">2.</span> <span class="nav-text">编码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构建管理者"><span class="nav-number">3.</span> <span class="nav-text">构建管理者</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下拉"><span class="nav-number">4.</span> <span class="nav-text">下拉</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头部（第一阶段）"><span class="nav-number">5.</span> <span class="nav-text">头部（第一阶段）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#头像"><span class="nav-number">6.</span> <span class="nav-text">头像</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#白色Label"><span class="nav-number">7.</span> <span class="nav-text">白色Label</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#高斯模糊"><span class="nav-number">8.</span> <span class="nav-text">高斯模糊</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ColaBean</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

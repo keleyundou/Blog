@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Tutorial,PDF,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="ColaBean's Blog" type="application/atom+xml">
+
+
+
+
+
+
+<meta name="description" content="在上一节当中，我们创建了一个基于Quartz2D的PDF，并在PDF中添加一线条。在这一节，主要是添加一个logo，和绘制一个table。 添加logo下载图片资源，然后添加到工程当中。 在PDFRenderer.m文件中添加下面方法：">
+<meta name="keywords" content="Tutorial,PDF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS开发之Quartz2D生成PDF-Part2">
+<meta property="og:url" content="http://keleyundou.github.io/2015/08/iOS开发之Quartz2D生成PDF-Part2/index.html">
+<meta property="og:site_name" content="ColaBean&#39;s Blog">
+<meta property="og:description" content="在上一节当中，我们创建了一个基于Quartz2D的PDF，并在PDF中添加一线条。在这一节，主要是添加一个logo，和绘制一个table。 添加logo下载图片资源，然后添加到工程当中。 在PDFRenderer.m文件中添加下面方法：">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20150818133920616">
+<meta property="og:image" content="http://img.blog.csdn.net/20150818134657503">
+<meta property="og:image" content="http://img.blog.csdn.net/20150818140954252">
+<meta property="og:image" content="http://img.blog.csdn.net/20150818141350370">
+<meta property="og:image" content="http://img.blog.csdn.net/20150818141834653">
+<meta property="og:image" content="http://img.blog.csdn.net/20150818142209471">
+<meta property="og:image" content="http://img.blog.csdn.net/20150818144256313">
+<meta property="og:image" content="http://img.blog.csdn.net/20150818144927519">
+<meta property="og:image" content="http://img.blog.csdn.net/20150818160653841">
+<meta property="og:image" content="http://img.blog.csdn.net/20150818161451165">
+<meta property="og:updated_time" content="2016-04-01T12:56:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS开发之Quartz2D生成PDF-Part2">
+<meta name="twitter:description" content="在上一节当中，我们创建了一个基于Quartz2D的PDF，并在PDF中添加一线条。在这一节，主要是添加一个logo，和绘制一个table。 添加logo下载图片资源，然后添加到工程当中。 在PDFRenderer.m文件中添加下面方法：">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20150818133920616">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://keleyundou.github.io/2015/08/iOS开发之Quartz2D生成PDF-Part2/">
+
+
+
+
+
+  <title>iOS开发之Quartz2D生成PDF-Part2 | ColaBean's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">ColaBean's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">苟有恒何必三更睡五更起，最无益莫过一日曝十日寒。</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://keleyundou.github.io/2015/08/iOS开发之Quartz2D生成PDF-Part2/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ColaBean">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/myicon.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="ColaBean's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">iOS开发之Quartz2D生成PDF-Part2</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-08-18T20:40:31+08:00">
+                2015-08-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在上一节当中，我们创建了一个基于Quartz2D的PDF，并在PDF中添加一线条。<br>在这一节，主要是添加一个logo，和绘制一个table。</p>
+<h3 id="添加logo"><a href="#添加logo" class="headerlink" title="添加logo"></a>添加logo</h3><p><a href="http://img.blog.csdn.net/20150818132734126" target="_blank" rel="noopener">下载图片资源</a>，然后添加到工程当中。</p>
+<p>在<code>PDFRenderer.m</code>文件中添加下面方法：</p>
+<a id="more"></a>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//绘制图像</span></span><br><span class="line">+ (<span class="keyword">void</span>)drawImage:(<span class="built_in">UIImage</span>*)image inRect:(<span class="built_in">CGRect</span>)rect &#123;</span><br><span class="line">    [image drawInRect:rect];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>PDFRenderer.h</code>中添加下面方法：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)drawImage:(<span class="built_in">UIImage</span>*)image inRect:(<span class="built_in">CGRect</span>)rect;</span><br><span class="line">+</span><br></pre></td></tr></table></figure>
+<p>为了能在PDF上显示此logo，在<code>PDFRenderer.m</code>的<code>drawPDF</code>方法中添加下面代码，此代码写在<code>UIGraphicsEndPDFContext();</code>之前：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">UIImage</span> *logo = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"ray-logo"</span>];</span><br><span class="line"><span class="built_in">CGRect</span> frame = <span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">60</span>);</span><br><span class="line">[PDFRenderer drawImage:logo inRect:frame];</span><br></pre></td></tr></table></figure>
+<p>在上面的代码中，创建一个UIImage对象，并定义图像的位置和大小，调用<code>drawImage</code>方法将两个参数传过去进行绘制。</p>
+<p>完整代码如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)drawPDF:(<span class="built_in">NSString</span>*)fileName &#123;</span><br><span class="line">    <span class="built_in">UIGraphicsBeginPDFContextToFile</span>(fileName, <span class="built_in">CGRectZero</span>, <span class="literal">nil</span>);</span><br><span class="line">    <span class="built_in">UIGraphicsBeginPDFPageWithInfo</span>(<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">612</span>, <span class="number">792</span>), <span class="literal">nil</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGPoint</span> from = <span class="built_in">CGPointMake</span>(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">CGPoint</span> to = <span class="built_in">CGPointMake</span>(<span class="number">200</span>, <span class="number">300</span>);</span><br><span class="line">    [PDFRenderer drawLineFromPoint:from toPoint:to];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIImage</span> *logo = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"ray-logo"</span>];</span><br><span class="line">    <span class="built_in">CGRect</span> frame = <span class="built_in">CGRectMake</span>(<span class="number">20</span>, <span class="number">100</span>, <span class="number">300</span>, <span class="number">60</span>);</span><br><span class="line">    [PDFRenderer drawImage:logo inRect:frame];</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> drawText];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIGraphicsEndPDFContext</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>至此了解到如何绘制清单的基本元素：文本、线条、图片。接下来将运用这些所有元素构建更为完美的布局。</p>
+<h3 id="绘制Labels"><a href="#绘制Labels" class="headerlink" title="绘制Labels"></a>绘制Labels</h3><p>创建一个xib，并命名为<code>InvoiceView</code>，选中<code>InvoiceView</code>IB，设置View的width: 612 和height: 792，这些都是A4PDF的默认尺寸。下面拖拽8个UILabel，并按如下命名：</p>
+<ul>
+<li>Recipient [Name]</li>
+<li>Recipient’s Address</li>
+<li>Recipient’s City</li>
+<li>Recipient’s Postal Code</li>
+<li>Invoicer [Name]</li>
+<li>Invoicer’s Address</li>
+<li>Invoicer’s City</li>
+<li>Invoicer’s Postal Code</li>
+</ul>
+<p align="center"><br><img src="http://img.blog.csdn.net/20150818133920616" width="693" height="293"><br></p>
+
+<p>这些labels的位置将会在PDF上进行布局。给每个label从0-7设置tag。例如：<code>Recipient</code>的tag是0，<code>Recipient’s Address</code>的tag事1，以此类推。</p>
+<p align="center"><br><img src="http://img.blog.csdn.net/20150818134657503" width="519" height="338" align="center"><br></p>
+
+<p>打开<code>PDFRenderer.m</code>文件，并重构<code>drawText</code>方法。代码清单如下：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">+(<span class="keyword">void</span>)drawText:(<span class="built_in">NSString</span>*)textToDraw inFrame:(<span class="built_in">CGRect</span>)frameRect &#123;</span><br><span class="line">    <span class="built_in">CFStringRef</span> stringRef = (__bridge <span class="built_in">CFStringRef</span>)textToDraw;</span><br><span class="line">    <span class="built_in">CFAttributedStringRef</span> currentText = <span class="built_in">CFAttributedStringCreate</span>(<span class="literal">NULL</span>, stringRef, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">CTFramesetterRef</span> framesetter = <span class="built_in">CTFramesetterCreateWithAttributedString</span>(currentText);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGMutablePathRef</span> framePath = <span class="built_in">CGPathCreateMutable</span>();</span><br><span class="line">    <span class="built_in">CGPathAddRect</span>(framePath, <span class="literal">NULL</span>, frameRect);</span><br><span class="line">    <span class="built_in">CFRange</span> currentRange = <span class="built_in">CFRangeMake</span>(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    <span class="built_in">CTFrameRef</span> frameRef = <span class="built_in">CTFramesetterCreateFrame</span>(framesetter, currentRange, framePath, <span class="literal">NULL</span>);</span><br><span class="line">    <span class="built_in">CGPathRelease</span>(framePath);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGContextRef</span> currentContext = <span class="built_in">UIGraphicsGetCurrentContext</span>();</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGContextSetTextMatrix</span>(currentContext, <span class="built_in">CGAffineTransformIdentity</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGContextTranslateCTM</span>(currentContext, <span class="number">0</span>,<span class="number">100</span>);</span><br><span class="line">    <span class="built_in">CGContextScaleCTM</span>(currentContext, <span class="number">1.0</span>, <span class="number">-1.0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CTFrameDraw</span>(frameRef, currentContext);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CFRelease</span>(frameRef);</span><br><span class="line">    <span class="built_in">CFRelease</span>(stringRef);</span><br><span class="line">    <span class="built_in">CFRelease</span>(framesetter);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在<code>PDFRenderer.h</code>文件中添加下面代码：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">+(<span class="keyword">void</span>)drawText:(<span class="built_in">NSString</span>*)textToDraw inFrame:(<span class="built_in">CGRect</span>)frameRect</span><br></pre></td></tr></table></figure>
+<p>下面是从<code>InvoiceView</code>中加载label，使用文本和位置大小来绘制到PDF上。在<code>PDFRenderer.m</code>中的<code>drawPDF</code>的商法添加一个新方法<code>drawLabels</code>:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)drawLabels &#123;</span><br><span class="line">    <span class="built_in">NSArray</span> *objects = [[<span class="built_in">NSBundle</span> mainBundle] loadNibNamed:<span class="string">@"InvoiceView"</span> owner:<span class="literal">nil</span> options:<span class="literal">nil</span>];</span><br><span class="line">    <span class="built_in">UIView</span> *mainView = [objects lastObject];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span> *view <span class="keyword">in</span> [mainView subviews]) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([view isKindOfClass:[<span class="built_in">UILabel</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">            <span class="built_in">UILabel</span> *label = (<span class="built_in">UILabel</span>*)view;</span><br><span class="line">            [<span class="keyword">self</span> drawText:label.text inFrame:label.frame];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这个方法是加载<code>InvoiceView</code>，遍历<code>InvoiceView</code>中的labels，调用<code>drawText</code>，将text和frame变量传递过去。</p>
+<p>需改<code>drawPDF</code>方法：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)drawPDF:(<span class="built_in">NSString</span>*)fileName &#123;</span><br><span class="line">    <span class="built_in">UIGraphicsBeginPDFContextToFile</span>(fileName, <span class="built_in">CGRectZero</span>, <span class="literal">nil</span>);</span><br><span class="line">    <span class="built_in">UIGraphicsBeginPDFPageWithInfo</span>(<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">612</span>, <span class="number">792</span>), <span class="literal">nil</span>);</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> drawText:<span class="string">@"Hello world"</span> inFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">300</span>, <span class="number">50</span>)];</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> drawLabels];</span><br><span class="line"><span class="comment">//    [self drawText];</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIGraphicsEndPDFContext</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行下模拟器：</p>
+<p align="center"><br><img src="http://img.blog.csdn.net/20150818140954252" width="336" height="206"><br><br></p>
+
+<p>啊哈，能运行出来，但结果不是令人满意，文字啥的都是反的。接下来就坐下处理，修改<code>drawText</code> 的代码：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">CGContextTranslateCTM</span>(currentContext, <span class="number">0</span>, frameRect.origin.y*<span class="number">2</span>);</span><br><span class="line">    <span class="built_in">CGContextScaleCTM</span>(currentContext, <span class="number">1.0</span>, <span class="number">-1.0</span>);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CTFrameDraw</span>(frameRef, currentContext);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">CGContextScaleCTM</span>(currentContext, <span class="number">1.0</span>, <span class="number">-1.0</span>);</span><br><span class="line">    <span class="built_in">CGContextTranslateCTM</span>(currentContext, <span class="number">0</span>, (<span class="number">-1.0</span>) * frameRect.origin.y * <span class="number">2</span>);</span><br></pre></td></tr></table></figure>
+<p>再次运行下模拟器，看下结果：</p>
+<p></p><p align="center"><br><img src="http://img.blog.csdn.net/20150818141350370" width="372" height="244"></p>
+<p>结果比较令人满意。</p>
+<h3 id="添加logo-1"><a href="#添加logo-1" class="headerlink" title="添加logo"></a>添加logo</h3><p>打开<code>InvoiceView.xib</code> 添加一个<code>UIImageView</code></p>
+<p></p><p align="center"><br><img src="http://img.blog.csdn.net/20150818141834653" width="371" height="222"></p>
+<p>然后在<code>PDFRenderer.m</code> 中添加<code>drawLogo</code>方法:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)drawLogo &#123;</span><br><span class="line">    <span class="built_in">NSArray</span> *objects = [[<span class="built_in">NSBundle</span> mainBundle] loadNibNamed:<span class="string">@"InvoiceView"</span> owner:<span class="literal">nil</span> options:<span class="literal">nil</span>];</span><br><span class="line">    <span class="built_in">UIView</span> *mainView = [objects lastObject];</span><br><span class="line">    <span class="keyword">for</span> (<span class="built_in">UIView</span> *view <span class="keyword">in</span> [mainView subviews]) &#123;</span><br><span class="line">        <span class="keyword">if</span> ([view isKindOfClass:[<span class="built_in">UIImageView</span> <span class="keyword">class</span>]]) &#123;</span><br><span class="line">            <span class="built_in">UIImage</span> *logo = [<span class="built_in">UIImage</span> imageNamed:<span class="string">@"ray-logo"</span>];</span><br><span class="line">            [<span class="keyword">self</span> drawImage:logo inRect:view.frame];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>处理逻辑和<code>drawLabels</code> 方法类似。</p>
+<p>最后在<code>drawPDF</code> 方法中的<code>[self drawLabels]</code> 语句后调用<code>[self drawLogo]</code> 。来看下运行效果：</p>
+<p></p><p align="center"><br><img src="http://img.blog.csdn.net/20150818142209471" width="371" height="222"></p>
+<h3 id="绘制一个表格"><a href="#绘制一个表格" class="headerlink" title="绘制一个表格"></a>绘制一个表格</h3><p>绘制表格不能像使用<code>InvoiceView</code> 那样，需要一系列的变量来替代，例如：table的width和height，row的height，column的width。</p>
+<p>下面在<code>PDFRenderer.m</code> 的<code>drawPDF</code> 上方添加如下代码：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)drawTableAt:(<span class="built_in">CGPoint</span>)origin</span><br><span class="line">      withRowHeight:(<span class="keyword">int</span>)rowHeight</span><br><span class="line">     andColumnWidth:(<span class="keyword">int</span>)columnWidth</span><br><span class="line">        andRowCount:(<span class="keyword">int</span>)numberOfRows</span><br><span class="line">     andColumnCount:(<span class="keyword">int</span>)numberOfColumns</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= numberOfRows; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> newOrigin = origin.y + (rowHeight * i);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">CGPoint</span> from = <span class="built_in">CGPointMake</span>(origin.x, newOrigin);</span><br><span class="line">        <span class="built_in">CGPoint</span> to = <span class="built_in">CGPointMake</span>(origin.x + (numberOfColumns*columnWidth), newOrigin);</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span> drawLineFromPoint:from toPoint:to];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面方法是绘制水平线，循环遍历每一行，计算每行的起始和结束位置。最后调用<code>drawLine:from:to</code> 方法绘制水平线：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)drawPDF:(<span class="built_in">NSString</span>*)fileName &#123;</span><br><span class="line">    <span class="built_in">UIGraphicsBeginPDFContextToFile</span>(fileName, <span class="built_in">CGRectZero</span>, <span class="literal">nil</span>);</span><br><span class="line">    <span class="built_in">UIGraphicsBeginPDFPageWithInfo</span>(<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">612</span>, <span class="number">792</span>), <span class="literal">nil</span>);</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> drawText:<span class="string">@"Hello world"</span> inFrame:<span class="built_in">CGRectMake</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">300</span>, <span class="number">50</span>)];</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> drawLabels];</span><br><span class="line">    [<span class="keyword">self</span> drawLogo];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> xOrigin = <span class="number">50</span>;</span><br><span class="line">    <span class="keyword">int</span> yOrigin = <span class="number">300</span>;</span><br><span class="line">    <span class="keyword">int</span> rowHeight = <span class="number">50</span>;</span><br><span class="line">    <span class="keyword">int</span> columnWidth = <span class="number">120</span>;</span><br><span class="line">    <span class="keyword">int</span> numberOfRows = <span class="number">7</span>;</span><br><span class="line">    <span class="keyword">int</span> numberOfColumns = <span class="number">4</span>;</span><br><span class="line"></span><br><span class="line">    [<span class="keyword">self</span> drawTableAt:<span class="built_in">CGPointMake</span>(xOrigin, yOrigin)</span><br><span class="line">        withRowHeight:rowHeight</span><br><span class="line">       andColumnWidth:columnWidth</span><br><span class="line">          andRowCount:numberOfRows</span><br><span class="line">       andColumnCount:numberOfColumns];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">UIGraphicsEndPDFContext</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>运行模拟器，看下效果：</p>
+<p></p><p align="center"><br><img src="http://img.blog.csdn.net/20150818144256313" width="371" height="565"></p>
+<p>接下来是绘制垂直线条，在<code>drawTable</code> 方法中的第一个循环的下方再添加一个循环：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)drawTableAt:(<span class="built_in">CGPoint</span>)origin</span><br><span class="line">      withRowHeight:(<span class="keyword">int</span>)rowHeight</span><br><span class="line">     andColumnWidth:(<span class="keyword">int</span>)columnWidth</span><br><span class="line">        andRowCount:(<span class="keyword">int</span>)numberOfRows</span><br><span class="line">     andColumnCount:(<span class="keyword">int</span>)numberOfColumns</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//绘制水平线</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= numberOfRows; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> newOrigin = origin.y + (rowHeight * i);</span><br><span class="line"></span><br><span class="line">        <span class="built_in">CGPoint</span> from = <span class="built_in">CGPointMake</span>(origin.x, newOrigin);</span><br><span class="line">        <span class="built_in">CGPoint</span> to = <span class="built_in">CGPointMake</span>(origin.x + (numberOfColumns*columnWidth), newOrigin);</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span> drawLineFromPoint:from toPoint:to];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//绘制垂直线</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= numberOfColumns; i++) &#123;</span><br><span class="line">        <span class="keyword">int</span> newOrigin = origin.x + (columnWidth * i);</span><br><span class="line">        <span class="built_in">CGPoint</span> from = <span class="built_in">CGPointMake</span>(newOrigin, origin.y);</span><br><span class="line">        <span class="built_in">CGPoint</span> to = <span class="built_in">CGPointMake</span>(newOrigin, origin.y + (numberOfRows * rowHeight));</span><br><span class="line"></span><br><span class="line">        [<span class="keyword">self</span> drawLineFromPoint:from toPoint:to];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>再次运行下模拟器，看下效果：</p>
+<p></p><p align="center"><br><img src="http://img.blog.csdn.net/20150818144927519" width="367" height="565"></p>
+<p>看着似乎已完成，但还缺少一些数据填充到表格当中，那么接下来完成此过程，让此PDF近乎完美。</p>
+<h3 id="填充表格"><a href="#填充表格" class="headerlink" title="填充表格"></a>填充表格</h3><p>模拟数据填充表格，在<code>PDFRenderer.m</code> 中的<code>drawPDF</code> 方法的上方添加 <code>drawTableDataAt</code> 方法:</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)drawTableDataAt:(<span class="built_in">CGPoint</span>)origin</span><br><span class="line">          withRowHeight:(<span class="keyword">int</span>)rowHeight</span><br><span class="line">         andColumnWidth:(<span class="keyword">int</span>)columnWidth</span><br><span class="line">            andRowCount:(<span class="keyword">int</span>)numberOfRows</span><br><span class="line">         andColumnCount:(<span class="keyword">int</span>)numberOfColumns</span><br><span class="line">&#123;</span><br><span class="line">    <span class="built_in">NSArray</span> *header = @[<span class="string">@"Quantity"</span>, <span class="string">@"Description"</span>, <span class="string">@"Unit price"</span>, <span class="string">@"Total"</span>];</span><br><span class="line">    <span class="built_in">NSArray</span> *invoiceInfo1 = @[<span class="string">@"1"</span>, <span class="string">@"Development"</span>, <span class="string">@"$1000"</span>, <span class="string">@"1000"</span>];</span><br><span class="line">    <span class="built_in">NSArray</span> *invoiceInfo2 = @[<span class="string">@"1"</span>, <span class="string">@"Development"</span>, <span class="string">@"$1000"</span>, <span class="string">@"1000"</span>];</span><br><span class="line">    <span class="built_in">NSArray</span> *invoiceInfo3 = @[<span class="string">@"1"</span>, <span class="string">@"Development"</span>, <span class="string">@"$1000"</span>, <span class="string">@"1000"</span>];</span><br><span class="line">    <span class="built_in">NSArray</span> *invoiceInfo4 = @[<span class="string">@"1"</span>, <span class="string">@"Development"</span>, <span class="string">@"$1000"</span>, <span class="string">@"1000"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSArray</span> *allInfo = @[header, invoiceInfo1, invoiceInfo2, invoiceInfo3, invoiceInfo4];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; allInfo.count; i++) &#123;</span><br><span class="line">        <span class="built_in">NSArray</span> *infoToDraw = allInfo[i];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j&lt; numberOfColumns; j++) &#123;</span><br><span class="line">            <span class="keyword">int</span> newOriginX = origin.x + (columnWidth * j);</span><br><span class="line">            <span class="keyword">int</span> newOriginY = origin.y + (rowHeight * (i+<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">            <span class="built_in">CGRect</span> frame = <span class="built_in">CGRectMake</span>(newOriginX, newOriginY, columnWidth, rowHeight);</span><br><span class="line">            [<span class="keyword">self</span> drawText:infoToDraw[j] inFrame:frame];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>第一个数组是表头数据，其他数组是表中行和列的值。</p>
+<p>在<code>drawPDF</code> 中调用<code>drawTableDataAt</code>（在<code>UIGraphicsEndPDFContext</code> 之前调用）：</p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">[<span class="keyword">self</span> drawTableDataAt:<span class="built_in">CGPointMake</span>(xOrigin, yOrigin)</span><br><span class="line">            withRowHeight:rowHeight</span><br><span class="line">           andColumnWidth:columnWidth</span><br><span class="line">              andRowCount:numberOfRows</span><br><span class="line">           andColumnCount:numberOfColumns];</span><br></pre></td></tr></table></figure>
+<p>运行模拟器，将会看到表中填充的数据:</p>
+<p></p><p align="center"><br><img src="http://img.blog.csdn.net/20150818160653841" width="368" height="566"></p>
+<p>感觉还差点什么，再做最后一次调整：添加间距<code>padding</code></p>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">+ (<span class="keyword">void</span>)drawTableDataAt:(<span class="built_in">CGPoint</span>)origin</span><br><span class="line">          withRowHeight:(<span class="keyword">int</span>)rowHeight</span><br><span class="line">         andColumnWidth:(<span class="keyword">int</span>)columnWidth</span><br><span class="line">            andRowCount:(<span class="keyword">int</span>)numberOfRows</span><br><span class="line">         andColumnCount:(<span class="keyword">int</span>)numberOfColumns</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> padding = <span class="number">10</span>;</span><br><span class="line">    <span class="built_in">NSArray</span> *header = @[<span class="string">@"Quantity"</span>, <span class="string">@"Description"</span>, <span class="string">@"Unit price"</span>, <span class="string">@"Total"</span>];</span><br><span class="line">    <span class="built_in">NSArray</span> *invoiceInfo1 = @[<span class="string">@"1"</span>, <span class="string">@"Development"</span>, <span class="string">@"$1000"</span>, <span class="string">@"1000"</span>];</span><br><span class="line">    <span class="built_in">NSArray</span> *invoiceInfo2 = @[<span class="string">@"1"</span>, <span class="string">@"Development"</span>, <span class="string">@"$1000"</span>, <span class="string">@"1000"</span>];</span><br><span class="line">    <span class="built_in">NSArray</span> *invoiceInfo3 = @[<span class="string">@"1"</span>, <span class="string">@"Development"</span>, <span class="string">@"$1000"</span>, <span class="string">@"1000"</span>];</span><br><span class="line">    <span class="built_in">NSArray</span> *invoiceInfo4 = @[<span class="string">@"1"</span>, <span class="string">@"Development"</span>, <span class="string">@"$1000"</span>, <span class="string">@"1000"</span>];</span><br><span class="line"></span><br><span class="line">    <span class="built_in">NSArray</span> *allInfo = @[header, invoiceInfo1, invoiceInfo2, invoiceInfo3, invoiceInfo4];</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; allInfo.count; i++) &#123;</span><br><span class="line">        <span class="built_in">NSArray</span> *infoToDraw = allInfo[i];</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j&lt; numberOfColumns; j++) &#123;</span><br><span class="line">            <span class="keyword">int</span> newOriginX = origin.x + (columnWidth * j);</span><br><span class="line">            <span class="keyword">int</span> newOriginY = origin.y + (rowHeight * (i+<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">            <span class="built_in">CGRect</span> frame = <span class="built_in">CGRectMake</span>(newOriginX+padding, newOriginY+padding, columnWidth, rowHeight);</span><br><span class="line">            [<span class="keyword">self</span> drawText:infoToDraw[j] inFrame:frame];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>最终结果：</p>
+<p></p><p align="center"><br><img src="http://img.blog.csdn.net/20150818161451165" width="371" height="564"></p>
+<p>大功告成，此PDF主要展示了图片、表格和数据。</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作!</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.png" alt="ColaBean 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Tutorial/" rel="tag"># Tutorial</a>
+          
+            <a href="/tags/PDF/" rel="tag"># PDF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/08/iOS开发之Quartz2D生成PDF-Part1/" rel="next" title="iOS开发之Quartz2D生成PDF-Part1">
+                <i class="fa fa-chevron-left"></i> iOS开发之Quartz2D生成PDF-Part1
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/01/关于字体适配的那些事/" rel="prev" title="关于字体适配的那些事">
+                关于字体适配的那些事 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/myicon.jpg" alt="ColaBean">
+            
+              <p class="site-author-name" itemprop="name">ColaBean</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">31</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/keleyundou" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/YaweiMaa" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i></a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="http://weibo.com/mgios" target="_blank" title="Weibo">
+                      
+                        <i class="fa fa-fw fa-weibo"></i></a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#添加logo"><span class="nav-number">1.</span> <span class="nav-text">添加logo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制Labels"><span class="nav-number">2.</span> <span class="nav-text">绘制Labels</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加logo-1"><span class="nav-number">3.</span> <span class="nav-text">添加logo</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#绘制一个表格"><span class="nav-number">4.</span> <span class="nav-text">绘制一个表格</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#填充表格"><span class="nav-number">5.</span> <span class="nav-text">填充表格</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2014 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ColaBean</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
