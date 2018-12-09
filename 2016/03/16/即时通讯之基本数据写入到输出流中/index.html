@@ -6,15 +6,15 @@
 
 
 <html class="theme-next pisces use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,51 +63,41 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="编码," />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="ColaBean's Blog" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <meta name="keywords" content="编码,">
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="ColaBean's Blog" type="application/atom+xml">
 
-<meta name="description" content="在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。
 
-将 1 byte 数值写入输出流中， 先写入高位
 
-1234567- (void)writeChar:(int8_t)v;&amp;#123;    int8_t ch[1];    ch[0] = (v &amp;amp; 0x0FF);    [data appen">
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。  将 1 byte 数值写入输出流中， 先写入高位  1234567- (void)writeChar:(int8_t)v;&amp;#123;    int8_t ch[1];    ch[0] = (v &amp;amp; 0x0FF);    [data appen">
+<meta name="keywords" content="编码">
 <meta property="og:type" content="article">
 <meta property="og:title" content="即时通讯之基本数据写入到输出流中">
 <meta property="og:url" content="http://keleyundou.github.io/2016/03/16/即时通讯之基本数据写入到输出流中/index.html">
-<meta property="og:site_name" content="ColaBean's Blog">
-<meta property="og:description" content="在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。
-
-将 1 byte 数值写入输出流中， 先写入高位
-
-1234567- (void)writeChar:(int8_t)v;&amp;#123;    int8_t ch[1];    ch[0] = (v &amp;amp; 0x0FF);    [data appen">
+<meta property="og:site_name" content="ColaBean&#39;s Blog">
+<meta property="og:description" content="在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。  将 1 byte 数值写入输出流中， 先写入高位  1234567- (void)writeChar:(int8_t)v;&amp;#123;    int8_t ch[1];    ch[0] = (v &amp;amp; 0x0FF);    [data appen">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2016-04-01T13:59:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="即时通讯之基本数据写入到输出流中">
-<meta name="twitter:description" content="在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。
-
-将 1 byte 数值写入输出流中， 先写入高位
-
-1234567- (void)writeChar:(int8_t)v;&amp;#123;    int8_t ch[1];    ch[0] = (v &amp;amp; 0x0FF);    [data appen">
+<meta name="twitter:description" content="在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。  将 1 byte 数值写入输出流中， 先写入高位  1234567- (void)writeChar:(int8_t)v;&amp;#123;    int8_t ch[1];    ch[0] = (v &amp;amp; 0x0FF);    [data appen">
 
 
 
@@ -128,12 +118,12 @@
 
 
 
-  <link rel="canonical" href="http://keleyundou.github.io/2016/03/16/即时通讯之基本数据写入到输出流中/"/>
+  <link rel="canonical" href="http://keleyundou.github.io/2016/03/16/即时通讯之基本数据写入到输出流中/">
 
   <title> 即时通讯之基本数据写入到输出流中 | ColaBean's Blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -154,12 +144,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">ColaBean's Blog</span>
       <span class="logo-line-after"><i></i></span>
@@ -186,7 +176,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -196,7 +186,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -206,7 +196,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -216,7 +206,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -226,7 +216,7 @@
         <li class="menu-item menu-item-commonweal">
           <a href="/404.html" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             公益404
           </a>
@@ -239,7 +229,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -282,7 +272,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -311,14 +301,14 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
                   <a href="/categories/琐碎杂记/" itemprop="url" rel="index">
                     <span itemprop="name">琐碎杂记</span>
                   </a>
@@ -363,27 +353,27 @@
 <ul>
 <li>将 1 byte 数值写入输出流中， 先写入高位</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)writeChar:(int8_t)v;</div><div class="line">&#123;</div><div class="line">    int8_t ch[<span class="number">1</span>];</div><div class="line">    ch[<span class="number">0</span>] = (v &amp; <span class="number">0x0FF</span>);</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len++;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)writeChar:(int8_t)v;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">1</span>];</span><br><span class="line">    ch[<span class="number">0</span>] = (v &amp; <span class="number">0x0FF</span>);</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 <ul>
 <li>将 2 byte 数值写入输出流中， 先写入高位</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)writeShort:(int16_t)v;</div><div class="line">&#123;</div><div class="line">    int8_t ch[<span class="number">2</span>];</div><div class="line">    ch[<span class="number">0</span>] = (v &amp; <span class="number">0x0FF00</span>) &gt;&gt; <span class="number">8</span>;</div><div class="line">    ch[<span class="number">1</span>] = (v &amp; <span class="number">0x0FF</span>);</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len += <span class="keyword">sizeof</span>(ch);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)writeShort:(int16_t)v;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">2</span>];</span><br><span class="line">    ch[<span class="number">0</span>] = (v &amp; <span class="number">0x0FF00</span>) &gt;&gt; <span class="number">8</span>;</span><br><span class="line">    ch[<span class="number">1</span>] = (v &amp; <span class="number">0x0FF</span>);</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>将 4 byte 数值写入输出流中， 先写入高位</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)writeInt:(int32_t)v;</div><div class="line">&#123;</div><div class="line">    int8_t ch[<span class="number">4</span>];</div><div class="line">    <span class="keyword">for</span> (int32_t i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(ch); i++) &#123;</div><div class="line">        ch[i] = ((v &gt;&gt; ((<span class="number">3</span>-i) * <span class="number">8</span>)) &amp; <span class="number">0x0FF</span>);</div><div class="line">    &#125;</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len += <span class="keyword">sizeof</span>(ch);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)writeInt:(int32_t)v;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">4</span>];</span><br><span class="line">    <span class="keyword">for</span> (int32_t i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(ch); i++) &#123;</span><br><span class="line">        ch[i] = ((v &gt;&gt; ((<span class="number">3</span>-i) * <span class="number">8</span>)) &amp; <span class="number">0x0FF</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>将 8 byte 数值写入输出流中， 先写入高位</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">void</span>)writeLong:(int64_t)v;</div><div class="line">&#123;</div><div class="line">    int8_t ch[<span class="number">8</span>];</div><div class="line">    <span class="keyword">for</span> (int32_t i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(ch); i++) &#123;</div><div class="line">        ch[i] = ((v &gt;&gt; ((<span class="number">7</span>-i) * <span class="number">8</span>)) &amp; <span class="number">0x0FF</span>);</div><div class="line">    &#125;</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len += <span class="keyword">sizeof</span>(ch);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)writeLong:(int64_t)v;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">8</span>];</span><br><span class="line">    <span class="keyword">for</span> (int32_t i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(ch); i++) &#123;</span><br><span class="line">        ch[i] = ((v &gt;&gt; ((<span class="number">7</span>-i) * <span class="number">8</span>)) &amp; <span class="number">0x0FF</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
 <li>将 BCD时钟 写入输出流中</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">- (Byte)int_toBCD:(<span class="keyword">unsigned</span> <span class="keyword">int</span>)v</div><div class="line">&#123;</div><div class="line">    Byte d1 = v / <span class="number">10</span>;</div><div class="line">    Byte d2 = v % <span class="number">10</span>;</div><div class="line">    Byte d = (d1 &lt;&lt; <span class="number">4</span>) | d2;</div><div class="line">    <span class="keyword">return</span> d;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)writeBCDTime:(BDSTime *)time;</div><div class="line">&#123;</div><div class="line">    <span class="comment">//write year</span></div><div class="line">    [<span class="keyword">self</span> writeYearBCDTime:time -&gt; year];</div><div class="line">    <span class="comment">//write month</span></div><div class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; month];</div><div class="line">    <span class="comment">//write day</span></div><div class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; day];</div><div class="line">    <span class="comment">//write hour</span></div><div class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; hour];</div><div class="line">    <span class="comment">//write min</span></div><div class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; min];</div><div class="line">    <span class="comment">//write sec</span></div><div class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; sec];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)writeYearBCDTime:(int16_t)v</div><div class="line">&#123;</div><div class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> high, low;</div><div class="line">    high = v / <span class="number">100</span>;</div><div class="line">    low = v % <span class="number">100</span>;</div><div class="line"></div><div class="line">    int8_t ch[<span class="number">2</span>];</div><div class="line">    ch[<span class="number">0</span>] = int_toBCD(high);</div><div class="line">    ch[<span class="number">1</span>] = int_toBCD(low);</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len += <span class="keyword">sizeof</span>(ch);</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)writeOtherBCDTime:(int8_t)v</div><div class="line">&#123;</div><div class="line">    int8_t ch[<span class="number">1</span>];</div><div class="line">    ch[<span class="number">0</span>] = int_toBCD(v);</div><div class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</div><div class="line">    len += <span class="keyword">sizeof</span>(ch);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">- (Byte)int_toBCD:(<span class="keyword">unsigned</span> <span class="keyword">int</span>)v</span><br><span class="line">&#123;</span><br><span class="line">    Byte d1 = v / <span class="number">10</span>;</span><br><span class="line">    Byte d2 = v % <span class="number">10</span>;</span><br><span class="line">    Byte d = (d1 &lt;&lt; <span class="number">4</span>) | d2;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)writeBCDTime:(BDSTime *)time;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//write year</span></span><br><span class="line">    [<span class="keyword">self</span> writeYearBCDTime:time -&gt; year];</span><br><span class="line">    <span class="comment">//write month</span></span><br><span class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; month];</span><br><span class="line">    <span class="comment">//write day</span></span><br><span class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; day];</span><br><span class="line">    <span class="comment">//write hour</span></span><br><span class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; hour];</span><br><span class="line">    <span class="comment">//write min</span></span><br><span class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; min];</span><br><span class="line">    <span class="comment">//write sec</span></span><br><span class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; sec];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)writeYearBCDTime:(int16_t)v</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> high, low;</span><br><span class="line">    high = v / <span class="number">100</span>;</span><br><span class="line">    low = v % <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    int8_t ch[<span class="number">2</span>];</span><br><span class="line">    ch[<span class="number">0</span>] = int_toBCD(high);</span><br><span class="line">    ch[<span class="number">1</span>] = int_toBCD(low);</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)writeOtherBCDTime:(int8_t)v</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">1</span>];</span><br><span class="line">    ch[<span class="number">0</span>] = int_toBCD(v);</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <blockquote>
-<p>下载地址：<a href="https://github.com/keleyundou/BDWRDataDemo" target="_blank" rel="external">BDWRDataDemo</a></p>
+<p>下载地址：<a href="https://github.com/keleyundou/BDWRDataDemo" target="_blank" rel="noopener">BDWRDataDemo</a></p>
 </blockquote>
 
       
@@ -452,8 +442,7 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/03/16/即时通讯之基本数据写入到输出流中/"
-           data-title="即时通讯之基本数据写入到输出流中" data-url="http://keleyundou.github.io/2016/03/16/即时通讯之基本数据写入到输出流中/">
+      <div class="ds-thread" data-thread-key="2016/03/16/即时通讯之基本数据写入到输出流中/" data-title="即时通讯之基本数据写入到输出流中" data-url="http://keleyundou.github.io/2016/03/16/即时通讯之基本数据写入到输出流中/">
       </div>
     
   </div>
@@ -478,7 +467,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -488,10 +477,8 @@
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/myicon.jpg"
-               alt="ColaBean" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/myicon.jpg" alt="ColaBean">
           <p class="site-author-name" itemprop="name">ColaBean</p>
           <p class="site-description motion-element" itemprop="description">ColaBean's Blog</p>
         </div>
@@ -596,7 +583,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2018</span>

@@ -6,15 +6,15 @@
 
 
 <html class="theme-next pisces use-motion">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -29,7 +29,7 @@
 
   
   
-  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -63,42 +63,41 @@
 
 
 
-<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
-
-
-  <meta name="keywords" content="GCD," />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css">
 
 
-
-
-
-  <link rel="alternate" href="/atom.xml" title="ColaBean's Blog" type="application/atom+xml" />
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+  <meta name="keywords" content="GCD,">
 
 
 
 
 
+  <link rel="alternate" href="/atom.xml" title="ColaBean's Blog" type="application/atom+xml">
 
-<meta name="description" content="信号量
-信号量（英语：Semaphore）又称为 信号量 、旗语，是一个同步对象，用于保持在0至指定最大值之间的一个计数值。当线程完成一次对该semaphore对象等待（wait）时，该计数值减1；当线程完成一次对semaphore对象释放时，计数值加1。当计数值为0时，则线程等待该semaphore对象不再能成功直至该semaphore对象变成signaled状态。semaphore对象的计数值">
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1">
+
+
+
+
+
+
+<meta name="description" content="信号量 信号量（英语：Semaphore）又称为 信号量 、旗语，是一个同步对象，用于保持在0至指定最大值之间的一个计数值。当线程完成一次对该semaphore对象等待（wait）时，该计数值减1；当线程完成一次对semaphore对象释放时，计数值加1。当计数值为0时，则线程等待该semaphore对象不再能成功直至该semaphore对象变成signaled状态。semaphore对象的计数值">
+<meta name="keywords" content="GCD">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Dispatch Semaphore">
 <meta property="og:url" content="http://keleyundou.github.io/2017/08/15/Dispatch-Semaphore/index.html">
-<meta property="og:site_name" content="ColaBean's Blog">
-<meta property="og:description" content="信号量
-信号量（英语：Semaphore）又称为 信号量 、旗语，是一个同步对象，用于保持在0至指定最大值之间的一个计数值。当线程完成一次对该semaphore对象等待（wait）时，该计数值减1；当线程完成一次对semaphore对象释放时，计数值加1。当计数值为0时，则线程等待该semaphore对象不再能成功直至该semaphore对象变成signaled状态。semaphore对象的计数值">
+<meta property="og:site_name" content="ColaBean&#39;s Blog">
+<meta property="og:description" content="信号量 信号量（英语：Semaphore）又称为 信号量 、旗语，是一个同步对象，用于保持在0至指定最大值之间的一个计数值。当线程完成一次对该semaphore对象等待（wait）时，该计数值减1；当线程完成一次对semaphore对象释放时，计数值加1。当计数值为0时，则线程等待该semaphore对象不再能成功直至该semaphore对象变成signaled状态。semaphore对象的计数值">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-08-16T04:16:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Dispatch Semaphore">
-<meta name="twitter:description" content="信号量
-信号量（英语：Semaphore）又称为 信号量 、旗语，是一个同步对象，用于保持在0至指定最大值之间的一个计数值。当线程完成一次对该semaphore对象等待（wait）时，该计数值减1；当线程完成一次对semaphore对象释放时，计数值加1。当计数值为0时，则线程等待该semaphore对象不再能成功直至该semaphore对象变成signaled状态。semaphore对象的计数值">
+<meta name="twitter:description" content="信号量 信号量（英语：Semaphore）又称为 信号量 、旗语，是一个同步对象，用于保持在0至指定最大值之间的一个计数值。当线程完成一次对该semaphore对象等待（wait）时，该计数值减1；当线程完成一次对semaphore对象释放时，计数值加1。当计数值为0时，则线程等待该semaphore对象不再能成功直至该semaphore对象变成signaled状态。semaphore对象的计数值">
 
 
 
@@ -119,12 +118,12 @@
 
 
 
-  <link rel="canonical" href="http://keleyundou.github.io/2017/08/15/Dispatch-Semaphore/"/>
+  <link rel="canonical" href="http://keleyundou.github.io/2017/08/15/Dispatch-Semaphore/">
 
   <title> Dispatch Semaphore | ColaBean's Blog </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
 
@@ -145,12 +144,12 @@
   <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-meta ">
   
 
   <div class="custom-logo-site-title">
-    <a href="/"  class="brand" rel="start">
+    <a href="/" class="brand" rel="start">
       <span class="logo-line-before"><i></i></span>
       <span class="site-title">ColaBean's Blog</span>
       <span class="logo-line-after"><i></i></span>
@@ -177,7 +176,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -187,7 +186,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -197,7 +196,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -207,7 +206,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -217,7 +216,7 @@
         <li class="menu-item menu-item-commonweal">
           <a href="/404.html" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br>
             
             公益404
           </a>
@@ -230,7 +229,7 @@
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
             
             搜索
           </a>
@@ -273,7 +272,7 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -302,14 +301,14 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
               &nbsp; | &nbsp;
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
               </span>
               <span class="post-meta-item-text">分类于</span>
               
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="https://schema.org/Thing">
                   <a href="/categories/iOS/" itemprop="url" rel="index">
                     <span itemprop="name">iOS</span>
                   </a>
@@ -349,7 +348,7 @@
 <p>在这个停车场系统中，车位是公共资源，每辆车好比一个线程，看门人起的就是信号量的作用。</p>
 <p>更进一步，信号量的特性如下：信号量是一个非负整数（车位数），所有通过它的线程（车辆）都会将该整数减一（通过它当然是为了使用资源），当该整数值为零时，所有试图通过它的线程都将处于等待状态。在信号量上我们定义两种操作： Wait（等待） 和 Signal（释放）。 当一个线程调用Wait（等待）操作时，它要么通过然后将信号量减一，要么一直等下去，直到信号量大于一或超时。Signal（释放）实际上是在信号量上执行加操作，对应于车辆离开停车场，该操作之所以叫做“释放”是因为加操作实际上是释放了由信号量守护的资源。</p>
 <h4 id="案例一"><a href="#案例一" class="headerlink" title="案例一"></a>案例一</h4><p>当并行执行的处理更新数据时，会产生数据不一致的情况，有时程序还会异常结束。虽然使用<code>Serial Dispatch Queue</code>和<code>dispatch_barrier_async</code>函数可以避免此类问题，但有必要进行更细粒度的排他控制。例如下面这种情况，将所有数据追加到<code>NSMutableArray</code>中。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">  <span class="built_in">NSMutableArray</span> *buffer = @[].mutableCopy;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">      <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">          [buffer addObject:@(i)];</div><div class="line">      &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line">  <span class="built_in">NSMutableArray</span> *buffer = @[].mutableCopy;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">      <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">          [buffer addObject:@(i)];</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>因为此段代码使用<code>Global Dispatch Queue</code>更新<code>NSMutableArray</code>类对象，所以执行后由于内存错误导致程序异常结束的概率很高。此时应使用<code>Dispatch Semaphore</code>。</p>
 <p><code>semaphore</code> 相关函数</p>
 <ul>
@@ -370,29 +369,29 @@
 </li>
 </ul>
 <p>在前面的代码片段中使用<code>Dispatch Semaphore</code>看看。</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">  dispatch_semaphore_t dsema = dispatch_semaphore_create(<span class="number">1</span>);</div><div class="line">  <span class="built_in">NSMutableArray</span> *buffer = @[].mutableCopy;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">      <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">          dispatch_semaphore_wait(dsema, DISPATCH_TIME_FOREVER);</div><div class="line">          [buffer addObject:@(i)];</div><div class="line">          dispatch_semaphore_signal(dsema);</div><div class="line">      &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line">  dispatch_semaphore_t dsema = dispatch_semaphore_create(<span class="number">1</span>);</span><br><span class="line">  <span class="built_in">NSMutableArray</span> *buffer = @[].mutableCopy;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">      <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">          dispatch_semaphore_wait(dsema, DISPATCH_TIME_FOREVER);</span><br><span class="line">          [buffer addObject:@(i)];</span><br><span class="line">          dispatch_semaphore_signal(dsema);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <h4 id="案例二"><a href="#案例二" class="headerlink" title="案例二"></a>案例二</h4><p>改变某个变量值</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line">  dispatch_semaphore_t dsema = dispatch_semaphore_create(<span class="number">1</span>);</div><div class="line">  __block <span class="keyword">int</span> sum = <span class="number">1000</span>;</div><div class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">      <span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">          dispatch_semaphore_wait(dsema, DISPATCH_TIME_FOREVER);</div><div class="line">          <span class="keyword">int</span> value = arc4random()%<span class="number">4</span> + <span class="number">5</span>;</div><div class="line">          <span class="built_in">NSLog</span>(<span class="string">@"%d-%d = %d"</span>,sum,value, sum-value);</div><div class="line">          sum=sum-value;</div><div class="line">          dispatch_semaphore_signal(dsema);</div><div class="line">      &#125;);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line">  dispatch_semaphore_t dsema = dispatch_semaphore_create(<span class="number">1</span>);</span><br><span class="line">  __block <span class="keyword">int</span> sum = <span class="number">1000</span>;</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</span><br><span class="line">      <span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">          dispatch_semaphore_wait(dsema, DISPATCH_TIME_FOREVER);</span><br><span class="line">          <span class="keyword">int</span> value = arc4random()%<span class="number">4</span> + <span class="number">5</span>;</span><br><span class="line">          <span class="built_in">NSLog</span>(<span class="string">@"%d-%d = %d"</span>,sum,value, sum-value);</span><br><span class="line">          sum=sum-value;</span><br><span class="line">          dispatch_semaphore_signal(dsema);</span><br><span class="line">      &#125;);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>根据打印的日志看看效果</p>
 <ul>
 <li>未使用信号量操作</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910625</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910640</span>] <span class="number">1000</span><span class="number">-5</span> = <span class="number">995</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910626</span>] <span class="number">1000</span><span class="number">-6</span> = <span class="number">994</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910628</span>] <span class="number">1000</span><span class="number">-5</span> = <span class="number">995</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910711</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910713</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910712</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910714</span>] <span class="number">1000</span><span class="number">-6</span> = <span class="number">994</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910625</span>] <span class="number">993</span><span class="number">-7</span> = <span class="number">986</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910715</span>] <span class="number">993</span><span class="number">-5</span> = <span class="number">988</span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910625</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910640</span>] <span class="number">1000</span><span class="number">-5</span> = <span class="number">995</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910626</span>] <span class="number">1000</span><span class="number">-6</span> = <span class="number">994</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910628</span>] <span class="number">1000</span><span class="number">-5</span> = <span class="number">995</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910711</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910713</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910712</span>] <span class="number">1000</span><span class="number">-7</span> = <span class="number">993</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910714</span>] <span class="number">1000</span><span class="number">-6</span> = <span class="number">994</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910625</span>] <span class="number">993</span><span class="number">-7</span> = <span class="number">986</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">36.623</span> RTDispatchQueue[<span class="number">90207</span>:<span class="number">16910715</span>] <span class="number">993</span><span class="number">-5</span> = <span class="number">988</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>使用信号量操作</li>
 </ul>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.994</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908711</span>] <span class="number">1000</span><span class="number">-6</span> = <span class="number">994</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908695</span>] <span class="number">994</span><span class="number">-5</span> = <span class="number">989</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908697</span>] <span class="number">989</span><span class="number">-7</span> = <span class="number">982</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908694</span>] <span class="number">982</span><span class="number">-5</span> = <span class="number">977</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908962</span>] <span class="number">977</span><span class="number">-8</span> = <span class="number">969</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908963</span>] <span class="number">969</span><span class="number">-6</span> = <span class="number">963</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908964</span>] <span class="number">963</span><span class="number">-6</span> = <span class="number">957</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908965</span>] <span class="number">957</span><span class="number">-6</span> = <span class="number">951</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908711</span>] <span class="number">951</span><span class="number">-8</span> = <span class="number">943</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908966</span>] <span class="number">943</span><span class="number">-8</span> = <span class="number">935</span></div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.994</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908711</span>] <span class="number">1000</span><span class="number">-6</span> = <span class="number">994</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908695</span>] <span class="number">994</span><span class="number">-5</span> = <span class="number">989</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908697</span>] <span class="number">989</span><span class="number">-7</span> = <span class="number">982</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908694</span>] <span class="number">982</span><span class="number">-5</span> = <span class="number">977</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908962</span>] <span class="number">977</span><span class="number">-8</span> = <span class="number">969</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.995</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908963</span>] <span class="number">969</span><span class="number">-6</span> = <span class="number">963</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908964</span>] <span class="number">963</span><span class="number">-6</span> = <span class="number">957</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908965</span>] <span class="number">957</span><span class="number">-6</span> = <span class="number">951</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908711</span>] <span class="number">951</span><span class="number">-8</span> = <span class="number">943</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-15</span> <span class="number">16</span>:<span class="number">04</span>:<span class="number">07.996</span> RTDispatchQueue[<span class="number">90159</span>:<span class="number">16908966</span>] <span class="number">943</span><span class="number">-8</span> = <span class="number">935</span></span><br></pre></td></tr></table></figure>
 <h4 id="案例三"><a href="#案例三" class="headerlink" title="案例三"></a>案例三</h4><p>顺序执行task</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"start"</span>);</div><div class="line">dispatch_semaphore_t dsema = dispatch_semaphore_create(<span class="number">0</span>);</div><div class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</div><div class="line"><span class="built_in">dispatch_async</span>(queue, ^&#123;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</div><div class="line">        sleep(<span class="number">1</span>);</div><div class="line">        <span class="built_in">NSLog</span>(<span class="string">@"process: %d"</span>, i);</div><div class="line">    &#125;</div><div class="line">    dispatch_semaphore_signal(dsema);</div><div class="line">&#125;);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"wait..."</span>);</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"--&gt;%ld"</span>, dispatch_semaphore_wait(dsema, DISPATCH_TIME_FOREVER));</div><div class="line"><span class="built_in">NSLog</span>(<span class="string">@"finish."</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"start"</span>);</span><br><span class="line">dispatch_semaphore_t dsema = dispatch_semaphore_create(<span class="number">0</span>);</span><br><span class="line"><span class="built_in">dispatch_queue_t</span> queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">dispatch_async</span>(queue, ^&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">5</span>; i++) &#123;</span><br><span class="line">        sleep(<span class="number">1</span>);</span><br><span class="line">        <span class="built_in">NSLog</span>(<span class="string">@"process: %d"</span>, i);</span><br><span class="line">    &#125;</span><br><span class="line">    dispatch_semaphore_signal(dsema);</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"wait..."</span>);</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"--&gt;%ld"</span>, dispatch_semaphore_wait(dsema, DISPATCH_TIME_FOREVER));</span><br><span class="line"><span class="built_in">NSLog</span>(<span class="string">@"finish."</span>);</span><br></pre></td></tr></table></figure>
 <p>打印日志如下：</p>
-<figure class="highlight objc"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">04</span>:<span class="number">58.401</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383018</span>] start</div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">04</span>:<span class="number">58.401</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383018</span>] wait...</div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">00.968</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383061</span>] process: <span class="number">0</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">01.973</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383061</span>] process: <span class="number">1</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">02.979</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383061</span>] process: <span class="number">2</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">03.985</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383061</span>] process: <span class="number">3</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">04.990</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383061</span>] process: <span class="number">4</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">04.991</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383018</span>] --&gt;<span class="number">0</span></div><div class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">04.991</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383018</span>] finish.</div></pre></td></tr></table></figure>
+<figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">04</span>:<span class="number">58.401</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383018</span>] start</span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">04</span>:<span class="number">58.401</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383018</span>] wait...</span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">00.968</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383061</span>] process: <span class="number">0</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">01.973</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383061</span>] process: <span class="number">1</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">02.979</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383061</span>] process: <span class="number">2</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">03.985</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383061</span>] process: <span class="number">3</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">04.990</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383061</span>] process: <span class="number">4</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">04.991</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383018</span>] --&gt;<span class="number">0</span></span><br><span class="line"><span class="number">2017</span><span class="number">-08</span><span class="number">-16</span> <span class="number">11</span>:<span class="number">05</span>:<span class="number">04.991</span> RTDispatchQueue[<span class="number">8269</span>:<span class="number">383018</span>] finish.</span><br></pre></td></tr></table></figure>
 <p>因为信号总量是0 在执行到<code>dispatch_semaphore_wait</code>时 wait 使信号量-1，并不会返回结果值，「猜测：wait内部」处于等待状态（当前及后面的语句处于阻塞状态），直到触发signal，使信号量+1，继续执行wait语句及后面的语句</p>
 <hr>
 <p>Reference:</p>
 <ul>
-<li><a href="https://zh.wikipedia.org/wiki/%E4%BF%A1%E8%99%9F%E6%A8%99" target="_blank" rel="external">维基百科-信号量</a></li>
-<li><a href="https://pan.baidu.com/s/1pKLEJl5" target="_blank" rel="external">Objective-C高级编程</a></li>
-<li><a href="https://m.aliyun.com/yunqi/articles/30814?spm=5176.100239.0.0.lr2290" target="_blank" rel="external">GCD之信号量机制</a></li>
+<li><a href="https://zh.wikipedia.org/wiki/%E4%BF%A1%E8%99%9F%E6%A8%99" target="_blank" rel="noopener">维基百科-信号量</a></li>
+<li><a href="https://pan.baidu.com/s/1pKLEJl5" target="_blank" rel="noopener">Objective-C高级编程</a></li>
+<li><a href="https://m.aliyun.com/yunqi/articles/30814?spm=5176.100239.0.0.lr2290" target="_blank" rel="noopener">GCD之信号量机制</a></li>
 </ul>
 
       
@@ -479,7 +478,7 @@
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
@@ -489,10 +488,8 @@
       
 
       <section class="site-overview sidebar-panel ">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/myicon.jpg"
-               alt="ColaBean" />
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/myicon.jpg" alt="ColaBean">
           <p class="site-author-name" itemprop="name">ColaBean</p>
           <p class="site-description motion-element" itemprop="description">ColaBean's Blog</p>
         </div>
@@ -597,7 +594,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
+        <div class="copyright">
   
   &copy; 
   <span itemprop="copyrightYear">2018</span>
