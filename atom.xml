@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://keleyundou.github.io/"/>
-  <updated>2018-12-09T16:38:40.859Z</updated>
+  <updated>2018-12-13T14:10:50.213Z</updated>
   <id>http://keleyundou.github.io/</id>
   
   <author>
@@ -15,6 +15,106 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>策略模式</title>
+    <link href="http://keleyundou.github.io/2018/12/strategy-pattern/"/>
+    <id>http://keleyundou.github.io/2018/12/strategy-pattern/</id>
+    <published>2018-12-13T14:09:06.000Z</published>
+    <updated>2018-12-13T14:10:50.213Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2018/12/strategy-pattern/StrategyPattern.png">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;img src=&quot;/2018/12/strategy-pattern/StrategyPattern.png&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://keleyundou.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="行为型模式" scheme="http://keleyundou.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>原型模式</title>
+    <link href="http://keleyundou.github.io/2018/12/prototype-pattern/"/>
+    <id>http://keleyundou.github.io/2018/12/prototype-pattern/</id>
+    <published>2018-12-13T14:06:52.000Z</published>
+    <updated>2018-12-13T14:10:54.036Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2018/12/prototype-pattern/PrototypePattern.png">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;img src=&quot;/2018/12/prototype-pattern/PrototypePattern.png&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://keleyundou.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="创建型模式" scheme="http://keleyundou.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>组合模式</title>
+    <link href="http://keleyundou.github.io/2018/12/composite-pattern/"/>
+    <id>http://keleyundou.github.io/2018/12/composite-pattern/</id>
+    <published>2018-12-13T14:04:23.000Z</published>
+    <updated>2018-12-13T14:06:29.400Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2018/12/composite-pattern/CompositePattern.png">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;img src=&quot;/2018/12/composite-pattern/CompositePattern.png&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://keleyundou.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="结构型模式" scheme="http://keleyundou.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E7%BB%93%E6%9E%84%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>建造者模式</title>
+    <link href="http://keleyundou.github.io/2018/12/builder-pattern/"/>
+    <id>http://keleyundou.github.io/2018/12/builder-pattern/</id>
+    <published>2018-12-13T13:59:43.000Z</published>
+    <updated>2018-12-13T14:06:22.479Z</updated>
+    
+    <content type="html"><![CDATA[<img src="/2018/12/builder-pattern/BuilderPattern.png">]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;img src=&quot;/2018/12/builder-pattern/BuilderPattern.png&quot;&gt;
+      
+    
+    </summary>
+    
+      <category term="设计模式" scheme="http://keleyundou.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/"/>
+    
+      <category term="创建型模式" scheme="http://keleyundou.github.io/categories/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>外观模式</title>
@@ -119,9 +219,9 @@
     <link href="http://keleyundou.github.io/2018/12/design-pattern-doc/"/>
     <id>http://keleyundou.github.io/2018/12/design-pattern-doc/</id>
     <published>2018-12-08T11:05:31.000Z</published>
-    <updated>2018-12-09T17:11:41.372Z</updated>
+    <updated>2018-12-13T14:09:28.335Z</updated>
     
-    <content type="html"><![CDATA[<p>设计模式是为特定场景下的问题而定制的解决方案。</p><a id="more"></a><h3 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h3><ul><li>工厂模式</li><li>抽象工厂模式</li><li>单例模式</li><li>建造者模式</li><li>原型模式</li></ul><h3 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h3><ul><li><a href="../adapter-pattern">适配器模式</a></li><li><a href="../bridge-pattern">桥接模式</a></li><li>组合模式</li><li><a href="../decorator-pattern">装饰器模式</a></li><li><a href="../facade-pattern">外观模式</a></li><li>享元模式</li><li>代理模式</li></ul><h3 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h3><ul><li>责任链模式</li><li>命令模式</li><li>迭代器模式</li><li>中介者模式</li><li>备忘录模式</li><li>观察者模式</li><li>策略模式</li><li>模板模式</li><li>访问者模式</li></ul>]]></content>
+    <content type="html"><![CDATA[<p>设计模式是为特定场景下的问题而定制的解决方案。</p><a id="more"></a><h3 id="创建型模式"><a href="#创建型模式" class="headerlink" title="创建型模式"></a>创建型模式</h3><ul><li>工厂模式</li><li>抽象工厂模式</li><li>单例模式</li><li><a href="../builder-pattern">建造者模式</a></li><li><a href="../prototype-pattern">原型模式</a></li></ul><h3 id="结构型模式"><a href="#结构型模式" class="headerlink" title="结构型模式"></a>结构型模式</h3><ul><li><a href="../adapter-pattern">适配器模式</a></li><li><a href="../bridge-pattern">桥接模式</a></li><li><a href="../composite-pattern">组合模式</a></li><li><a href="../decorator-pattern">装饰器模式</a></li><li><a href="../facade-pattern">外观模式</a></li><li>享元模式</li><li>代理模式</li></ul><h3 id="行为型模式"><a href="#行为型模式" class="headerlink" title="行为型模式"></a>行为型模式</h3><ul><li>责任链模式</li><li>命令模式</li><li>迭代器模式</li><li>中介者模式</li><li>备忘录模式</li><li>观察者模式</li><li><a href="../strategy-pattern">策略模式</a></li><li>模板模式</li><li>访问者模式</li></ul>]]></content>
     
     <summary type="html">
     
@@ -399,9 +499,9 @@
       <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
     
     
-      <category term="AppGroups" scheme="http://keleyundou.github.io/tags/AppGroups/"/>
-    
       <category term="Tutorial" scheme="http://keleyundou.github.io/tags/Tutorial/"/>
+    
+      <category term="AppGroups" scheme="http://keleyundou.github.io/tags/AppGroups/"/>
     
   </entry>
   
@@ -430,100 +530,6 @@
       <category term="Tutorial" scheme="http://keleyundou.github.io/tags/Tutorial/"/>
     
       <category term="iOS" scheme="http://keleyundou.github.io/tags/iOS/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>ColaBean&#39;s new Blog</title>
-    <link href="http://keleyundou.github.io/2016/03/colabean&#39;s-new-blog/"/>
-    <id>http://keleyundou.github.io/2016/03/colabean&#39;s-new-blog/</id>
-    <published>2016-03-25T15:50:39.000Z</published>
-    <updated>2016-03-26T04:24:13.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>这是<code>ColaBen</code>新部署的blog，之前用的是<code>Octopress</code>，由于发布文章的指令过于繁琐，时间长了容易遗忘，不是很好用。在大神的推荐下，开始使用<code>Hexo</code>写博客。刚开始也没觉得怎么样，但经过亲身实践后，果然是比<code>Octopress</code>用起来顺手多了。blog这东西用起来顺手就好，适合自己的才是最好的。哈哈。。。</p><p>恩…抽空在研究下<code>Hexo</code>，把blog从新部署下。</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;这是&lt;code&gt;ColaBen&lt;/code&gt;新部署的blog，之前用的是&lt;code&gt;Octopress&lt;/code&gt;，由于发布文章的指令过于繁琐，时间长了容易遗忘，不是很好用。在大神的推荐下，开始使用&lt;code&gt;Hexo&lt;/code&gt;写博客。刚开始也没觉得怎么样，但经过亲身
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://keleyundou.github.io/2016/03/hello-world/"/>
-    <id>http://keleyundou.github.io/2016/03/hello-world/</id>
-    <published>2016-03-25T14:56:07.000Z</published>
-    <updated>2016-03-25T14:56:07.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>即时通讯之输入流中读取基本数据</title>
-    <link href="http://keleyundou.github.io/2016/03/%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF%E4%B9%8B%E8%BE%93%E5%85%A5%E6%B5%81%E4%B8%AD%E8%AF%BB%E5%8F%96%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE/"/>
-    <id>http://keleyundou.github.io/2016/03/即时通讯之输入流中读取基本数据/</id>
-    <published>2016-03-16T13:59:33.000Z</published>
-    <updated>2016-04-01T14:01:51.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>相应的和写入一样，下面将读取的接口陈列如下：</p><ul><li>读取 1 byte</li></ul><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (int8_t)readChar;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t v;</span><br><span class="line">    [data getBytes:&amp;v range:<span class="built_in">NSMakeRange</span>(len, <span class="number">1</span>)];</span><br><span class="line">    len++;</span><br><span class="line">    <span class="keyword">return</span> (v &amp; <span class="number">0x0FF</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><ul><li>读取 2 byte</li></ul><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (int16_t)readShort;</span><br><span class="line">&#123;</span><br><span class="line">    int32_t ch1 = [<span class="keyword">self</span> read];</span><br><span class="line">    int32_t ch2 = [<span class="keyword">self</span> read];</span><br><span class="line">    <span class="keyword">if</span> ((ch1 | ch2) &lt; <span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">@throw</span> [<span class="built_in">NSException</span> exceptionWithName:<span class="string">@"Exception"</span> reason:<span class="string">@"EOFException"</span> userInfo:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> (int16_t)((ch1 &lt;&lt; <span class="number">8</span>) + (ch2 &lt;&lt; <span class="number">0</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>读取 4 byte</li></ul><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">- (int32_t)readInt;</span><br><span class="line">&#123;</span><br><span class="line">    int32_t ch1 = [<span class="keyword">self</span> read];</span><br><span class="line">    int32_t ch2 = [<span class="keyword">self</span> read];</span><br><span class="line">    int32_t ch3 = [<span class="keyword">self</span> read];</span><br><span class="line">    int32_t ch4 = [<span class="keyword">self</span> read];</span><br><span class="line">    <span class="keyword">if</span> ((ch1 | ch2 | ch3 | ch4) &lt; <span class="number">0</span>)&#123;</span><br><span class="line">        <span class="keyword">@throw</span> [<span class="built_in">NSException</span> exceptionWithName:<span class="string">@"Exception"</span> reason:<span class="string">@"EOFException"</span> userInfo:<span class="literal">nil</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ((ch1 &lt;&lt; <span class="number">24</span>) + (ch2 &lt;&lt; <span class="number">16</span>) + (ch3 &lt;&lt; <span class="number">8</span>) + (ch4 &lt;&lt; <span class="number">0</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>读取 8 byte</li></ul><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">- (int64_t)readLong;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">8</span>];</span><br><span class="line">    [data getBytes:&amp;ch range:<span class="built_in">NSMakeRange</span>(len,<span class="number">8</span>)];</span><br><span class="line">    len += <span class="number">8</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> (((int64_t)ch[<span class="number">0</span>] &lt;&lt; <span class="number">56</span>) +</span><br><span class="line">            ((int64_t)(ch[<span class="number">1</span>] &amp; <span class="number">255</span>) &lt;&lt; <span class="number">48</span>) +</span><br><span class="line">            ((int64_t)(ch[<span class="number">2</span>] &amp; <span class="number">255</span>) &lt;&lt; <span class="number">40</span>) +</span><br><span class="line">            ((int64_t)(ch[<span class="number">3</span>] &amp; <span class="number">255</span>) &lt;&lt; <span class="number">32</span>) +</span><br><span class="line">            ((int64_t)(ch[<span class="number">4</span>] &amp; <span class="number">255</span>) &lt;&lt; <span class="number">24</span>) +</span><br><span class="line">            ((ch[<span class="number">5</span>] &amp; <span class="number">255</span>) &lt;&lt; <span class="number">16</span>) +</span><br><span class="line">            ((ch[<span class="number">6</span>] &amp; <span class="number">255</span>) &lt;&lt;  <span class="number">8</span>) +</span><br><span class="line">            ((ch[<span class="number">7</span>] &amp; <span class="number">255</span>) &lt;&lt;  <span class="number">0</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>BCD时钟转换</li></ul><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">- (BDSTime)readBCDTime</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">struct</span> BDSTime bcdTime;</span><br><span class="line">    Byte year[<span class="number">2</span>];</span><br><span class="line">    Byte month[<span class="number">1</span>], day[<span class="number">1</span>], hour[<span class="number">1</span>], min[<span class="number">1</span>], sec[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;year range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(year))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(year);</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;month range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(month))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(month);</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;day range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(day))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(day);</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;hour range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(hour))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(hour);</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;min range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(min))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(min);</span><br><span class="line"></span><br><span class="line">    [data getBytes:&amp;sec range:<span class="built_in">NSMakeRange</span>(len, <span class="keyword">sizeof</span>(sec))];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(sec);</span><br><span class="line"></span><br><span class="line">    bcdTime.year = [<span class="keyword">self</span> readBCDToYear:year];</span><br><span class="line"></span><br><span class="line">    bcdTime.month = bcdToInt(month, <span class="keyword">sizeof</span>(month));</span><br><span class="line">    bcdTime.day = bcdToInt(day, <span class="keyword">sizeof</span>(day));</span><br><span class="line">    bcdTime.hour = bcdToInt(hour, <span class="keyword">sizeof</span>(hour));</span><br><span class="line">    bcdTime.min = bcdToInt(min, <span class="keyword">sizeof</span>(min));</span><br><span class="line">    bcdTime.sec = bcdToInt(sec, <span class="keyword">sizeof</span>(sec));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> bcdTime;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">///bcd转int</span></span><br><span class="line"><span class="keyword">unsigned</span> <span class="keyword">int</span>  bcdToInt(<span class="keyword">const</span> <span class="keyword">unsigned</span> <span class="keyword">char</span> *bcd, <span class="keyword">int</span> length)</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">int</span> tmp;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> dec = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; length; i++)</span><br><span class="line">    &#123;</span><br><span class="line">        tmp = ((bcd[i] &gt;&gt; <span class="number">4</span>) &amp; <span class="number">0x0F</span>) * <span class="number">10</span> + (bcd[i] &amp; <span class="number">0x0F</span>);</span><br><span class="line">        dec += tmp * pow(<span class="number">100</span>, length - <span class="number">1</span> - i);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> dec;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (int16_t)readBCDToYear:(Byte *)dt</span><br><span class="line">&#123;</span><br><span class="line">    Byte *year = dt;</span><br><span class="line">    Byte y_high = year[<span class="number">0</span>];</span><br><span class="line">    Byte y_low = year[<span class="number">1</span>];</span><br><span class="line"></span><br><span class="line">    int16_t high = bcdToInt(&amp;y_high, <span class="keyword">sizeof</span>(y_high));</span><br><span class="line">    int16_t low = bcdToInt(&amp;y_low, <span class="keyword">sizeof</span>(y_low));</span><br><span class="line">    <span class="keyword">return</span> high*<span class="number">100</span>+low;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;相应的和写入一样，下面将读取的接口陈列如下：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;读取 1 byte&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (int8_t)readChar;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    int8_t v;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [data getBytes:&amp;amp;v range:&lt;span class=&quot;built_in&quot;&gt;NSMakeRange&lt;/span&gt;(len, &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;)];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    len++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; (v &amp;amp; &lt;span class=&quot;number&quot;&gt;0x0FF&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="琐碎杂记" scheme="http://keleyundou.github.io/categories/%E7%90%90%E7%A2%8E%E6%9D%82%E8%AE%B0/"/>
-    
-    
-      <category term="解码" scheme="http://keleyundou.github.io/tags/%E8%A7%A3%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>即时通讯之基本数据写入到输出流中</title>
-    <link href="http://keleyundou.github.io/2016/03/%E5%8D%B3%E6%97%B6%E9%80%9A%E8%AE%AF%E4%B9%8B%E5%9F%BA%E6%9C%AC%E6%95%B0%E6%8D%AE%E5%86%99%E5%85%A5%E5%88%B0%E8%BE%93%E5%87%BA%E6%B5%81%E4%B8%AD/"/>
-    <id>http://keleyundou.github.io/2016/03/即时通讯之基本数据写入到输出流中/</id>
-    <published>2016-03-16T13:53:52.000Z</published>
-    <updated>2016-04-01T13:59:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<p>在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。</p><ul><li>将 1 byte 数值写入输出流中， 先写入高位</li></ul><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)writeChar:(int8_t)v;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">1</span>];</span><br><span class="line">    ch[<span class="number">0</span>] = (v &amp; <span class="number">0x0FF</span>);</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len++;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a><ul><li>将 2 byte 数值写入输出流中， 先写入高位</li></ul><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)writeShort:(int16_t)v;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">2</span>];</span><br><span class="line">    ch[<span class="number">0</span>] = (v &amp; <span class="number">0x0FF00</span>) &gt;&gt; <span class="number">8</span>;</span><br><span class="line">    ch[<span class="number">1</span>] = (v &amp; <span class="number">0x0FF</span>);</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>将 4 byte 数值写入输出流中， 先写入高位</li></ul><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)writeInt:(int32_t)v;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">4</span>];</span><br><span class="line">    <span class="keyword">for</span> (int32_t i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(ch); i++) &#123;</span><br><span class="line">        ch[i] = ((v &gt;&gt; ((<span class="number">3</span>-i) * <span class="number">8</span>)) &amp; <span class="number">0x0FF</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>将 8 byte 数值写入输出流中， 先写入高位</li></ul><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">- (<span class="keyword">void</span>)writeLong:(int64_t)v;</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">8</span>];</span><br><span class="line">    <span class="keyword">for</span> (int32_t i = <span class="number">0</span>; i &lt; <span class="keyword">sizeof</span>(ch); i++) &#123;</span><br><span class="line">        ch[i] = ((v &gt;&gt; ((<span class="number">7</span>-i) * <span class="number">8</span>)) &amp; <span class="number">0x0FF</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><ul><li>将 BCD时钟 写入输出流中</li></ul><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">- (Byte)int_toBCD:(<span class="keyword">unsigned</span> <span class="keyword">int</span>)v</span><br><span class="line">&#123;</span><br><span class="line">    Byte d1 = v / <span class="number">10</span>;</span><br><span class="line">    Byte d2 = v % <span class="number">10</span>;</span><br><span class="line">    Byte d = (d1 &lt;&lt; <span class="number">4</span>) | d2;</span><br><span class="line">    <span class="keyword">return</span> d;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)writeBCDTime:(BDSTime *)time;</span><br><span class="line">&#123;</span><br><span class="line">    <span class="comment">//write year</span></span><br><span class="line">    [<span class="keyword">self</span> writeYearBCDTime:time -&gt; year];</span><br><span class="line">    <span class="comment">//write month</span></span><br><span class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; month];</span><br><span class="line">    <span class="comment">//write day</span></span><br><span class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; day];</span><br><span class="line">    <span class="comment">//write hour</span></span><br><span class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; hour];</span><br><span class="line">    <span class="comment">//write min</span></span><br><span class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; min];</span><br><span class="line">    <span class="comment">//write sec</span></span><br><span class="line">    [<span class="keyword">self</span> writeOtherBCDTime:time -&gt; sec];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)writeYearBCDTime:(int16_t)v</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> high, low;</span><br><span class="line">    high = v / <span class="number">100</span>;</span><br><span class="line">    low = v % <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line">    int8_t ch[<span class="number">2</span>];</span><br><span class="line">    ch[<span class="number">0</span>] = int_toBCD(high);</span><br><span class="line">    ch[<span class="number">1</span>] = int_toBCD(low);</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">- (<span class="keyword">void</span>)writeOtherBCDTime:(int8_t)v</span><br><span class="line">&#123;</span><br><span class="line">    int8_t ch[<span class="number">1</span>];</span><br><span class="line">    ch[<span class="number">0</span>] = int_toBCD(v);</span><br><span class="line">    [data appendBytes:ch length:<span class="keyword">sizeof</span>(ch)];</span><br><span class="line">    len += <span class="keyword">sizeof</span>(ch);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><hr><blockquote><p>下载地址：<a href="https://github.com/keleyundou/BDWRDataDemo" target="_blank" rel="noopener">BDWRDataDemo</a></p></blockquote>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;在做IM或蓝牙传输的项目中，难免会有这样那样的数据转码的情况，下面就将我在项目中用到的一些转换接口总结一下，将其陈列出来，希望能够帮助后来者。&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;将 1 byte 数值写入输出流中， 先写入高位&lt;/li&gt;
-&lt;/ul&gt;
-&lt;figure class=&quot;highlight objc&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;- (&lt;span class=&quot;keyword&quot;&gt;void&lt;/span&gt;)writeChar:(int8_t)v;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    int8_t ch[&lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ch[&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;] = (v &amp;amp; &lt;span class=&quot;number&quot;&gt;0x0FF&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    [data appendBytes:ch length:&lt;span class=&quot;keyword&quot;&gt;sizeof&lt;/span&gt;(ch)];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    len++;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="琐碎杂记" scheme="http://keleyundou.github.io/categories/%E7%90%90%E7%A2%8E%E6%9D%82%E8%AE%B0/"/>
-    
-    
-      <category term="编码" scheme="http://keleyundou.github.io/tags/%E7%BC%96%E7%A0%81/"/>
     
   </entry>
   
