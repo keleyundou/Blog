@@ -485,9 +485,9 @@
     <category term="iOS" scheme="http://keleyundou.github.io/categories/iOS/"/>
     
     
-    <category term="AppGroups" scheme="http://keleyundou.github.io/tags/AppGroups/"/>
-    
     <category term="Tutorial" scheme="http://keleyundou.github.io/tags/Tutorial/"/>
+    
+    <category term="AppGroups" scheme="http://keleyundou.github.io/tags/AppGroups/"/>
     
   </entry>
   
