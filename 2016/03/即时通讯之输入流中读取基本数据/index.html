@@ -101,7 +101,6 @@
       <h1 class="site-title">ColaBean's Blog</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">苟有恒何必三更睡五更起，最无益莫过一日曝十日寒。</p>
   </div>
 
   <div class="site-nav-right">
@@ -527,7 +526,7 @@ NexT.utils.loadComments(document.querySelector('#gitalk-container'), () => {
       distractionFreeMode: true,
       createIssueManually: false,
       pagerDirection: 'last',
-      labels: ''.split(',').filter(l => l),
+      // labels: ''.split(',').filter(l => l),
       perPage: 10
     });
     gitalk.render('gitalk-container');
